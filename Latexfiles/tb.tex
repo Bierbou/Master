@@ -1,0 +1,89 @@
+\chapter{Theory}\label{chap:th}
+\noindent As the focus of this thesis lies on the experimental characterization of the whole setup, 
+but especially on the source properties and the interferometric parts, 
+the underlying theory of the physical principles of this work are presented restricted on the most essential basics.
+The interested reader is referred for a further detailed overview about the topic to the recommendations at the beginning of each section,respectively.
+\section{Interaction of X-rays with matter}\label{sec:ixm}
+\subsection{Complex refraction-index}\label{subsec:cri}
+\subsubsection{Attenuation}\label{subsec:att}
+\subsubsection{Refraction}\label{subsec:ref}
+\section{Grating-based phase contrast imaging}\label{sec:phase}
+\subsection{Grating interferometer}\label{subsec:gi}
+\subsection{Talbot effect}\label{te}
+\subsection{Phase stepping routine}\label{subsec:stepp}
+
+
+
+
+
+
+
+\section{Spatial system response} \label{sec:ssr}
+\noindent In this section a short introduction to linear system theory is presented, 
+focussing on the characterization of imaging systems. For a detailed insight the reader is referred to \ref{bib}. 
+Here, only the basic quantities for real and radially symmetric response functions, representing the experimental, which is characterized, are treated.   
+\subsection{Real- and frequency-space response functions } \label{subsec:ct}
+\noindent Linear system theory is a common approach describing the spatial properties of imaging systems. 
+The applicability of the superposition principle on an imaging system implies it's linearity, 
+meaning the response to a linear combination of incitements, generally called input signals, 
+is the same linear combination of the particular responses, called output signals. 
+Assuming that the response of the linear system is also shift invariant, i.e. the system is linear and shift invariant (LSI), 
+the output can be calculated by convolution\ref{bib}: 
+\begin{equation}
+i(x,y) = s(x,y) \otimes o(x,y) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}s(x-x^{'},y-y^{'})o(x^{'},y^{'})dx^{'}dy^{'},
+\end{equation}
+$i(x,y)$ is the measured image, $s(x,y)$ is the point spread function (PSF), $o(x,y)$ describes the object, 
+and $\otimes$ designates the two-dimensional convolution. Because of dealing with intensities here, 
+all functions in real space are real functions, therefore the PSF is defined to be normalized to unity, i.e.:
+\begin{equation}
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} s(x,y)dxdy = 1.
+\end{equation}  
+\subsection{Edge spread function} \label{subsec:esf}
+The spatial system response on an edge-shaped input signal is generally defined as the systems edge spread function(ESF).
+
+\begin{equation}
+PSF_{System} = PSF_{Source} \otimes PSF_{Detector} = \mathcal{F^{-1}}[\mathcal{F}(PSF_{Source})\cdot \mathcal{F}(PSF_{Detector})]
+\end{equation}
+
+The magnification $M$ of the system is defined as the fraction of the source to detector distance over the source to sample distance, further called $SD$ and $SS$ e.g.
+\begin{equation}
+M = \frac{SD}{SS}
+\end{equation}
+Using geometry the true PSF of the source is spread over the detector screen by this magnification factor, so this factor has to be concerned
+in the formulas. For convenience we just look at the one-dimensional case for the further steps. 
+Normally a Gaussian shaped PSF's is assumed, whereby the sigma of the Gaussian has to be multiplied with the magnification factor minus one:
+
+\begin{equation}
+A_{System}e^{-\frac{1}{2}(\frac{x -b}{2\sigma_{system}})^{2}} = \mathcal{F^{-1}}[\mathcal{F}(A_{Source}e^{-\frac{1}{2}(\frac{x -b}{\sigma_{source}\cdot(M-1)})^{2}})
+\cdot \mathcal{F}(A_{detector}e^{-\frac{1}{2}(\frac{x -b}{\sigma_{detector}})^{2}})]
+\end{equation}
+Solving this equation is straight forward, because the Fourier transform of a Gaussian is again a Gaussian, but with reciprocal width $\sigma$
+The most important thing in this equation are the $sigma's$, respectively. 
+For that reason we assume the amplitudes are one and the offset b is zero and we multiply both sides with the logarithmic function $\ln$.
+Since $\ln{1} = 0$ and the logarithmic function is the inverted function of an exponential this yields to:
+\begin{equation}
+-\frac{1}{2}(\frac{x}{2\sigma_{system}})^{2} = -\frac{1}{2}(\frac{x}{2\sigma_{source}\cdot(M-1)})^{2}-\frac{1}{2}(\frac{x}{\sigma_{detector}})^{2}
+\end{equation}
+
+cancelling out the one half and dividing by x we get an equation where only the $sigma's$ stay:
+\begin{equation}
+(\frac{1}{\sigma_{system}})^{2} = (\frac{1}{\sigma_{source}\cdot(M-1)})^{2}-(\frac{1}{\sigma_{detector}})^{2}
+\end{equation}
+inverting the hole equation and taking the root we get an equation for the system's spread width:
+\begin{equation}
+ \sigma_{system} = \sqrt{{\sigma_{source}}^{2}\cdot(M-1)^{2}+{\sigma_{detector}}^{2}}
+\end{equation}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
