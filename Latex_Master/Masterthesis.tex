@@ -1,0 +1,381 @@
+%%\ReuirePackage{fix-cm}
+\documentclass[11pt,a4paper,twoside,openright,onecolumn]{scrbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\usepackage{ifthen}
+
+\newboolean{BlackWhite}
+\setboolean{BlackWhite}{false}
+\newboolean{PdfPackage}
+\setboolean{PdfPackage}{false}
+
+\ifthenelse{\boolean{BlackWhite}}{
+  \usepackage[dvips]{graphicx}
+\newcommand{\condition}{true}
+}
+
+%\usepackage{epstopdf}
+
+\ifthenelse{\boolean{PdfPackage}}
+{%%
+  \ifx\pdftexversion\undefined
+  \usepackage[dvips]{graphicx}
+%  \newcommand{\condition}{false}
+  \else
+  \usepackage[pdftex]{graphicx}
+  \usepackage{epstopdf}
+
+%  \usepackage[pdftex,colorlinks=true,pdfstartview=FitV,linkcolor=pdflink,citecolor=pdfcite,urlcolor=pdfwww,bookmarks=true,
+%  bookmarksnumbered=true,pdftitle={Astrophysical magnetohydrodynamics and
+%    radiative transfer: numerical methods and applications},
+%  pdfsubject={supernovae},
+%  pdfauthor={Martin Obergaulinger},
+%  pdfkeywords={supernova, neutron-star mergers, magnetohydrodynamics, neutrino transport},
+%  bookmarksnumbered=true,a4paper]{hyperref}
+  \usepackage{thumbpdf}
+  \newcommand{\condition}{true}
+  \fi
+  %%
+}
+{
+  \usepackage[dvips]{graphicx}
+}
+
+%%\usepackage{psfig}              % Allows inclusion of eps files.
+\usepackage{thumbpdf}
+
+%%% Graphiken
+\usepackage{epsfig}
+\usepackage{psfrag}
+%\usepackage{tiff}
+%%% AA-Makros
+%%%Tomek%%%\usepackage{/afs/mpa/home/mobergau/LaTeX/aas_macros}
+% Do I need them for anything?
+
+
+%%% AMS-Packages
+\usepackage{amsmath,amssymb,amsthm,amsfonts,amscd}%Martins,
+                                %temporarily I will coment the some of them
+%\usepackage{amsmath}%Tomek but restore Martin's soon
+\usepackage{relsize}%Tomek for a bigger sum
+\usepackage{amsbsy}%Tomek for stupid fat greek letters!
+%\usepackage{unicode-math}%Tomek for stupid fat greek letters!
+\usepackage{bm}%Tomek for stupid fat greek letters!
+%%% Indizes
+\usepackage{nomencl}
+\usepackage{index}
+\usepackage{tocloft}
+\usepackage[printonlyused,smaller]{acronym}
+%%%Tomek%%% \usepackage[printonlyused,smaller]{acronym}
+%Martin had it, but it was not found
+
+%%% Biblio
+\usepackage{natbib}
+%%%Tomek%%%\usepackage{citesort}         
+%Martin had it, but it was not found
+
+%%% Formatierung
+\usepackage{soul}
+\usepackage{paralist}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage[indentfirst]{titlesec}
+\usepackage{url}
+\usepackage[usenames,dvipsnames]{color}
+
+%%% Schriften
+\usepackage{mathrsfs}
+\usepackage{verbatim}
+\usepackage{bbm}
+\usepackage{relsize}
+\usepackage[mathcal]{euscript}
+\usepackage{latexsym}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%%% %%% das folgende ermoeglicht Vektor-Schriften (Typ 1) 
+%%%     auch mit [T1]{fontenc}
+%%\usepackage{ae,aeguill}
+%%% %%% neuer allerdings sind die folgenden Schriften
+%\usepackage{lmodern}
+%%% oder wir verwenden Times oder Palatino
+\usepackage{mathptmx}
+%%% %%% das folgende verwendet Times
+%%\usepackage[varg]{txfonts}
+%%% %%% das folgende verwendet Palatino
+%%\usepackage{pxfonts}
+
+%% Sprachen
+\usepackage[german,english,british]{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Tomek's  commands and packages  %%%%%%%%%%%%%%%%%%%%
+
+\usepackage{subcaption}% Tomek for figures
+\usepackage{hyperref}% Tomek for nicer links
+
+\usepackage{pbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  Farben ... %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{pdflink}{rgb}{0.0, 0.0, 1.0}
+\definecolor{pdfcite}{rgb}{0.0, 1.0, 0.0}
+\definecolor{pdfwww}{rgb}{1.0, 0.0, 0.0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%  Indizes etc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeglossary
+
+\makeindex
+\newindex[thepage]{fig}{fdx}{fnd}{List of figures}
+\newindex[thepage]{tab}{tdx}{tnd}{List of tables}
+\newindex[thepage]{eqn}{edx}{end}{List of selected equations}
+%% leider geht das mit der schoeneren Indizierung nach Fig.-, Tab.-,
+%% Gl.-Nummern aus irgendeinem Grunde nicht; daher soll in den
+%% entsprechenden Indizes b.a.w. nur die Seitenzahl stehen.
+%\newindex[thefigure]{fig}{fdx}{fnd}{List of figures}
+%\newindex[thetable]{tab}{tdx}{tnd}{List of tables}
+%\newindex[theequation]{eqn}{edx}{end}{List of selected equations}
+\newlistof{seleq}{equ}{List of selected equations}
+\newcounter{tempcount}
+\newcommand{\seleq}[1]{%
+	\refstepcounter{seleq}%
+	\addcontentsline{equ}{seleq}{\protect\numberline{\theequation} ~~ #1}%
+}%
+\newlistof[chapter]{Bemerkungen}{bem}{Hier gibts noch was zu tun}
+\newcommand{\obacht}[1]{%
+	\refstepcounter{Bemerkungen}%
+	{%
+		{\textcolor{blue}{#1 [\theBemerkungen]}}%
+	}%
+	\addcontentsline{bem}{Bemerkungen}{\protect\numberline{\theBemerkungen} ~~ #1}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+\numberwithin{equation}{chapter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newboolean{strange_titles}
+\setboolean{strange_titles}{false}
+%\setboolean{strange_titles}{true}
+\ifthenelse{\boolean{strange_titles}}{
+	
+	\newcommand*\sectitle[1]{%
+		\MakeUppercase{\so{#1}}\\[.66ex]
+		\rule{13mm}{.4pt}
+	}
+	\newcommand*\chaptitle[1]{%
+		\MakeUppercase{\so{#1}}\\[.66ex]
+		\vspace{-5mm}
+		\rule{120mm}{1.8pt}\\
+		\vspace{-6.5mm}
+		\rule{100mm}{.9pt}
+	}
+	\newcommand*\periodafter[2]{#1{#2}}
+	
+	\titleformat{\chapter}[display]
+	{\normalfont\Large\centering}
+	{%
+		\rule{100mm}{.9pt}\\
+		\vspace{-5.mm}
+		\rule{120mm}{1.8pt}\\
+		\vspace{.5pc}
+		\Large \MakeUppercase{\so{\chaptertitlename}} \thechapter}
+	{.2pc}
+	{%
+		\LARGE \chaptitle%
+	}
+	
+	\titleformat{\section}[display]
+	{\normalfont\centering}
+	{\S. \thesection.}
+	{2ex}
+	{\sectitle}
+	
+	\titleformat{\subsection}[block]
+	{\normalfont\centering\bfseries}
+	{\thesubsection}
+	{.66em}
+	{\periodafter\relax}
+}
+{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newboolean{no-nonsense}
+\setboolean{no-nonsense}{true}
+\newboolean{korrigiert}
+\setboolean{korrigiert}{true}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% EPSTOPDF                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\include{cover}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%%Titelblatt
+%%\include{newtitle}\clearpage{\pagestyle{empty}\cleardoublepage}
+%title.tex
+%%\include{title}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The chapters ...
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%\nocite{*}
+
+%%\setlength{\parskip}{1ex plus0.5ex minus 0.2ex} %para el espacio entre parrafo
+%%\include{motto}\clearpage{\pagestyle{empty}\cleardoublepage}
+%%\pagestyle{fancy}
+%%\pagenumbering{roman}
+%%\tableofcontents\clearpage{\pagestyle{empty}\cleardoublepage}
+%%\pagestyle{fancy}
+%%\pagenumbering{arabic}
+
+%%% Seitenformat
+%\setlength{\topmargin}{-0.5cm}
+%\setlength{\paperheight}{29.7cm}
+%\setlength{\paperwidth}{21cm}
+%\setlength{\textheight}{21cm}
+%\setlength{\textwidth}{14.6cm}
+%%\setlength{\topskip}{0.1 cm}
+%\setlength{\marginparwidth}{0.1cm}
+%\setlength{\oddsidemargin} { 0.46 cm}
+%\setlength{\evensidemargin} {0.46 cm} 
+%%\renewcommand{\headwidth}{14.6cm}
+
+\pagenumbering{Roman}
+%Abstract  abstract.tex
+\include{abstract}\newpage\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%kurzfassung kurzfassung.tex
+\include{kurzfassung}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+
+\tableofcontents\clearpage{\pagestyle{empty}\cleardoublepage}
+\pagestyle{fancy}
+
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+%introduction   introduction.tex
+\include{introduction}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+%% theoretischer hintergrund tb.tex
+\include{tb}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+%% experimenteller aufbau es.tex
+\include{es}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+% zeit leistung stabilitätsmessungen tps.tex
+\include{tps}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+% Edge messungen des aufbaus edge.tex
+\include{edge}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+% Quellspectrum und engergie/visibility map spectra.tex
+\include{spectra}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+% verschiedene gitter aufbauten setups.tex
+\include{setups}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+%Summary and conclusions summary.tex
+\include{summary}\clearpage{\pagestyle{empty}}
+
+
+%%%Tomek%%%\appendix
+%%%Tomek%%%\include{Anh--MHD}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%%\appendix
+%%\include{appendix}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+
+%Acknowledgments
+%%\include{thanks}\clearpage{\pagestyle{empty}\cleardoublepage}   %Tomek
+
+
+%%
+%%\addcontentsline{toc}{chapter}{Bibliography}%Margarita
+%%\bibliographystyle{aa}
+%%\bibliography{Biblio}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+
+
+
+
+
+\end{document}
