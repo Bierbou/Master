@@ -1,0 +1,280 @@
+\begin{thebibliography}{34}
+% this bibliography was produced with the style dinat.bst v2.5
+\makeatletter
+\newcommand{\dinatlabel}[1]%
+{\ifNAT@numbers\else\NAT@biblabelnum{#1}\hspace{2\labelsep}\fi}
+\makeatother
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax\def\url#1{\texttt{#1}}\fi
+
+\bibitem[Als-Nielsen(2011)]{Als-nielsen}
+\dinatlabel{Als-Nielsen 2011} \textsc{Als-Nielsen}, Jens:
+\newblock \emph{{Elements of Modern X-ray Physics}}.
+\newblock Second Edi.
+\newblock A John Wiley \& Sons, 2011. --
+\newblock ISBN 9780470973950
+
+\bibitem[{Amptec Inc.}()]{amptecdata}
+\dinatlabel{{Amptec Inc.} } \textsc{{Amptec Inc.}}:
+\newblock \emph{{Datasheet XR-100T-CdTe}}
+
+\bibitem[Bavendiek u.\,a.(2012)Bavendiek, Ewert, Riedo, Heike und
+  Zscherpel]{Bavendiek2012}
+\dinatlabel{Bavendiek u.\,a. 2012} \textsc{Bavendiek}, Klaus~; \textsc{Ewert},
+  Uwe~; \textsc{Riedo}, Adrian~; \textsc{Heike}, Uwe~; \textsc{Zscherpel}, Uwe:
+\newblock {New Measurement Methods of Focal Spot Size and Shape of X-ray Tubes
+  in Digital Radiological Applications in Comparison to Current Standards}.
+\newblock In: \emph{18th World Conference on Nondestructive Testing}
+\newblock (2012), Nr.~April, S.~16--20. --
+\newblock URL
+  \url{http://212.8.206.21/article/wcndt2012/papers/346\_wcndtfinal00346.pdf}
+
+\bibitem[Bech(2009)]{Bech2009}
+\dinatlabel{Bech 2009} \textsc{Bech}, Martin:
+\newblock \emph{{PhD Thesis X-ray imaging with a grating interferometer}},
+  University of Copenhagen Denmark, Dissertation, 2009. --
+\newblock 173~S
+
+\bibitem[Creath(1988)]{Creath1988}
+\dinatlabel{Creath 1988} \textsc{Creath}, Katherine:
+\newblock {V Phase-Measurement Interferometry Techniques}.
+\newblock In: \emph{Progress in Optics}
+\newblock 26 (1988), Nr.~C, S.~349--393. --
+\newblock ISBN 0079-6638
+
+\bibitem[Cremer(2013)]{Cremer2013}
+\dinatlabel{Cremer 2013} \textsc{Cremer}, Jay Theodore~J.:
+\newblock \emph{{Neutron and X-ray Optics,Jay Theodore Cremer,
+  Jr.,Elsevier,2013.pdf}}.
+\newblock First Edit.
+\newblock 2013. --
+\newblock 1124~S. --
+\newblock ISBN 9780124071599
+
+\bibitem[Cunningham und Fenster()]{Cunningham}
+\dinatlabel{Cunningham und Fenster } \textsc{Cunningham}, I~a.~;
+  \textsc{Fenster}, a:
+\newblock \emph{{A method for modulation transfer function determination from
+  edge profiles with correction for finite-element differentiation.}}
+
+\bibitem[David u.\,a.(2002)David, Nöhammer, Solak und Ziegler]{David2002}
+\dinatlabel{David u.\,a. 2002} \textsc{David}, C.~; \textsc{N\"{o}hammer}, B.~;
+  \textsc{Solak}, H.~H.~; \textsc{Ziegler}, E.:
+\newblock {Differential x-ray phase contrast imaging using a shearing
+  interferometer}.
+\newblock In: \emph{Applied Physics Letters}
+\newblock 81 (2002), Nr.~17, S.~3287. --
+\newblock URL
+  \url{http://scitation.aip.org/content/aip/journal/apl/81/17/10.1063/1.1516611}.
+  --
+\newblock ISSN 00036951
+
+\bibitem[Donath(2007)]{Donath2007}
+\dinatlabel{Donath 2007} \textsc{Donath}, Tilman:
+\newblock {Quantitative X-ray Microtomography with Synchrotron Radiation}.
+\newblock
+\newblock (2007), S.~209
+
+\bibitem[K\"{o}hler(2008)]{TalbotLau}
+\dinatlabel{K\"{o}hler 2008} \textsc{K\"{o}hler}, J\"{o}rg:
+\newblock {Der Talbot-Effekt}
+\newblock / Universit\"{a}t Regensburg, Institut f\"{u}rExperimentelle und
+  Angewandte Physik.
+\newblock 2008.
+\newblock  -- Forschungsbericht. --
+\newblock 1--12~S
+
+\bibitem[Lei u.\,a.(2014)Lei, Du, Li, Zhao, Liu, Guo und Niu]{Lei2014}
+\dinatlabel{Lei u.\,a. 2014} \textsc{Lei}, Yaohu~; \textsc{Du}, Yang~;
+  \textsc{Li}, Ji~; \textsc{Zhao}, Zhigang~; \textsc{Liu}, Xin~; \textsc{Guo},
+  Jinchuan~; \textsc{Niu}, Hanben:
+\newblock {Fabrication of x-ray absorption gratings via micro-casting for
+  grating-based phase contrast imaging}.
+\newblock In: \emph{Journal of Micromechanics and Microengineering}
+\newblock 24 (2014), Nr.~1, S.~015007. --
+\newblock URL
+  \url{http://stacks.iop.org/0960-1317/24/i=1/a=015007?key=crossref.c8d5bae0afdef4852a68c7fb41ef568e}.
+  --
+\newblock ISSN 0960-1317
+
+\bibitem[Lewis(2002)]{Lewis2002}
+\dinatlabel{Lewis 2002} \textsc{Lewis}, Andrew~J.:
+\newblock \emph{{Absolute length measurement using interferometry}}, UNIVERSITY
+  OF LONDON, IMPERIAL COLLEGE OF SCIENCE,TECHNOLOGY AND MEDICINE, 2002. --
+\newblock 324~S
+
+\bibitem[Li u.\,a.(2013{\natexlab{a}})Li, Zambelli, Bevins, Ge und
+  Chen]{Li2013a}
+\dinatlabel{Li u.\,a. 2013{\natexlab{a}}} \textsc{Li}, Ke~; \textsc{Zambelli},
+  Joseph~; \textsc{Bevins}, Nicholas~; \textsc{Ge}, Yongshuai~; \textsc{Chen},
+  Guang-Hong:
+\newblock {Spatial resolution characterization of differential phase contrast
+  CT systems via modulation transfer function (MTF) measurements.}
+\newblock In: \emph{Physics in medicine and biology}
+\newblock 58 (2013), Nr.~12, S.~4119--35. --
+\newblock URL
+  \url{http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3746757\&tool=pmcentrez\&rendertype=abstract}.
+  --
+\newblock ISBN 1361-6560 (Electronic) 0031-9155 (Linking)
+
+\bibitem[Li u.\,a.(2013{\natexlab{b}})Li, Zambelli, Bevins, Ge und
+  Chen]{Li2013}
+\dinatlabel{Li u.\,a. 2013{\natexlab{b}}} \textsc{Li}, Ke~; \textsc{Zambelli},
+  Joseph~; \textsc{Bevins}, Nicholas~; \textsc{Ge}, Yongshuai~; \textsc{Chen},
+  Guang-Hong:
+\newblock {Spatial resolution characterization of differential phase contrast
+  CT systems via modulation transfer function (MTF) measurements.}
+\newblock In: \emph{Physics in medicine and biology}
+\newblock 58 (2013), Nr.~12, S.~4119--35. --
+\newblock URL
+  \url{http://www.pubmedcentral.nih.gov/articlerender.fcgi?artid=3746757\&tool=pmcentrez\&rendertype=abstract}.
+  --
+\newblock ISBN 1361-6560 (Electronic) 0031-9155 (Linking)
+
+\bibitem[Liu und Wu(2015)]{Liu2015}
+\dinatlabel{Liu und Wu 2015} \textsc{Liu}, Huiqiang~; \textsc{Wu}, Xiseng:
+\newblock {Optimization of reconstructed quality of hard x-ray phase
+  microtomography}.
+\newblock
+\newblock 54 (2015), Nr.~18, S.~5610--5618
+
+\bibitem[Momose(2005)]{Momose2005}
+\dinatlabel{Momose 2005} \textsc{Momose}, Atsushi:
+\newblock {Recent Advances in X-ray Phase Imaging}.
+\newblock In: \emph{Japanese Journal of Applied Physics}
+\newblock 44 (2005), Nr.~9A, S.~6355--6367. --
+\newblock ISBN 0021-4922
+
+\bibitem[Mueller(2013)]{Mueller2013}
+\dinatlabel{Mueller 2013} \textsc{Mueller}, Mark:
+\newblock {Experimental characterization of the first preclinical X-ray phase
+  contrast CT scanner}.
+\newblock
+\newblock (2013)
+
+\bibitem[Pfeiffer u.\,a.(2008)Pfeiffer, Bech, Bunk, Kraft, Eikenberry,
+  Br\"{o}nnimann, Gr\"{u}nzweig und David]{Pfeiffer2008}
+\dinatlabel{Pfeiffer u.\,a. 2008} \textsc{Pfeiffer}, F~; \textsc{Bech}, M~;
+  \textsc{Bunk}, O~; \textsc{Kraft}, P~; \textsc{Eikenberry}, E~F.~;
+  \textsc{Br\"{o}nnimann}, Ch~; \textsc{Gr\"{u}nzweig}, C~; \textsc{David}, C:
+\newblock {Hard-X-ray dark-field imaging using a grating interferometer.}
+\newblock In: \emph{Nature materials}
+\newblock 7 (2008), Nr.~2, S.~134--137. --
+\newblock ISBN 1476-1122
+
+\bibitem[Pfeiffer u.\,a.(2006{\natexlab{a}})Pfeiffer, Weitkamp, Bunk und
+  David]{Pfeiffer2006}
+\dinatlabel{Pfeiffer u.\,a. 2006{\natexlab{a}}} \textsc{Pfeiffer}, Franz~;
+  \textsc{Weitkamp}, Timm~; \textsc{Bunk}, Oliver~; \textsc{David}, Christian:
+\newblock {Phase retrieval and differential phase-contrast imaging with
+  low-brilliance X-ray sources}.
+\newblock In: \emph{Nature Physics}
+\newblock 2 (2006), Nr.~4, S.~258--261. --
+\newblock ISBN 1745-2473
+
+\bibitem[Pfeiffer u.\,a.(2006{\natexlab{b}})Pfeiffer, Weitkamp und
+  David]{Pfeiffer2006a}
+\dinatlabel{Pfeiffer u.\,a. 2006{\natexlab{b}}} \textsc{Pfeiffer}, Franz~;
+  \textsc{Weitkamp}, Timm~; \textsc{David}, Christian:
+\newblock {X-ray phase contrast imaging using a grating interferometer}.
+\newblock In: \emph{Europhysics News}
+\newblock 37 (2006), Nr.~5, S.~13--15. --
+\newblock ISSN 0531-7479
+
+\bibitem[Samei u.\,a.(1998)Samei, Flynn und Reimann]{Samei1998}
+\dinatlabel{Samei u.\,a. 1998} \textsc{Samei}, E~; \textsc{Flynn}, M~J.~;
+  \textsc{Reimann}, D~a.:
+\newblock {A method for measuring the presampled MTF of digital radiographic
+  systems using an edge test device.}
+\newblock In: \emph{Medical physics}
+\newblock 25 (1998), Nr.~1, S.~102--113. --
+\newblock ISBN 0094-2405 (Print) 0094-2405 (Linking)
+
+\bibitem[{Scientific CrossRoads} und {Amptec Inc.}(2008)]{Amptec}
+\dinatlabel{{Scientific CrossRoads} und {Amptec Inc.} 2008} \textsc{{Scientific
+  CrossRoads}}~; \textsc{{Amptec Inc.}}:
+\newblock {X R F F P S o f t w a r e G u i d e V.3.30}.
+\newblock
+\newblock (2008)
+
+\bibitem[medical systems()]{Paxscan}
+\dinatlabel{medical systems } \textsc{systems}, Varian medical:
+\newblock \emph{{PaxScan ® 2520DX Digital Image Receptor}}
+
+\bibitem[Talbot(1836)]{Talbot1836}
+\dinatlabel{Talbot 1836} \textsc{Talbot}, Henry~F.:
+\newblock {Facts relating to Optical Science}.
+\newblock In: \emph{Philosophical Magazine and Journal of science}
+\newblock (1836)
+
+\bibitem[{Van Der Veen} und Pfeiffer(2004)]{Veen2004}
+\dinatlabel{{Van Der Veen} und Pfeiffer 2004} \textsc{{Van Der Veen}}, Friso~;
+  \textsc{Pfeiffer}, Franz:
+\newblock {Coherent x-ray scattering}.
+\newblock In: \emph{Journal of Physics: Condensed Matter}
+\newblock 16 (2004), Nr.~28, S.~5003--5030. --
+\newblock ISBN 0953-8984$\backslash$n1361-648X
+
+\bibitem[Wagner(1974)]{Wagner1974}
+\dinatlabel{Wagner 1974} \textsc{Wagner}, Robert~F.:
+\newblock {Toward a unified view of radiological imaging systems}.
+\newblock In: \emph{Medical Physics}
+\newblock 1 (1974), Nr.~1, S.~11. --
+\newblock ISSN 00942405
+
+\bibitem[Wagner(1977)]{Wagner1977}
+\dinatlabel{Wagner 1977} \textsc{Wagner}, Robert~F.:
+\newblock {Toward a unified view of radiological imaging systems. Part II:
+  Noisy images}.
+\newblock In: \emph{Medical Physics}
+\newblock 4 (1977), Nr.~4, S.~279. --
+\newblock ISBN doi:10.1118/1.594362
+
+\bibitem[Weitkamp u.\,a.(2006)Weitkamp, David und
+  Pfeiffer]{WeitkampPfeiffer2006}
+\dinatlabel{Weitkamp u.\,a. 2006} \textsc{Weitkamp}, Timm~; \textsc{David},
+  Christian~; \textsc{Pfeiffer}, Franz:
+\newblock {Tomography with grating interferometers at low-brilliance sources}.
+\newblock
+\newblock (2006)
+
+\bibitem[Weitkamp u.\,a.(2005)Weitkamp, Diaz, David, Pfeiffer, Stampanoni,
+  Cloetens und Ziegler]{Weitkamp2005}
+\dinatlabel{Weitkamp u.\,a. 2005} \textsc{Weitkamp}, Timm~; \textsc{Diaz},
+  Ana~; \textsc{David}, Christian~; \textsc{Pfeiffer}, Franz~;
+  \textsc{Stampanoni}, Marco~; \textsc{Cloetens}, Peter~; \textsc{Ziegler},
+  Eric:
+\newblock {X-ray phase imaging with a grating interferometer.}
+\newblock In: \emph{Optics express}
+\newblock 13 (2005), Nr.~16, S.~6296--6304. --
+\newblock ISBN 1094-4087
+
+\bibitem[{X-RAY WorkX GmbH}()]{CAD}
+\dinatlabel{{X-RAY WorkX GmbH} } \textsc{{X-RAY WorkX GmbH}}:
+\newblock \emph{{CAD Drawings XWT-160-SE ( 1 : 5 )}}
+
+\bibitem[{X-RAY WorkX GmbH}(2013{\natexlab{a}})]{DatasheetX}
+\dinatlabel{{X-RAY WorkX GmbH} 2013{\natexlab{a}}} \textsc{{X-RAY WorkX GmbH}}:
+\newblock \emph{{DATASHEET}}.
+\newblock 2013
+
+\bibitem[{X-RAY WorkX GmbH}(2013{\natexlab{b}})]{X-COMsoft}
+\dinatlabel{{X-RAY WorkX GmbH} 2013{\natexlab{b}}} \textsc{{X-RAY WorkX GmbH}}:
+\newblock \emph{{X-COM software manual}}.
+\newblock 2013
+
+\bibitem[{X-RAY WorkX GmbH}(2015)]{Datashort}
+\dinatlabel{{X-RAY WorkX GmbH} 2015} \textsc{{X-RAY WorkX GmbH}}:
+\newblock \emph{{MICROFOCUS X-RAY TUBES PRODUCT LINE SE}}.
+\newblock 2015
+
+\bibitem[Xin u.\,a.(2007)Xin, Jin-Chuan, Xiang und Han-Ben]{Xin2007}
+\dinatlabel{Xin u.\,a. 2007} \textsc{Xin}, Liu~; \textsc{Jin-Chuan}, Guo~;
+  \textsc{Xiang}, Peng~; \textsc{Han-Ben}, Niu:
+\newblock {Visibility in differential phase-contrast imaging with partial
+  coherence source}.
+\newblock In: \emph{Chinese Physics}
+\newblock 16 (2007), Nr.~6, S.~1632--1636. --
+\newblock ISBN 1009-1963
+
+\end{thebibliography}

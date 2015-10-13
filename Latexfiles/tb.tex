@@ -1,83 +1,390 @@
 \chapter{Theory}\label{chap:th}
-\noindent As the focus of this thesis lies on the experimental characterization of the whole setup, 
-but especially on the source properties and the interferometric parts, 
-the underlying theory of the physical principles of this work are presented restricted on the most essential basics.
-The interested reader is referred for a further detailed overview about the topic to the recommendations at the beginning of each section,respectively.
+The focus of this thesis lies on the experimental characterization of the micro-focus X-ray setup at the biophysical chair E17. Special care is taken thereby on the source properties and the interferometric parts. 
+Hence the underlying theory of the physical principles of this work are presented restricted on the most essential basics.\\
+The interested reader is referred to the recommendations at the beginning of each section for a further detailed overview of the respective topic.
 \section{Interaction of X-rays with matter}\label{sec:ixm}
+{X-rays are a part of the electromagnetic spectrum in between extreme ultraviolet and gamma radiation. The corresponding photon energies range from approximately 100 eV up to a few hundred keV. Since the discovery of X-rays by Wilhelm Conrad Roentgen in 1895, several different ways generating X-rays were developed 
+and have been since then continuously improved.
+%This includes X-ray tubes, synchrotron facilities and \gls{fel}. The most valuable possibility for scientific application is the generation via Synchrotron radiation. Thereby electrons are forced on a circular orbit with constant energy by strong magnetic fields in a storage ring. Circulating around the circle they emit X-ray radiation at a very narrow bandwidth, corresponding on the energy they were at the beginning forced to.
+X-rays used for clinical applications are generally produced using conventional X-ray tubes. In an X-ray tube, electrons are produced by thermal emission from a heated cathode. Applying a strong electric field between cathode and anode the electrons are accelerated towards the anode. Upon hitting the anode the electrons are decelerated and emit a broad spectrum of X-rays, known as \textit{Bremsstrahlung}. Additionally, radiation of characteristic energies depending on the anode material is emitted. Detailed description about X-ray sources and the interaction of X-rays with matter can be found in \cite{Veen2004,Als-nielsen}. The dependency between the energy and the resulting wavelength is given by:
+\begin{equation}
+\lambda \left[\text{\AA} \right] = \frac{hc}{E}=\frac{12.398}{E \left[keV \right]}.
+\end{equation}\label{lEdep}
+The wavelength of X-rays ranges e.g. from $12.4 \times 10^{-10}$m for 100 eV down to $0.775 \times 10^{-11}$m for 160 keV, whereby there is no upper limiting energy. The region of a few 100 eV is called soft X-rays, photons of higher energies are called hard X-rays.}          
 \subsection{Complex refraction-index}\label{subsec:cri}
-\subsubsection{Attenuation}\label{subsec:att}
-\subsubsection{Refraction}\label{subsec:ref}
-\section{Grating-based phase contrast imaging}\label{sec:phase}
+Just like visible light, X-rays are electromagnetic waves, thus their behaviour when passing through matter can be described by the complex index of refraction $n$:\citep{Als-nielsen}
+\begin{equation}
+n = 1 -\delta + i \beta .
+\end{equation}
+$\delta$ and $\beta$ depend on the material properties of the passed medium and the energy of the X-rays. 
+%The strength of contribution of these two constants can be shown by comparing a wave passing through an arbitrary medium, with constant refractive index $n$ and a wave propagating in vacuum $n = 1$. The most simple way describing such an example, is assuming 
+A plane monochromatic wave without polarization propagating along the z-axis in vacuum ($n=1$), can be described by a scalar wave function $\Psi(z)$:
+\begin{equation}
+\Psi(z) = E_{0} e^{ikz}. \label{pw} 
+\end{equation}
+Here $E_{0}$ is the amplitude of the electric field and $k = 2\pi /\lambda$ the wavenumber. Within a medium this equation changes to:
+\begin{equation}
+\Psi(z) = E_{0} e^{inkz} = E_{0} e^{(1-\delta + i\beta)ikz} = E_{0} e^{(1-\delta)ikz} e^{-\beta kz}.\label{medium} 
+\end{equation}
+Here,  $\delta kz$ and $e^{-\beta kz}$ describe the accumulated phase shift and the exponential loss of the waves amplitude after travelling a distance $z$ through a medium,respectively. The waves and the respective losses are shown in Fig. \ref{phatt}. The macroscopic effects of these two are discussed separately in the following.   
+\begin{figure}[t]
+	\begin{center}
+		\includegraphics[width = 14.7cm,keepaspectratio = true]{phaseattnew}
+	\end{center}
+	\caption[Attenuation and phase shift of electromagnetic waves]{\textit{Drawing of two electromagnetic waves. The upper one propagates in vacuum, the lower wave propagates through a medium described by a complex index of refraction.This wave has an attenuated amplitude and a shifted phase compared to the wave propagation in vacuum.The attenuation and phase shift are depicted as blue and green arrows, respectively.}}
+	\label{phatt}
+\end{figure}
+\subsection{Attenuation}\label{subsec:att}
+The attenuation of an electromagnetic wave corresponds to a loss of intensity oft the beam. This macroscopic attenuation is over a broad energy range, dominated by two main effects: \textit{photoelectric absorption} and \textit{Compton scattering}, an incoherent and inelastic scattering process \citep{Als-nielsen}. According to the \textit{Lambert-Beer Law}, the relation between the reduction of intensity and the imaginary part of the refraction index, $\beta$, of an object is given by:
+\begin{equation}
+I(d) = I_{0}e^{-2\beta kd} = I_{0}e^{-\mu d} ,   
+\end{equation}     
+with the linear attenuation coefficient $ \mu = 4\pi \beta / \lambda$ and $I_{0}$ the initial intensity of the wave passing through the object \citep{Cremer2013}. The linear absorption coefficient $\mu$ depends on the incoming wavelength, and thus on the corresponding X-ray energy and the composition of the illuminated material. The formation of images in attenuation based X-ray imaging is a measure of the material dependent attenuation coefficients and the corresponding intensity loss of the X-ray beam after propagating through the studied object.         
+\subsection{Refraction}\label{subsec:ref}
+For a medium of thickness d, the total phase shift $\Phi$ is given by the real part of the refractive index, $\delta kz$, in equation \ref{medium}:
+\begin{equation}
+\Phi = \delta kd.
+\end{equation}
+For an object which has a change in thickness or the refractive index in the direction normal to the wave propagation, the total phase shift depends on the position of the sample. The consequence of this is a change of the propagation direction of the incoming X-ray beam. In general, this angle of refraction $\alpha$ is equivalent to the local gradient of the phase shift perpendicular to the direction of incidence - in this case the z-direction- divided by the wave vector $k = 2\pi /\lambda$. For reasons of simplicity the problem here is restricted to the x-direction and thus the gradient eases to a simple derivative in x. The corresponding equation for the refraction angle then simplifies to:
+\begin{equation}\label{refrangle}
+\alpha = \frac{1}{k}\frac{\partial\Phi(x)}{\partial x}.
+\end{equation} 
+One main difference between visible light and X-rays, is the deviation of the refractive index from unity. On the one hand for visible light the refractive index can deviate over a wide range from 1, on the other hand for X-rays the deviation is very narrow. Considering the dependencies of refractive index decrement $\delta$ this behaviour becomes easily clear. The material dependent term $\delta$ also strongly depends on the energy of the X-ray beam, and is described as:
+\begin{equation}
+\delta= \frac{\lambda^{2}r_{e}n_{e}}{2\pi},
+\end{equation}
+with the classical electron radius $r_{e} = 2.818 \times 10^{-15}$m and the electron density $n_{e}$ of the material. As example for energies above $12.4\ \text{keV} \equiv  \times 10^{-10}$m $\delta $ is of the order of $ 10^{-6}$. This very small effect leads to very small refraction angles, which makes detecting X-ray refraction very difficult. On the elementary particle level, the process of X-ray refraction can be described by the elastic scattering, also known as \textit{Thomson scattering} \citep{Als-nielsen}, of the photons at the electrons of the material the wave is passing through. The key to phase contrast imaging declines to the measurement of these refraction angles. One way how this can be done is explained further in the following section.      
+\section{Phase contrast imaging}\label{sec:phase}
+%Another very auspicious technique using the power of X-ray radiation is their property getting slightly refracted, as mentioned above. 
+There are several different approaches on making tiny changes of an X-ray beams direction visible, but the focus lies here on the grating-based phase contrast imaging technique. 
+%This method uses firstly one grating inducing on purpose a phase shift, depending on the grating design the shift is about $\pi/2$ or $\pi$, to the incoming wave front and secondly another grating converting the induced phase shift into intensity variations, thus the detection is possible by a simple conventional flat-panel detector, as in use for the most medical applications. 
+For further detail about the other techniques and the topics in this section see: \citep{Momose2005,Bech2009,Pfeiffer2006,Weitkamp2005,Veen2004,WeitkampPfeiffer2006,Creath1988}.      
+\subsection{Wave-Front propagation}\label{subsec:wp}
+One way to describe electromagnetic waves is to consider them as a wave front.
+%In analogy to nature, a common way describing electromagnetic waves simply, is to consider them as wave-fronts. As mentioned above the wave-front of a X-ray wave changes in a sample due to interaction with matter, meaning absorption and refraction. But nevertheless there are also changes induced while propagating through free space, if no vacuum is provided in that area. Normally the detector is right behind the sample thus this effect can be neglected, but in case of phase contrast imaging propagation through free space is important for the application.
+According to \textit{Huygens principle} a wave-front can be described at any time by the sum of spherical wavelets distributed over the whole wave-front. This leads to the Fresnel diffraction integral (valid in the homonym \textit{Fresnel regime} also near-field regime) , which is the integral over the contribution of all spherical waves:
+\begin{equation}
+\Psi (x,y,z) = \frac{e^{ikz}}{i\lambda z} \int\int \Psi(x_{0},y_{0},0)e^{\frac{ik}{2z}((x-x_{0})^{2}+(y-y_{0})^{2})} dx_{0}dy_{0} ,
+\end{equation}
+whereby $x_{0}$ and $y_{0}$ are the values in the $z = 0$ plane. With this equation it is possible to calculate the wave-front at any time. The propagation itself can be considered as the convolution of the wave function $\Psi(x,y,z)$ at $z = z_{0}$ and a so called propagator function $h_{d}$:
+\begin{equation}
+h_{d} = \frac{e^{ikd}}{i\lambda d} e^{\frac{ik(x^{2}+y^{2})}{2d}} , 
+\end{equation}
+where d denotes the propagation distance. With the convolution theorem, stating that the Fourier transform of a convolution of two functions is equal to the product of the Fourier transforms of these two functions, it is possible to propagate the wave-front over a distinct distance by simple multiplication in Fourier space. Thereby the Fourier space propagator function $\tilde{P}_{d}(k_{x},k_{y})$ is the Fourier transform  of the propagator function in real space, denoted by:
+\begin{equation}
+\tilde{P}_{d}(k_{x},k_{y}) = \mathcal{F}(h_{d}(x,y)) = e^{ikd}e^{\frac{-id(k_{x}^{2}+k_{y}^{2})}{2k}} ,
+\end{equation}\label{propfunc}
+which can be shown with simple physical considerations \citep{Bech2009}.  
+\subsection{Talbot effect}\label{subsec:te}
+%Using the Fourier space propagator function the forecast of the wave-front at any propagation distance is very facile. 
+The Fourier space propagator is an easy and efficient way to calculate the wave-front at any given propagation distance. In the case of a spatially periodic wave-front, such as a sine or a cosine modulated wave-front, a self-image after a distinct propagation distance can be assumed. That a periodic wave-front repeats itself after a distinct propagation distance was first discovered by Henry Fox Talbot in 1836. This distance is known as the Talbot distance $d_{T}$ \citep{Talbot1836}. In his studies he used visible light and a grating to create a periodic wave-front, but the effect is also valid for the X-ray range \citep{David2002}.
+
+%The determination of the Talbot distance where the wave-front repeats, is done by applying the Fourier transform on a simple periodic wave like in equation \ref{pw}. This transform simplifies to a sum because the Fourier transform of a periodic function with period p is discrete, because only integer multiples of the $k_{x} = 2\pi m/p$ remain. Staying on an easy level of explanation the calculation is shown just for one dimension:
+%\begin{equation}
+%\Psi_{0}(x) = \frac{1}{2\pi}\int \tilde{\Psi}_{0}(k_{x})e^{ik_{x}x} dk_{x} = \frac{1}{2\pi} \sum_{m}^{} \tilde{\Psi}_{0}(2\pi m/p))e^{\frac{i2\pi xm}{p}} \Delta k_{x},
+%\end{equation}
+%with $\Delta k_{x} = 2\pi/p$. Applying this $k_{x}$ values in the propagator function $\tilde{P}_{d}(k_{x},k_{y})$ the 
+The distinct distance where the wave-front recreates can be simply calculated by multiplication of equation\ref{pw} with the propagator function defined in equation \ref{propfunc}. With this calculation it can be shown that a periodic wave-front repeats itself at a certain distance $d_{T}$:
+\begin{equation}\label{taldist}
+d_{T_{n}} = \frac{2np^{2}}{\lambda},
+\end{equation}
+whereby $n = 1,2,3,...$ indicates the Talbot-order. Considering a well known wave-function, for example a step-function induced by a periodic grating, so called \textit{Fractional Talbot distances} arise \cite{Bech2009}. A general relation for the fractional distances, created by a phase grating with a phase shift of $\pi/2$ is given by:
+\begin{equation}\label{fractal}
+d_{T_{frac}} = \frac{n p^{2}}{8 \lambda},
+\end{equation}
+where n again denotes the Talbot order and p the period of the grating. 
+%A special case is the one at half the Talbot distance, where the initial wave-front repeats again besides a transversal shift over half a grating period as the left part in figure \ref{talcarp} shows. However, at other Talbot fractions high and low intensity patterns arise and this is the area which is of highly interest in grating interferometry focussing on phase contrast imaging.
+A feature occurs at half the Talbot distance where the initial intensity pattern repeats exactly, besides of a shift in direction perpendicular to the grating lines. However, at certain fractional Talbot distances, patterns of alternating low and high intensity arise, which is of great interest for phase contrast imaging using gratings.
+% hier nochnmal mit fritz und flo reden was genau gemeint ist.
+A main problem is the spectrum illuminating the grating, because the exact revival of the wave-front only appear, if monochromatic waves are used. Otherwise the pattern lute, due to the fact of to less coherence. Thus the Talbot carpet has only bright and dark regions, which can be seen on the right side of figure \ref{talcarp}. But nevertheless, phase contrast imaging is still possible at fractional Talbot distances, also in this case.
+%To overcome this behaviour a third grating is put right behind the source, thus producing equally spaced line sources. The exact arrangement of the gratings and their specific requirements are discussed in more detail in the following section.  
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width = 14.7 cm,keepaspectratio = true]{talbotcarpetfranz}
+	\end{center}
+	\caption[Simulated Talbot-carpets for a grating with a duty cycle of 0.5 a phase shift of $\pi/2$ and a grating period of $5\, \mu m$.]{\textit{Simulated Talbot-carpets for a gold grating with a duty cycle of 0.5 a phase shift of $\pi/2$ and a grating period of $5\, \mu m$. a) Intensity distribution for a monochromatic X-ray source with an x-ray energy of 60 keV. Besides a phase shift the initial wave-front revives at half and after one Talbot distance $d_{T}$. In between a strong periodic intensity modulation at 1/4 and 3/4 $d_{T}$ occurs, which matches the period of the simulated grating. b) Simulation results for a polychromatic source, described by a tungsten spectrum with 60 kVp. Due to the polychromatic spectrum the resulting pattern is a superposition of the individual patterns of all energies. The Talbot distance depends on the wavelength and therefore the intensity modulations are smeared out. Hence just high and low contrast regions are still observable.}}
+	\label{talcarp}
+\end{figure}
 \subsection{Grating interferometer}\label{subsec:gi}
-\subsection{Talbot effect}\label{te}
-\subsection{Phase stepping routine}\label{subsec:stepp}
+As mentioned in the sections above the underlying principle of phase contrast imaging is to quantify the refractive index distribution of a sample, or in other words to measure the induced angle of refraction onto the transmitted X-ray wave. The idea behind using a grating interferometer for this method is that a small angular change of the wave-front leads to a transverse shift of the interference pattern induced by the grating. In the optimum case of a perfect wave-front, just two gratings are needed making this technique applicable. In practice, a third grating, is often used to perform grating interferometry measurements at conventional X-ray sources. Such a setup known as Talbot-Lau interferometer is shown in Fig:\ref{talbotlau}. Hereby the usual first grating, denoted by $G_{1}$, induces a periodic phase-shift onto the wave-front and the second grating, $G_{2}$, serves as analyser grating. The last grating,$G_{2}$, is ideally placed at a fractional Talbot distance and makes detection of the very fine interference pattern with standard X-ray detectors feasible.
+%detecting the phase shift. Hereby the fluctuations in the phase shift are converted into intensity variations, which can be easily detected by a standard X-ray detector. Thus this works properly, on has to make sure that the analyser grating is in a position where the interference pattern interferes constructively, otherwise the transmitted intensity will be insufficient.
+Regions around odd fractional Talbot distances have a high visibility of the interference pattern, which is explained in further detail in \ref{subsec:stepp} and can also be seen in figure \ref{talcarp} on the left side, e.g. speaking of $d = 1/4\ d_{T}$, where the Talbot-carpet has a region of highest contrast. In general there is a huge lack between the optimum requirements and the existing properties of source and gratings. Nevertheless the requirements of the source can be overcome by introducing a third grating,$G_{0}$, right behind the source. At this installation the third grating $G_{0}$, which is an absorption grating, works as a mask for the spacious source, normally used at clinical applications or at laboratories, with a source size unable to provide sufficient spatial coherence. This grating slices the source in evenly spaced individually coherent line-sources which interfere with each-other. In such a setting, it is important that the following condition is fulfilled:
+\begin{equation}
+p_{0} = p_{2}\times \frac{l}{d}.
+\end{equation}
+Only then individual line-sources interfere constructively and can contribute to the imaging process. 
+Hereby are $p_{0}$ and $p_{2}$ the respective grating period, l is the distance between $G_{0}$ and $G_{1}$ and d the distance between $G_{1}$ and $G_{2}$. Using this alignment the total source size $S$ is only responsible for the final resolution of the image given by $ Sd/l$ and spatial resolution is decoupled from spatial coherence, which allows the use of X-rays with very small coherence length in both directions \citep{Pfeiffer2006}. 
+%A drawing of the geometrical considerations for this conditions above is shown in figure \ref{talbotlau}. As in the further thesis different constellations of gratings will be discussed the next small section focusses on their properties. 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale = .75]{talbotlau}		
+	\end{center}
+	\caption[Sketch of a Talbot-Lau interferometer]{\textit{Sketch of a Talbot-Lau interferometer. Underlying principle: The source  grating $G_{0}$ induces individual coherent, but not mutual coherent, line-sources. Refraction caused by intrinsic sample properties, induces distortions of the wave-front. These very tiny changes of the interference pattern created by the phase grating $G_{1}$, are then recorded by a standard X-ray detector, by dint of $G_{2}$.}}
+	\label{talbotlau}   		
+\end{figure}
+\subsection{Grating Types} \label{subsec: gt}
+In general there are two different grating types, absorption and phase gratings. As one can imagine, the main property of absorption gratings is their high ability to strongly absorb X-rays. For that reason, the material they are made of has to have high electron density, and thus a high atomic number Z e.g. lead or gold. The better choice for the production is gold, at one hand, because the absorption performance compared to lead is twice as good. At the other hand the electroplating mechanisms are better understood. Overcoming the softness of gold, absorption gratings are formed using a support layer generally made of silicon, because the handling of Si wavers and their subsequent treatment is well known. There are several ways to produce an absorption grating, one is the \gls{liga} process \citep{hier noch markus fragen}. During this process, a supporting structure is produced from a photo-resist using x-ray lithography and deep reactive ion etching. The trenches are then filled with gold by electroplating. \textcolor{red}{markus fragen} 
+%The support layer is produced by standard photo-lithography techniques and its splines are filled afterwards with gold by electroplating mechanism. 
+In the main part of figure \ref{gratings} such an absorption grating with a gold height of $50\, \mu$m and a grating period of $2.4\, \mu$m is shown. In general, a higher gold filling is preferred as it corresponds to a better X-ray absorption. However, forming such high gratings with a period of only a few micrometers is very difficult. Nowadays, grating heights up to $ 200\, \mu$m are possible over large areas \citep{Qin2015}. Phase gratings usually consist of low Z materials in order to avoid absorption when introducing the desired phase-shift. Due to the fact that high absorption is not desired, the height of phase gratings furthermore is way lower than that of absorption gratings. The inset of figure \ref{gratings} shows such a phase grating made of silicon with a height of $22\, \mu$m and a period of $4\, \mu$m, but there are also various combinations of materials forming such gratings e.g. a silicon grating electroplated with nickel, which is usually used at the setup, used during the work presented in this thesis. For Further reading about production mechanisms and the different grating types see: \citep{Lei2014.Mohraspect}     
+\begin{figure}[t]
+	\begin{center}
+		\includegraphics[scale = 1.1]{gratings.png}
+	\end{center}
+	\caption[Different types of deep micro-structured gratings feasible for X-ray interferometry]{\textit{Different types of deep micro-structured gratings feasible for X-ray grating interferometry. Dependent on the properties of the respective grating phase and/or amplitude modulation is possible. In the main picture a Gold absorption grating is depicted manufactured at KIT. At the inset a pure Silicon phase grating made at the PSI is shown.\tiny{(source: \url{http://www.esrf.eu/UsersAndScience/Publications/Highlights/2010/imaging/img02})}}}
+	\label{gratings}
+\end{figure}  
+\subsection{Coherence requirements}\label{subsec: coherence}
+As mentioned in section \ref{subsec:gi} the coherence requirements of the source can be relaxed by inserting a third grating ($G_{0}$) right behind the source. In this section an overview about the relevant equations and parameters are introduced, in order to get a feeling about the required dimensions. For further reading see \citep{WeitkampPfeiffer2006,Momose2005}. There are two important parameters in order to describe the coherence properties of X-rays. On one hand, the longitudinal coherence length is related to the bandwidth of the used source spectrum. 
+%At the other hand the transversal coherence length describes the influence of an extended source on the beam coherence different coherence types, at one hand longitudinal coherence synonymous to monochromaticity, at the other hand transversal, or spatial coherence is need to be considered. 
+Concerning the longitudinal coherence an approximate expression for the required monochromaticity yielding to good fringe contrast in the interference pattern is\citep{Weitkamp2005} 
+\begin{equation}
+\frac{\lambda_{0}}{\Delta\lambda} \apprge n. 
+\end{equation}
+Here $\lambda_{0}$ denotes the design wavelength of the setup, $\Delta\lambda$ the width of the luting of the design wavelength and $n$ the order of the Talbot distance from equation \ref{taldist}. This expression implies the possibility, to apply a polychromatic source for grating interferometry, without loosing significant contrast quality between the particular fringes. For that reason, this section focusses on the spatial coherence requirements, because their influence onto the resulting signal is much higher. As mentioned in section \ref{subsec:gi} for the case of just considering plane-waves the final resolution of an image is given by $S d/l$. A sketch of these variables is shown in Fig: \ref{talbotlau} where $S$ is the finite source size, $l$ the distance between $G_{0}$ and $G_{1}$ and $d$ the distance between $G_{1}$ and $G_{2}$, respectively. There are several common definitions for the transversal coherence length $\zeta_{s}$ existing alongside to each other so here $\zeta_{s}$ is defined as \citep{Weitkamp2005}:
+\begin{equation}\label{cohlength}
+\zeta_{s} = \frac{\lambda l}{S}, 
+\end{equation}
+where $\lambda$ is the wavelength corresponding to the design energy of the interferometer. Typical values for an extended source size are about an square millimetre and an inter-grating distance of about one metre are $\zeta_{s}$ is $\approx 10^{-8}$ m and for more advanced micro-focus tubes with much less power or synchrotrons $\zeta_{s}$ is $\approx 10^{-6}$ m  \citep{Pfeiffer2006}. A comparison between typical and micro-focus X-ray tubes is given in chapter \ref{chap:setup}. In the following section a compendium of the phase-retrieval mechanism is shown with respect to the coherence requirements mentioned in this section.          
+\subsection{Visibility and Phase stepping routine}\label{subsec:stepp}
+\paragraph{Visibility} The phase grating modulates the phase of the incoming wave-front, so that fringe pattern arise at the position of the analyser grating, which is placed at a fractional Talbot distance. 
+%The shapeAs in the simulation for the Talbot-carpets the shape of the gratings is usually rectangular. (see Figure \ref{gratings}). 
+Just concerning first order diffraction \citep{WeitkampPfeiffer2006} this pattern has nearly a sinusoidal shaped intensity profile. The distance d is adjusted to the fractional Talbot-distances with the highest contrast (see Figure \ref{talcarp}), where the minima of the intensity pattern drop down to zero \footnote{This case is just valid assuming a perfect setup, with an infinitesimal source size, monochromatic radiation, perfect gratings with no defects and a perfect detector.}. Using completely coherent radiation, the intensity profile can be expressed by \citep{WeitkampPfeiffer2006}: 
+\begin{equation}\label{sinepatt}
+I(x) = I_{0}(1+ \sin(\frac{2\pi x}{p_{2}})), 
+\end{equation} 
+thereby $x$ denotes the coordinate transversal to the grating lines, $I_{0}$ the intensity before $G_{1}$ and $p_{2}$ the period of the fringes. The interferometer should be also designed in that way, that this period coincides with the analyser grating period. For and expanded source with size $S$ with only partial coherent radiation, the observed intensity pattern changes to a convolution of a point-source with the projected source profile, with width $w$. If a Gaussian- shaped source is assumed for simplicity, the convolution results again in a Gaussian with the width
+\begin{equation}\label{projsize}
+w = S \times \frac{d}{l},
+\end{equation}
+hereby $S$ and $w$ correspond to the \gls{fwhm} of the initial and the projected source profile, respectively.  For the idealized case of a point-source the visibility $V$, which is equivalent to the \textit{Michelson contrast \citep{michelson1995studies}}, is unity, but for real sources speaking of expanded ones like e.g. in Figure\ref{talbotlau} the visibility drops below unity. The visibility is defined as 
+\begin{equation} \label{visibility}
+V = \frac{I_{max}-I_{min}}{I_{max}+I_{min}},
+\end{equation}
+where $I_{max}$ and $I_{min}$ denote the maximum and minimum intensity values of the fringe pattern from equation \ref{sinepatt}. Introducing $I_{max}$ and $I_{min}$ equation \ref{sinepatt} results in:
+\begin{equation}
+I(x) = \frac{I_{max} + I_{min}}{2} +\frac{I_{max} - I_{min}}{2} \sin(\frac{2 \pi x}{p_{2}}).
+\end{equation}
+An analytical investigation of the convolution of a Gaussian with a sine, yields to an equation for the decrease of the visibility, corresponding to the projected source size $w$ \citep{WeitkampPfeiffer2006}:
+\begin{equation}\label{visi}
+V = e^{-(1.887w/p_{2})^{2}},
+\end{equation}
+whereas the decrease of $V$ has a Gaussian shape. From this equation it is possible to directly derive an inequality for the projected source size, dependent on the minimum required visibility $V_{0}$ and the periodicity $p_{2}$ of both the analyser grating $G_{2}$ and the intensity pattern, to:
+\begin{equation} \label{w}
+w \leq 0.53 p_{2} \sqrt{\ln(V_{0})}.
+\end{equation}
+As one can see in Figure \ref{talvis} the resulting visibility is extremely dependent on the Talbot-distance $d_{T}$. As mentioned in section \ref{subsec:te} the highest visibility, independent of dealing with monochromatic or polychromatic radiation, occurs always near the fractional Talbot-distances. For the monochromatic case it matches exact the fraction's, in the polychromatic chase the maxima of the visibility are slightly shifted towards bigger distances, due to the superposition of the different Talbot-distances for each energy of the spectrum. 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width = 14.7 cm,keepaspectratio = true]{talbotvisnew}
+	\end{center}
+	\caption[Simulated visibility as function of Talbot-distance $d_{T}$]{\textit{Simulated visibility as a function of the Talbot-distance $d_{T}$, corresponding to the shown Talbot-carpets in Fig. \ref{talcarp}. On the left side the visibility for a monochromatic source is shown. In accordance to theory the maximum is reached at odd fractional Talbot-distances. On the right side the visibility is smeared out and no sharp peaks occur, due to the fact of the loss of the monochromaticity of the beam. Nevertheless is the loss of visibility within a small distance a bigger disadvantage for conventional X-ray sources.}}  
+	\label{talvis}
+\end{figure}
+Due to the dependence of the projected source size $w$ on the distance between $G_{1}$ and $G_{2}$, a fractional Talbot-distance with maximum visibility, e.g. $d = p^{2}/2\lambda$, can be substituted in the equation for the projected source size \ref{projsize}. With this the equation for $w$ as a function of the Talbot-distance and -order derives to:
+\begin{equation}
+w = S\times \frac{np_{2}^{2}}{2 \lambda l} = \frac{np_{2}^{2}}{2 \zeta_{s}},  
+\end{equation}
+where for the last step the coherence length $\zeta_{s}$ is substituted. With this relation the equation for the visibility, \ref{visi}, can be rewritten as a function of the spatial coherence length, resulting in \citep{WeitkampPfeiffer2006}:  
+\begin{equation}\label{zeta}
+V = e^{-(0.94 n p_{2}/ \zeta_{s})^{2}}, \text{ and thus again} \Rightarrow \quad \zeta_{s} \geq \frac{0.94 np_{2}}{\sqrt{\ln(V_{0})}}. 
+\end{equation}
+In order to get a feeling for the behaviour of this formulas for real experiments a few numerical examples are mentioned. As one can note on the left side of Fig. \ref{talcarp} the first order Talbot-distance occurs at $2,42\, $m, which is yet a big distance in a standard lab environment, because the dimensions of the installings have to fit into a quite small hutch due to space restrictions. For that reason higher Talbot orders $n > 1$ can be usualy neglected because of space restrictions. The grating-period of the analyser grating used in general at the setup ,mentioned at the beginning of this chapter, is $10\, \mu$m and assuming a required minimum visibility of $V_{0}= 0.2$, the required projected source size results in $w \leq 6.7\, \mu$m, according to equation \ref{w}. Or in other words the transversal coherence length defined in equation \ref{zeta} becomes $\zeta_{s} \geq 7.41\, \mu$m. These values are for a low required visibility quite small, yet and mostly far out of range for conventional sources, but nevertheless as mentioned above is this technique applicable inducing a source grating.\\
 
+\paragraph{Phase stepping routine} In the next short paragraph the phase stepping-routine, where the defined relations above, especially equation \ref{sinepatt} and \ref{visibility} play an important rule is explained. The reader more interested in detail see: \citep{Creath1988,Momose2005,Lewis2002,Bech2009,Pfeiffer2008}. What is done in this procedure can be explained in a few simple words: "Move one of the three gratings perpendicular to the beam direction and vertical to the grating lines, while holding the other two at fixed position, and record how the intensity pattern varies over different grating positions for each individual pixel". Again just one direction is taken into account, because in general depending on the orientation of the grating lines phase information is just acquired, if the stepping moves along the axis perpendicular to the grating lines.\footnote{As long as the gratings are perpendicular to the beam and the grating lines tend at the same direction, it does not matter in which direction, x- or y-direction or any other combination of them, the gratings are put into the beam.} Otherwise no information is recovered as one can imagine, because the pattern will not change due to the fact ,that there is no relative change between the distinct grating lines. For a more precise explanation Equation \ref{sinepatt} is rewritten in a slightly different way, such that the intensity of every point $x_{d}$ of the intensity pattern is expressed by 
+\begin{equation}
+I(x_{d},y = 0) = a_{0} + a_{1}  \sin(\Phi_{d}+ \varphi), \quad \text{with }  \Phi_{d}  = \frac{2\pi}{p_{2}}x_{d},
+\end{equation} 
+with the offset $a_{0}$, the amplitude $a_{1}$ and the corresponding transverse shift $\varphi$ of the intensity pattern \citep{Bech2009}. This equation contains the first two terms of a Fourier series and obviously solving this equation three different positions have to be measured, because for three unknown at least three different equations are needed. So the stepping has to exceed at least three steps getting feasible information and the stepping range should cover one full period of the analyser grating $G_{2}$. Usually an odd number of stepping points is used, because a even number of sampling-steps causes no additional benefit \citep{Bech2009}. In order to get a good approximation of the shape of the stepping-curve, the sampling rate over one period is extended to 7 steps for in this work, but there is basically no upper limit. It is at least a trade-off between better results and measurement-time. At each of this steps an intensity image is taken, meaning that the interference pattern is sampled in each detector pixel during the particular steps. Afterwards the variation of the intensity in each pixel is then translated into a stepping-curve of the oscillating intensity describable with the equation above. To retrieve just the phase-shift if the X-rays induced by the sample, also a reference stepping without any sample at the same stepping positions is required. With these two curves at hand three different imaging signals can be extracted at once from each pixel of the dataset as illustrated in Figure \ref{AMP;DPC;DCI} (a-c). Here the superscripts $o$ and $r$ denote the object and reference frame, respectively:
+\begin{itemize}
+	\item As depicted in Figure \ref{AMP;DPC;DCI} a), the transmission of the object, which in this thesis is referred to as \acrshort{amp} signal is:
+	\begin{equation}
+	a_{0} = \frac{a_{0}^{o}}{a_{0}^{r}}.
+	\end{equation}
+	This signal is equivalent to conventional X-ray attenuation imaging and relies also on the same physical principles.  
+	\item Figure \ref{AMP;DPC;DCI} b), shows the relative transverse shift of the interference pattern due to the angular refraction of the X-ray beam passing through the object. With equation \ref{refrangle} for the refracted angle and a given distance $d$ between $G_{1}$ and $G_{2}$ and the period $p_{2}$ of the intensity distribution, the transverse shift is dependent on the differential phase shift of the wave-front as
+	\begin{equation}
+	\varphi = \frac{d \lambda}{p_{2}}\frac{\partial\Phi(x)}{\partial x}. 
+	\end{equation}
+	And the transverse shift of the stepping curve is given by
+	\begin{equation}
+	\varphi = \varphi^{o}-\varphi^{r}
+	\end{equation}
+	There is likewise an abbreviation for this imaging signal known as \gls{dpc}
+	\item Analogue to equation \ref{visibility} the visibility of the stepping curve can be defined as $V  =a_{1}/a_{0}$, thus the relative visibility of the interference pattern becomes \citep{Pfeiffer2008}
+	\begin{equation}
+	V = \frac{V^{o}}{V^{r}} .
+	\end{equation}  
+	The visibility in the object frame is reduced by the effect of small-angle scattering of the X-rays caused by sub-micron structures in the object, shown in Figure \ref{AMP;DPC;DCI} c). In the following the relative visibility signal is called X-ray \gls{dci}.  
+\end{itemize}
 
-
-
-
+\begin{figure}%[t]
+	\begin{center}
+%		\includegraphics[scale = .84]{steppingoutput}
+		\includegraphics[width = 14.7 cm,keepaspectratio = true]{steppingoutput}
+	\end{center}
+	\caption[Resulting data output generated by the stepping procedure.]{\textit{Resulting data output generated by the stepping procedure. The black solid line in the plots on the right side indicate the reference stepping curve, the coloured the curves including an object in the beam. a) the dashed lines indicate the respective mean intensity of the curve, so the decrease is proportional to the attenuation induced by the object. b) The transversal shift of the stepping curve is induced by a slightly deflection of the bean while passing through the object due to a differential phase shift of the incoming wave-front. c) due to small angle-scattering on sub-pixel features of the object the amplitude of the resulting stepping-curve is reduced.}}
+	\label{AMP;DPC;DCI}
+\end{figure}
+These three properties are referred to as \acrshort{amp}, \gls{dpc} and \gls{dci} projections throughout the remainder of this work. According to standard radiographic imaging the outcome of the different signals is a line integral over the respective quantity along the beam direction across the object, which yields two-dimensional projection images.
+\subsection{Magnification in curved wave geometry}\label{subsec:mag}
+In this small section a transition from the assumption of prefect plane waves in the latter sections, to a more real case of curved wave-fronts is described. By assuming a point like source the difference between the distance of source to object and source to detector, further denoted by $SO$\footnote{This nomenclature is chosen to be as general as possible. For the following considerations the phase grating $G_{1}$ is referred as object} and $SD$, respectively, induces a magnification factor of 
+\begin{equation}\label{magnification}
+M = \frac{SD}{SO}.
+\end{equation}
+The geometrical considerations for this relation are shown in Figure \ref{geomag} for the case of a grating with a period $p$. The image of the grating on the detector is magnified by a factor $M$. This magnification factor obviously also has to be taken into account, when installing the grating interferometer. Staying at the treatment of the grating as an object, the interference fringes induced by $G_{1}$ also undergo the magnification and so the period changes from $p_{1}$ to $Mg_{1}$ \citep{Bech2009}. A way to avoid this, is producing periodic gratings which compensate this effect or one has to adjust the gratings for the exact position. Otherwise a mismatch of the exact distance between $G_{1}$ and $G_{2}$ results in Moire fringes at the detector declining the signal.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width = 14.7cm,keepaspectratio = true]{geomagnification}
+	\end{center}
+	\caption[Geometric magnification in curved wave setups]{\textit{Geometric magnification in curved wave setups for a point like source. Depending on the position where the grating is placed in between source and detector the magnification factor varies form $\lim\limits_{SO \rightarrow 0}{M \rightarrow \inf}$ right behind the source, to $\lim\limits_{SO \rightarrow SD}{M \rightarrow 1}$ right in front of the detector.}}
+	\label{geomag}
+\end{figure}
+For example a Moire fringe per 100 grating lines occurs for a magnification differing just one percent from 1, and with a grating period $p_{1} = 5\ \mu$m it ends up with 2 Moire fringes per millimetre. Nevertheless this factor also changes the Talbot distance, thus also the fractional Talbot-distances between the two gratings. These distances given by equation \ref{fractal} also have to be rescaled in the manner that \citep{Bech2009}:
+\begin{equation}
+d_{T_{frac}} = M \frac{n p^{2}}{8 \lambda}.
+\end{equation}
+So the consequence of this effect is, that the geometry of the setup has to be considered before the production of gratings, which means that the same grating might not be usable for two different installations e.g. at one hand for a short setup in a lab and at the other hand at a synchrotron beam-line with a long geometry. In the next part another effect, arising from curved wave fronts and thus magnification, is discussed with respect to a measurement technique for the spot size of the source.   
+\subsection{Induced uncertainty by an expanded edge thickness at different magnifications}\label{subsec:weth}
+\textcolor{red}{Werd ich wahrscheinlich mit in die Auswertungen und Results packen.}
+In the latter section the changes for the setup properties, arising by the transition from a idealized system to a more \enquote{realistic} system, were induced, but there are some more changes, which have to be accounted for a real system. Since there is no real point source in nature, every source has an expanded shape, which leads to complexity characterizing such a system. One example is the measurement of the extent of the source spot, using a so called knife edge. Therefore the knife edge, speaking o a very sharp edge of a small metal cuboid, which has been polished to be as smooth as possible, is put right in the centre of the beam. The exact procedure is described in chapter \ref{chap:sysresp}. In the following just the mismatch of this technique, with respect to the elongation of the edge in beam direction and the influence of the position of the ashlar speaking of the associated magnification, is considered. The relevant geometrical parameter for this are shown in Figure \ref{knife}. Here denotes $S/2$ the half of the expanded source size, $M_{\alpha}$ and $M_{\beta}$ the magnified image of the edge, whereby these two quantities differ from each other, corresponding to the thickness $\Delta d $ of the ashlar and the angles $\alpha$ and $\beta$, which are dependent on the position of the cuboid and the spot-size of the source, varying from each other in the same way like $M_{\alpha}$ and $M_{\beta}$. For this case the tangent of $\alpha$ and $\beta$ is given by:
+\begin{equation} \label{tan}
+\begin{rcases} 
+tan(\alpha) &= \frac{S}{2d} = \frac{M_{\alpha}}{l-d} \\
+tan(\beta) &= \frac{S}{2(d + \Delta d)} = \frac{M_{\beta}}{l-d-\Delta d} 	
+\end{rcases} \quad \frac{S}{2d} +\frac{S}{2(d + \Delta d)} = \frac{M_{\alpha}}{l -d} + \frac{M_{\beta}}{l -d- \Delta d}, 
+\end{equation}
+whereby the addition of both gives a relation between the spot size of the source and the magnified edge image resulting from the position between source and detector and the thickness of the ashlar. For the influence of the thickness $\Delta d$of the edge, just the equation for $\tan(\beta)$ is of interest, because just for this half of the relation the extend of the ashlar comes into play, assuming that the whole X-rays are absorbed by the cuboid. \begin{figure}[h]
+	\begin{center}
+		\includegraphics[width = 14.7 cm,keepaspectratio = true]{wedgethickness}
+	\end{center}
+	\caption[Drawing of the edge in the centre of the beam for the measurement of the source size]{\textit{Sketch of the edge in the centre of the beam for the measurement of the source size. Due to the finite site of the edge in beam direction the upper half of the source produces a slightly smaller image of the edge on the detector-screen. This effect leads im reverse to a mismatch during the measurement of the size of the source.}}
+	\label{knife}
+\end{figure}
+Getting a feeling for the contribution of the thickness $\Delta d$ the right side of the relation from equation \ref{tan} for $\tan(\beta)$ is rewritten with the first two terms of the corresponding Taylor expansion around $d$ and $(l-d)$, respectively, whereby the small variation is the thickness $\Delta d$. Thus $\tan(\beta)$ becomes:
+\begin{equation}\label{taylor}
+\begin{aligned}
+\tan(\beta) &\approx \frac{S}{2d} -\frac{S}{2d^{2}} \underbrace{\left(d-d_{0}\right)}_{\hat{=}\ \Delta d} + \frac{S}{2d^{3}} \underbrace{\left(d - d_{0}\right)^{2}}_{\hat{=}\ \Delta d^{2}} \\  
+&\stackrel{{\text{subst:\ } (l-d)\  =\  x}}{\stackrel{\big\downarrow}{\approx}} \frac{M_{\beta}}{x} - 
+\frac{M_{\beta}}{x^{2}} \underbrace{\left(x -x_{0}\right)}_{\hat{=\ }\Delta d} + 
+\frac{2 M_{\beta}}{x^{3}} \underbrace{\left(x - x_{0}\right)^{2}}_{\hat{=}\ \Delta d^{2}}.
+\end{aligned}
+\end{equation}
+As the focus lies on the contribution to the spot-size of the source, equation \ref{tan} is rearranged, so that the result is an expression for the source size :
+\begin{equation}
+S = \frac{d^{3}}{d^{2}-\frac{d}{2} \Delta d + \Delta d^{2}}
+\bigg(\frac{\overbrace{M_{\alpha}+M_{\beta}}^{M}}{x}
+-\frac{M_{\beta}}{x^{2}} \Delta d 
++ \frac{2 M_{\beta}}{x^{3}} \Delta d^{2}\bigg).
+\end{equation}
+Getting a more manageable equation a substitution yields to 
+\begin{equation}
+S = M a- M_{\beta} (b-c),
+\end{equation}
+whereby the substitutes $a$, $b$ and $c$ replace the pre factor of the respective $M$  
+\begin{equation}
+a = \frac{d^{3}}{x(d^{2}-\frac{d}{2} \Delta d + \Delta d^{2})}, \ 
+b = \frac{d^{3} \cdot \Delta d}{x^{2}(d^{2}-\frac{d}{2} \Delta d + \Delta d^{2})}, \
+c = \frac{2 \cdot d^{3} \cdot \Delta d^{2}}{x^{3}(d^{2}-\frac{d}{2} \Delta d + \Delta d^{2})}. 
+\end{equation} 
+As one can see is $b$ and $c$ a first and the second order term in $\Delta d$, respectively. Thus are these two the terms one is interested here, because the contribution to $d^{2}$ of $\Delta d \cdot d/2 + \Delta d^{2}$ is negligible. For $d = 0.5\ $m and $\Delta d = 0.01\ $m, which are quite big values for both, and a complete setup length of $l = 1.952\ $m between source and detector, it is $\ \approx -2.4\times 10^{-3}$, this yield to a value of $a = 0.35\ $m. The setup- length $l$ is never changed during the whole measurement just the position o the edge in between. Getting a lower and upper appraisal, lower and upper values for $d$, and $\Delta d$ are introduced, which are used in the latter measurement as well. The limits for $d$ are set to $d_{min} = 0.1\ $m where the effect of the magnification is very strong ($M = \approxeq 19.52$) and $d_{max} = 0.5\ $m. The thickness of the edge is never changed during the latter measurement, but at the first glance the focus lies on the influence of this property. So the limits for $\Delta d$ are $\Delta d_{min} = 0.005\ m$ and $\Delta d_{max} = 0.01\ m$. Here the subscripted \textit{max} and \textit{min} obviously denotes the maximal and minimal considered values. the different values of $b$, $c$ and $(b-c)$ for different combinations of the limits are shown in Table:\ref{mismatch}. At the first glance it is obvious that just the influence of the first order-term $b$ is yet very small. The contribution of the thickness $\Delta d$ of the edge to this values has clearly a mathematical nature. Due to the small values the behaviour is strongly dependent on the enumerator, meaning that the half of the thickness halves the values for the linear term $b$ and quarters them for the quadratic term $c$. Also One important aspect is, that the ashlar must have a distinct thickness, ensuring that as less as possible X-ray radiation passes through it, since in other respects the sharpness in the image of the edge is reduced, and thus it becomes harder to determine the true source size. The contribution of the distance $d$ between edge and source however changes the value about one order of magnitude,
+\vspace{1cm} 
+\begin{table}[h] 
+	\begin{center}	
+		\begin{tabular}{c||c|c||c|c||c|c||c|c}
+			&$d_{max}$&$\Delta d_{max}$&$d_{max}$&$\Delta d_{min}$&$d_{min}$ &$\Delta d_{max}$&$d_{min}$& $\Delta d_{min}$ \\ 
+			\hline \rule{0pt}{12pt} limits [m] & 0.5 & 0.01 & 0.5 & 0.005 & 0.1 & 0.01 & 0.1 & 0.005 \\ \hline
+			\hline \rule{0pt}{13pt} $b$	& \multicolumn{2}{c||}{$2.4\times 10^{-3}$}  & \multicolumn{2}{c||}{$1.2\times 10^{-3}$}   & \multicolumn{2}{c||}{$3.0\times 10^{-4}$}   & \multicolumn{2}{c}{$1.5\times 10^{-4}$}   \\ 
+			\hline \rule{0pt}{13pt} $c$	& \multicolumn{2}{c||}{$3.3\times 10^{-5}$}  & \multicolumn{2}{c||}{$8.2\times 10^{-6}$}   & \multicolumn{2}{c||}{$3.3\times 10^{-6}$}   & \multicolumn{2}{c}{$8.1\times 10^{-7}$}   \\  
+			\hline \rule{0pt}{13pt} $(b-c)$	& \multicolumn{2}{c||}{$2.4\times 10^{-3}$}  & \multicolumn{2}{c||}{$1.2\times 10^{-3}$}   & \multicolumn{2}{c||}{$3.0\times 10^{-4}$}   & \multicolumn{2}{c}{$1.5\times 10^{-4}$}   \\	  
+		\end{tabular}
+		\caption[Results for the mismatch due to a finite edge thickness $\Delta d$ at different magnifications]{\textit{Results for the mismatch due to a finite edge thickness $\Delta d$ and different magnifications. In accordance with mathematical relations the contribution of $\Delta d$ to the values is strongly enumerator dependent, hence the small values. The second order pre factor term is always two times smaller than the first order pre factor term and thus negligible (No change of the value adding first and second order terms). Due to the small values of the first order pre factor which is always of the order $\leq 10^{-3}$ the effect on the precision of the measurement can be ignored, since effects of misalignments of the edge deliver a much higher contribution.}}
+		\label{mismatch}
+	\end{center}    
+\end{table}  
+so regardless of how thick the edge is the contribution of the magnification is higher of course just up to a distinct extent of the thickness, but no one would use a edge with a thickness of a few centimetres just because of difficulties aligning the edge perpendicular to the beam direction. The result of this evaluation is that the contribution of the thickness of the edge is negligible over a broad area, because even considering a unrealistic thickness of $\Delta d = 10\ $cm the pre factor $b$ is just $\approx 0.05$. On the other side due to the bigger contribution of the magnification in this case it is more important insuring a preferably perpendicular alignment of the edge with respect to the beam direction, because a slight tilt of the edge induces a big smear o the image of the edge. 
 
 
 \section{Spatial system response} \label{sec:ssr}
-\noindent In this section a short introduction to linear system theory is presented, 
-focussing on the characterization of imaging systems. For a detailed insight the reader is referred to \ref{bib}. 
-Here, only the basic quantities for real and radially symmetric response functions, representing the experimental, which is characterized, are treated.   
-\subsection{Real- and frequency-space response functions } \label{subsec:ct}
-\noindent Linear system theory is a common approach describing the spatial properties of imaging systems. 
+In this section a short introduction to linear system theory is presented, focussing on the characterization of imaging systems. For a detailed insight the reader is referred to \citep{Cunningham,Samei1998,Wagner1974,Wagner1977,Donath2007}. Here, only the basic quantities for the real and radially symmetric response functions are treated, representing the experimental setup, which has to be characterized.   
+\subsection{Real- and frequency-space response functions } \label{subsec:ct} 
+Linear system theory is a common approach describing the spatial properties of imaging systems. 
 The applicability of the superposition principle on an imaging system implies it's linearity, 
-meaning the response to a linear combination of incitements, generally called input signals, 
+meaning the response to a linear combination of input signals, 
 is the same linear combination of the particular responses, called output signals. 
-Assuming that the response of the linear system is also shift invariant, i.e. the system is linear and shift invariant (LSI), 
-the output can be calculated by convolution\ref{bib}: 
-\begin{equation}
-i(x,y) = s(x,y) \otimes o(x,y) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}s(x-x^{'},y-y^{'})o(x^{'},y^{'})dx^{'}dy^{'},
+Assuming that the response of the linear system is also shift invariant, i.e. the system is \gls{lsi}, 
+the output can be calculated by a convolution: 
+\begin{equation}\label{convolution}
+I(x,y) = S(x,y) \otimes O(x,y) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}S(x-x^{'},y-y^{'})O(x^{'},y^{'})dx^{'}dy^{'},
 \end{equation}
-$i(x,y)$ is the measured image, $s(x,y)$ is the point spread function (PSF), $o(x,y)$ describes the object, 
-and $\otimes$ designates the two-dimensional convolution. Because of dealing with intensities here, 
-all functions in real space are real functions, therefore the PSF is defined to be normalized to unity, i.e.:
+$i(x,y)$ is the measured image, $s(x,y)$ is the point spread function \gls{psf}, $o(x,y)$ describes the object, 
+and $\otimes$ designates the two-dimensional convolution operator. Because of dealing with intensities, 
+all functions in real space are real functions, therefore the \gls{psf} is defined to be normalized to unity, i.e.:
 \begin{equation}
-\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} s(x,y)dxdy = 1.
-\end{equation}  
-\subsection{Edge spread function} \label{subsec:esf}
-The spatial system response on an edge-shaped input signal is generally defined as the systems edge spread function(ESF).
-
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} S(x,y)dxdy = 1.
+\end{equation} 
+For a full characterization of the spatial system response of a system, the measurement of the \gls{psf} or the appropriate \gls{mtf} is absolute. The big advantage knowing these properties, is that they can be used correcting blur and other artefacts via deconvolution techniques. Since the \gls{psf} is the response of the system to a delta-peak shaped input signal, in other words the description of an image produced by a point-like source, which is inaccessible in real life, the \gls{psf} has to be derived indirectly from objects with well known structure like edges or slits. The related \gls{mtf} can be expressed using the convolution theorem, stating that the convolution of two functions in real space is just a multiplication in Fourier space. Hence equation \ref{convolution} becomes using convolution and Fourier transform
 \begin{equation}
-PSF_{System} = PSF_{Source} \otimes PSF_{Detector} = \mathcal{F^{-1}}[\mathcal{F}(PSF_{Source})\cdot \mathcal{F}(PSF_{Detector})]
+\mathcal{F}(I(x,y)) = \mathcal{F}(S(x,y))\cdot \mathcal{F}(o(x,y)) \Rightarrow \tilde{I}(u,v) = \tilde{S}(u,v)\cdot \tilde{O}(u,v), 
 \end{equation}
-
-The magnification $M$ of the system is defined as the fraction of the source to detector distance over the source to sample distance, further called $SD$ and $SS$ e.g.
-\begin{equation}
-M = \frac{SD}{SS}
+where the letters with tilde indicate the respective Fourier transformed function. The so called \gls{otf} is the Fourier transform of the \acrlong{psf} $\tilde{S}(u,v)$ and is in general a complex function, but can be split in phase and amplitude such as
+\begin{equation}\label{mtfotf}
+\tilde{S}(u,v) = M(u,v)e^{i\Psi(u,v)},
 \end{equation}
-Using geometry the true PSF of the source is spread over the detector screen by this magnification factor, so this factor has to be concerned
-in the formulas. For convenience we just look at the one-dimensional case for the further steps. 
-Normally a Gaussian shaped PSF's is assumed, whereby the sigma of the Gaussian has to be multiplied with the magnification factor minus one:
-
+with the \gls{ptf} $\Psi(u,v)$ and the so called \acrlong{mtf} of the system, related in a manner that
 \begin{equation}
-A_{System}e^{-\frac{1}{2}(\frac{x -b}{2\sigma_{system}})^{2}} = \mathcal{F^{-1}}[\mathcal{F}(A_{Source}e^{-\frac{1}{2}(\frac{x -b}{\sigma_{source}\cdot(M-1)})^{2}})
-\cdot \mathcal{F}(A_{detector}e^{-\frac{1}{2}(\frac{x -b}{\sigma_{detector}})^{2}})]
+M(u,v) = \frac{\lvert \tilde{S}(u,v)\rvert}{\tilde{S}(0,0)} = \lvert \tilde{S}(u,v) \rvert
 \end{equation}
-Solving this equation is straight forward, because the Fourier transform of a Gaussian is again a Gaussian, but with reciprocal width $\sigma$
-The most important thing in this equation are the $sigma's$, respectively. 
-For that reason we assume the amplitudes are one and the offset b is zero and we multiply both sides with the logarithmic function $\ln$.
-Since $\ln{1} = 0$ and the logarithmic function is the inverted function of an exponential this yields to:
+is the absolute value of the the \gls{otf}. This quantity correlates also with the reduction of contrast of an sinusoidal signal comparable to part \ref{subsec:stepp}. In general the \gls{psf} is assumed to be radial symmetric, thus a one-dimensional description in polar coordinates is possible. Using this approach also the \gls{otf} is radial symmetric and thus real, which reduces equation \ref{mtfotf} to $\tilde{S}(w) = M(w)$ (whereby this is the polar coordinate representation which is still two-dimensional!!). As consequence the system response can also be fully described by the \gls{mtf} for this assumptions \citep{Donath2007}. Now in the following sections the required mathematical armamentarium for the evaluation of the \gls{psf} from easy structured images is presented in a short manner. 
+\subsection{Edge- and Line- spread function (ESF/LSF)} \label{subsec:esflsf}
+The spatial system response on an edge-shaped input signal is generally defined as the \gls{esf}. On the other hand is the \gls{lsf} obviously the response on a line shaped signal. These functions are both two-dimensional functions, but with a constant behaviour along the direction parallel to the edge or rather line. According to this both can be expressed by a one-dimensional representation. In the further it is shown that the \gls{lsf} is the first derivative of the \gls{esf} as well as the projection of the \gls{psf}. Considering that both objects are parallel to the y.-axis, both functions are independent of y. Thus the \acrlong{lsf} is defined as(using equation \ref{convolution}) \citep{Donath2007}:
+\begin{equation}%S(x,y) \otimes O_{l}(x,y)  
+LSF(x) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} S(x-x^{'},y-y^{'})\delta(x^{'}) dx^{'}dy^{'} =\int_{-\infty}^{\infty} S(x,y^{'}) dy^{'} ,
+\end{equation}
+with the \acrlong{psf} $S(x,y)$ defined in section \ref{subsec:ct} and the Dirac- delta function $\delta(x)$ describing the line object $O_{l}(x,y)$ parallel to the y-axis, which is unity integrated from  $ -\infty$ to $ \infty $. Thus the projection of the \acrlong{psf} in y direction is equal to the \gls{lsf}$(x)$. In contrast the edge object $O_{e}(x,y)$ with the same constraints can be written as:
 \begin{equation}
--\frac{1}{2}(\frac{x}{2\sigma_{system}})^{2} = -\frac{1}{2}(\frac{x}{2\sigma_{source}\cdot(M-1)})^{2}-\frac{1}{2}(\frac{x}{\sigma_{detector}})^{2}
+O_{e}(x,y) = O_{e}(x) = 
+\begin{cases}
+ & 0 \quad \text{for}\ x\leq 0 \\ & 1 \quad \text{else}.
+\end{cases}
 \end{equation}
-
-cancelling out the one half and dividing by x we get an equation where only the $sigma's$ stay:
+Thus the \gls{esf} is given by \citep{Donath2007}:
 \begin{equation}
-(\frac{1}{\sigma_{system}})^{2} = (\frac{1}{\sigma_{source}\cdot(M-1)})^{2}-(\frac{1}{\sigma_{detector}})^{2}
+\begin{aligned}
+ESF(x) & = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} S(x-x^{'},y-y^{'})O_{e}(x^{'}) dx^{'}dy^{'} \\
+& = \int_{-\infty}^{\infty}O_{e}(x^{'}) \int_{-\infty}^{\infty} S(x-x^{'},y-y^{'})\delta(x^{'}) dy^{'} dx^{'} =  O_{e}(x) \ast LSF(x),
+\end{aligned} 
 \end{equation}
-inverting the hole equation and taking the root we get an equation for the system's spread width:
+here $\ast$ denotes the one-dimensional convolution and $O_{e}(x)$ denotes the function for the edge shaped object defined above. So the derivative of the \gls{esf} appears to be:
 \begin{equation}
- \sigma_{system} = \sqrt{{\sigma_{source}}^{2}\cdot(M-1)^{2}+{\sigma_{detector}}^{2}}
+\frac{d}{dx}ESF(x) = \frac{d}{dx}\rbrace O_{e}(x)\ast LSF(x)\rbrace = \delta(x) \ast LSF(x) = LSF(x).
 \end{equation}
- 
+This equation holds because again convolution theory states, that the derivative of a convolution of two functions can be rewritten as the convolution of the derivative of one of the two functions with the other function or the other way round. In addition the derivative of the edge function results in the delta function, thus consequential the derivative of the \gls{esf} yield to the \gls{lsf}.\\ 
 
-
-
-
+Furthermore it is possible to generalize the above defined relation, in order that the orientation of the edges or lines can be arbitrary only with one constraint, they have to pass through the coordinate origin. With that at hand it is possible to determine the two-dimensional \gls{psf} $S(x,y)$, using tomographic reconstruction techniques for edge projections with different angles. By assuming a radial symmetric \acrlong{psf} the \acrfull{esf} is independent of the projection angle and one edge is sufficient describing the full \gls{psf}. For further reading see \citep{Donath2007}.
+\subsection{PSF of a complex system} \label{subsec:complpsf}
+The former section describes the evaluation for the \acrfull{psf} using edge or line objects. Now the determination of the \gls{psf} of a whole system is a very challenging problem, because each part e.g. source or detector of an imaging system has his own two-dimensional \gls{psf}. It is one problem to determine the \acrfull{psf} of the whole system, but measuring this property is just one step towards the quantities, which are rather expected. The \gls{psf} of an simple imaging system, consisting just of source and detector, is given by convolution of the respective \gls{psf}'s
+\begin{equation}\label{combipsf} 
+PSF_{System} = PSF_{Source} \otimes PSF_{Detector} = \mathcal{F^{-1}}[\mathcal{F}(PSF_{Source})\cdot \mathcal{F}(PSF_{Detector})],
+\end{equation}
+whereby the last part of the equation is just the first part, but rewritten in Fourier transforms to simplify the further explanations. In general one has to deal with a curved wave setup as explained in \ref{subsec:mag}, thus due to geometrical thoughts one has to account the magnification in the latter equation, because the \gls{psf} of the source is spread out over the detector screen by this magnification factor. For convenience a one-dimensional behaviour is assumed for the further steps. Normally for X-ray sources a Gaussian shaped \gls{psf} is assumed, whereby the sigma (equal to the with of the function) of the Gaussian has to be multiplied by the magnification factor minus one, thus equation \ref{combipsf} is rewritten with Gaussian functions for the respective parts such that:
+\begin{equation}
+A_{System}e^{-\frac{1}{2}(\frac{x -b}{\sigma_{system}})^{2}} = \mathcal{F^{-1}}[\mathcal{F}(A_{Source}e^{-\frac{1}{2}(\frac{x -b}{\sigma_{s}\cdot(M-1)})^{2}})
+\cdot \mathcal{F}(A_{Detector}e^{-\frac{1}{2}(\frac{x -b}{\sigma_{d}})^{2}})],
+\end{equation}
+with the amplitudes $A_{System}$, $A_{Source}$ and $A_{Detector}$ and sigma's $\sigma_{system}$, $\sigma_{s}$ and $\sigma_{d}$ for the different parts, respectively. The solution of this equation is straight forward, because the Fourier transform of a Gaussian is again a Gaussian, but with reciprocal width $\sigma$. With this equation at hand it is possible to determine the \gls{psf} of the source, by knowing the \gls{psf} of the detector, and thus the spot-size of the source which is general defined as the \gls{fwhm} of this function. Hence the focus lies on the evaluation of the size of the source, special attention has to be given to the width of the respective Gaussian. For that reason some assumptions are made reaching this aim in a more easy way. Firstly the amplitudes are set to one and the offset b is set to zero, so the peak is centred around the origin. Then both sides are multiplied by the natural logarithmic function $\ln$ getting rid of the exponential, so this yields to:
+\begin{equation}
+-\frac{1}{2}\left(\frac{x}{\sigma_{system}}\right)^{2} = -\frac{1}{2}\left(\frac{x}{\sigma_{s}\cdot(M-1)}\right)^{2}-\frac{1}{2}\left(\frac{x}{\sigma_{d}}\right)^{2}.
+\end{equation}
+After cancelling out the pre factors and the $x$-es the equation simplifies to:
+\begin{equation}
+\left(\frac{1}{\sigma_{system}}\right)^{2} = \left(\frac{1}{\sigma_{source}\cdot(M-1)}\right)^{2}+\left(\frac{1}{\sigma_{detector}}\right)^{2}.
+\end{equation}
+Inverting of the hole equation and taking the square-root the final equation for the system's spread width is given by:
+\begin{equation}\label{spotwidth}
+ \sigma_{system} = \sqrt{{\sigma_{source}}^{2}\cdot(M-1)^{2}+{\sigma_{detector}}^{2}}.
+\end{equation}
+With this equation at hand it is now possible to determine the properties of a system at the spatial- and of course if needed at the frequency- domain.
+%% hiere moöglcherweies noch die formel ffür die mtf einfügen und bisschen mehr text... 
 
 
 

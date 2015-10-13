@@ -1,0 +1,630 @@
+\ifglsentryexists{lsi}{}%
+{%
+\gls@defglossaryentry{lsi}%
+{%
+name={LSI},%
+sort={LSI},%
+type={acronym},%
+first={linear and shift invariant\glsspace (LSI)},%
+firstplural={linear and shift invariants\glsspace (LSIs)},%
+text={LSI},%
+plural={LSIs},%
+description={linear and shift invariant},%
+descriptionplural={linear and shift invariant\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={linear and shift invariant},%
+longplural={linear and shift invariants},%
+short={LSI},%
+shortplural={LSIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{lsf}{}%
+{%
+\gls@defglossaryentry{lsf}%
+{%
+name={LSF},%
+sort={LSF},%
+type={acronym},%
+first={Line-spread-function\glsspace (LSF)},%
+firstplural={Line-spread-functions\glsspace (LSFs)},%
+text={LSF},%
+plural={LSFs},%
+description={Line-spread-function},%
+descriptionplural={Line-spread-function\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Line-spread-function},%
+longplural={Line-spread-functions},%
+short={LSF},%
+shortplural={LSFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{fwhm}{}%
+{%
+\gls@defglossaryentry{fwhm}%
+{%
+name={FWHM},%
+sort={FWHM},%
+type={acronym},%
+first={full width at half maximum\glsspace (FWHM)},%
+firstplural={full width at half maximums\glsspace (FWHMs)},%
+text={FWHM},%
+plural={FWHMs},%
+description={full width at half maximum},%
+descriptionplural={full width at half maximum\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={full width at half maximum},%
+longplural={full width at half maximums},%
+short={FWHM},%
+shortplural={FWHMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{psf}{}%
+{%
+\gls@defglossaryentry{psf}%
+{%
+name={PSF},%
+sort={PSF},%
+type={acronym},%
+first={Point-spread-function\glsspace (PSF)},%
+firstplural={Point-spread-functions\glsspace (PSFs)},%
+text={PSF},%
+plural={PSFs},%
+description={Point-spread-function},%
+descriptionplural={Point-spread-function\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Point-spread-function},%
+longplural={Point-spread-functions},%
+short={PSF},%
+shortplural={PSFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{amp}{}%
+{%
+\gls@defglossaryentry{amp}%
+{%
+name={AMP},%
+sort={AMP},%
+type={acronym},%
+first={Signal of the Amplitude modulation \glsspace (AMP)},%
+firstplural={Signal of the Amplitude modulation s\glsspace (AMPs)},%
+text={AMP},%
+plural={AMPs},%
+description={Signal of the Amplitude modulation},%
+descriptionplural={Signal of the Amplitude modulation \acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Signal of the Amplitude modulation},%
+longplural={Signal of the Amplitude modulation s},%
+short={AMP},%
+shortplural={AMPs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dpc}{}%
+{%
+\gls@defglossaryentry{dpc}%
+{%
+name={DPC},%
+sort={DPC},%
+type={acronym},%
+first={Differential Phase Contrast\glsspace (DPC)},%
+firstplural={Differential Phase Contrasts\glsspace (DPCs)},%
+text={DPC},%
+plural={DPCs},%
+description={Differential Phase Contrast},%
+descriptionplural={Differential Phase Contrast\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Differential Phase Contrast},%
+longplural={Differential Phase Contrasts},%
+short={DPC},%
+shortplural={DPCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{dci}{}%
+{%
+\gls@defglossaryentry{dci}%
+{%
+name={DCI},%
+sort={DCI},%
+type={acronym},%
+first={Dark-field Imaging\glsspace (DCI)},%
+firstplural={Dark-field Imagings\glsspace (DCIs)},%
+text={DCI},%
+plural={DCIs},%
+description={Dark-field Imaging},%
+descriptionplural={Dark-field Imaging\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Dark-field Imaging},%
+longplural={Dark-field Imagings},%
+short={DCI},%
+shortplural={DCIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{esf}{}%
+{%
+\gls@defglossaryentry{esf}%
+{%
+name={ESF},%
+sort={ESF},%
+type={acronym},%
+first={Edge spread function\glsspace (ESF)},%
+firstplural={Edge spread functions\glsspace (ESFs)},%
+text={ESF},%
+plural={ESFs},%
+description={Edge spread function},%
+descriptionplural={Edge spread function\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Edge spread function},%
+longplural={Edge spread functions},%
+short={ESF},%
+shortplural={ESFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{mtf}{}%
+{%
+\gls@defglossaryentry{mtf}%
+{%
+name={MTF},%
+sort={MTF},%
+type={acronym},%
+first={Modulation transfer function\glsspace (MTF)},%
+firstplural={Modulation transfer functions\glsspace (MTFs)},%
+text={MTF},%
+plural={MTFs},%
+description={Modulation transfer function},%
+descriptionplural={Modulation transfer function\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Modulation transfer function},%
+longplural={Modulation transfer functions},%
+short={MTF},%
+shortplural={MTFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{otf}{}%
+{%
+\gls@defglossaryentry{otf}%
+{%
+name={OTF},%
+sort={OTF},%
+type={acronym},%
+first={Optical transfer function\glsspace (OTF)},%
+firstplural={Optical transfer functions\glsspace (OTFs)},%
+text={OTF},%
+plural={OTFs},%
+description={Optical transfer function},%
+descriptionplural={Optical transfer function\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Optical transfer function},%
+longplural={Optical transfer functions},%
+short={OTF},%
+shortplural={OTFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ptf}{}%
+{%
+\gls@defglossaryentry{ptf}%
+{%
+name={PTF},%
+sort={PTF},%
+type={acronym},%
+first={Phase transfer function\glsspace (PTF)},%
+firstplural={Phase transfer functions\glsspace (PTFs)},%
+text={PTF},%
+plural={PTFs},%
+description={Phase transfer function},%
+descriptionplural={Phase transfer function\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Phase transfer function},%
+longplural={Phase transfer functions},%
+short={PTF},%
+shortplural={PTFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{csi}{}%
+{%
+\gls@defglossaryentry{csi}%
+{%
+name={CsI},%
+sort={CsI},%
+type={acronym},%
+first={Caesium Iodine\glsspace (CsI)},%
+firstplural={Caesium Iodines\glsspace (CsIs)},%
+text={CsI},%
+plural={CsIs},%
+description={Caesium Iodine},%
+descriptionplural={Caesium Iodine\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Caesium Iodine},%
+longplural={Caesium Iodines},%
+short={CsI},%
+shortplural={CsIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{fel}{}%
+{%
+\gls@defglossaryentry{fel}%
+{%
+name={FEL},%
+sort={FEL},%
+type={acronym},%
+first={Free electron lasers\glsspace (FEL)},%
+firstplural={Free electron laserss\glsspace (FELs)},%
+text={FEL},%
+plural={FELs},%
+description={Free electron lasers},%
+descriptionplural={Free electron lasers\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Free electron lasers},%
+longplural={Free electron laserss},%
+short={FEL},%
+shortplural={FELs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{liga}{}%
+{%
+\gls@defglossaryentry{liga}%
+{%
+name={LIGA},%
+sort={LIGA},%
+type={acronym},%
+first={Lithography and Galvanization\glsspace (LIGA)},%
+firstplural={Lithography and Galvanizations\glsspace (LIGAs)},%
+text={LIGA},%
+plural={LIGAs},%
+description={Lithography and Galvanization},%
+descriptionplural={Lithography and Galvanization\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Lithography and Galvanization},%
+longplural={Lithography and Galvanizations},%
+short={LIGA},%
+shortplural={LIGAs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{din}{}%
+{%
+\gls@defglossaryentry{din}%
+{%
+name={DIN},%
+sort={DIN},%
+type={acronym},%
+first={Deutsches Institut f\IeC {\"u}r Normung\glsspace (DIN)},%
+firstplural={Deutsches Institut f\IeC {\"u}r Normungs\glsspace (DINs)},%
+text={DIN},%
+plural={DINs},%
+description={Deutsches Institut für Normung},%
+descriptionplural={Deutsches Institut für Normung\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Deutsches Institut f\IeC {\"u}r Normung},%
+longplural={Deutsches Institut f\IeC {\"u}r Normungs},%
+short={DIN},%
+shortplural={DINs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{en}{}%
+{%
+\gls@defglossaryentry{en}%
+{%
+name={EN},%
+sort={EN},%
+type={acronym},%
+first={Europ\IeC {\"a}ische Norm\glsspace (EN)},%
+firstplural={Europ\IeC {\"a}ische Norms\glsspace (ENs)},%
+text={EN},%
+plural={ENs},%
+description={Europäische Norm},%
+descriptionplural={Europäische Norm\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Europ\IeC {\"a}ische Norm},%
+longplural={Europ\IeC {\"a}ische Norms},%
+short={EN},%
+shortplural={ENs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{astm}{}%
+{%
+\gls@defglossaryentry{astm}%
+{%
+name={ASTM},%
+sort={ASTM},%
+type={acronym},%
+first={ASTM International (former: American Society for Testing and Materials)\glsspace (ASTM)},%
+firstplural={ASTM International (former: American Society for Testing and Materials)s\glsspace (ASTMs)},%
+text={ASTM},%
+plural={ASTMs},%
+description={ASTM International (former: American Society for Testing and Materials)},%
+descriptionplural={ASTM International (former: American Society for Testing and Materials)\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={ASTM International (former: American Society for Testing and Materials)},%
+longplural={ASTM International (former: American Society for Testing and Materials)s},%
+short={ASTM},%
+shortplural={ASTMs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{iec}{}%
+{%
+\gls@defglossaryentry{iec}%
+{%
+name={IEC},%
+sort={IEC},%
+type={acronym},%
+first={International Electrotechnical Commission\glsspace (IEC)},%
+firstplural={International Electrotechnical Commissions\glsspace (IECs)},%
+text={IEC},%
+plural={IECs},%
+description={International Electrotechnical Commission},%
+descriptionplural={International Electrotechnical Commission\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={International Electrotechnical Commission},%
+longplural={International Electrotechnical Commissions},%
+short={IEC},%
+shortplural={IECs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ssr}{}%
+{%
+\gls@defglossaryentry{ssr}%
+{%
+name={SSR},%
+sort={SSR},%
+type={acronym},%
+first={Spatial system response\glsspace (SSR)},%
+firstplural={Spatial system responses\glsspace (SSRs)},%
+text={SSR},%
+plural={SSRs},%
+description={Spatial system response},%
+descriptionplural={Spatial system response\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Spatial system response},%
+longplural={Spatial system responses},%
+short={SSR},%
+shortplural={SSRs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{flat}{}%
+{%
+\gls@defglossaryentry{flat}%
+{%
+name={flat-field},%
+sort={flat-field},%
+type={main},%
+first={flat-field},%
+firstplural={flat-fields},%
+text={flat-field},%
+plural={flat-fields},%
+description={Image without any sample. Used for intensity correction of images},%
+descriptionplural={Image without any sample. Used for intensity correction of images},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{fwhmg}{}%
+{%
+\gls@defglossaryentry{fwhmg}%
+{%
+name={FWHM},%
+sort={FWHM},%
+type={main},%
+first={FWHM},%
+firstplural={FWHMs},%
+text={FWHM},%
+plural={FWHMs},%
+description={The full width at half maximum (FWHM) is a definition for effective width of a peak and is defined over the standard deviation $\sigma $ to $FWHM = 2\sqrt {2\log 2}\cdot \sigma $.},%
+descriptionplural={The full width at half maximum (FWHM) is a definition for effective width of a peak and is defined over the standard deviation $\sigma $ to $FWHM = 2\sqrt {2\log 2}\cdot \sigma $.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%

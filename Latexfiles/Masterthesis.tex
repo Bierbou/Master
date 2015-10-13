@@ -1,124 +1,103 @@
 %%\ReuirePackage{fix-cm}
-\documentclass[11pt,a4paper,twoside,openright,onecolumn]{scrbook}
-
+\documentclass[11pt,paper = a4,twoside,openright,onecolumn]{scrbook}
+%\renewcommand\sl{XXXXXXXXXXXXXXXXXXXX} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-\usepackage{ifthen}
 
-\newboolean{BlackWhite}
-\setboolean{BlackWhite}{false}
-\newboolean{PdfPackage}
-\setboolean{PdfPackage}{false}
-
-\ifthenelse{\boolean{BlackWhite}}{
-  \usepackage[dvips]{graphicx}
-\newcommand{\condition}{true}
-}
-
-%\usepackage{epstopdf}
-
-\ifthenelse{\boolean{PdfPackage}}
-{%%
-  \ifx\pdftexversion\undefined
-  \usepackage[dvips]{graphicx}
-%  \newcommand{\condition}{false}
-  \else
-  \usepackage[pdftex]{graphicx}
-  \usepackage{epstopdf}
-
-%  \usepackage[pdftex,colorlinks=true,pdfstartview=FitV,linkcolor=pdflink,citecolor=pdfcite,urlcolor=pdfwww,bookmarks=true,
-%  bookmarksnumbered=true,pdftitle={Astrophysical magnetohydrodynamics and
-%    radiative transfer: numerical methods and applications},
-%  pdfsubject={supernovae},
-%  pdfauthor={Martin Obergaulinger},
-%  pdfkeywords={supernova, neutron-star mergers, magnetohydrodynamics, neutrino transport},
-%  bookmarksnumbered=true,a4paper]{hyperref}
-  \usepackage{thumbpdf}
-  \newcommand{\condition}{true}
-  \fi
-  %%
-}
-{
-  \usepackage[dvips]{graphicx}
-}
-
-%%\usepackage{psfig}              % Allows inclusion of eps files.
-\usepackage{thumbpdf}
-
-%%% Graphiken
-\usepackage{epsfig}
-\usepackage{psfrag}
-%\usepackage{tiff}
-%%% AA-Makros
-%%%Tomek%%%\usepackage{/afs/mpa/home/mobergau/LaTeX/aas_macros}
-% Do I need them for anything?
-
-
-%%% AMS-Packages
-\usepackage{amsmath,amssymb,amsthm,amsfonts,amscd}%Martins,
-                                %temporarily I will coment the some of them
-%\usepackage{amsmath}%Tomek but restore Martin's soon
-\usepackage{relsize}%Tomek for a bigger sum
-\usepackage{amsbsy}%Tomek for stupid fat greek letters!
-%\usepackage{unicode-math}%Tomek for stupid fat greek letters!
-\usepackage{bm}%Tomek for stupid fat greek letters!
-%%% Indizes
-\usepackage{nomencl}
-\usepackage{index}
-\usepackage{tocloft}
-\usepackage[printonlyused,smaller]{acronym}
-%%%Tomek%%% \usepackage[printonlyused,smaller]{acronym}
-%Martin had it, but it was not found
-
-%%% Biblio
-\usepackage{natbib}
-%%%Tomek%%%\usepackage{citesort}         
-%Martin had it, but it was not found
-
-%%% Formatierung
-\usepackage{soul}
-\usepackage{paralist}
-\usepackage{fancyhdr}
-\usepackage{float}
-\usepackage[indentfirst]{titlesec}
-\usepackage{url}
-\usepackage[usenames,dvipsnames]{color}
-
-%%% Schriften
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%     Sprachen    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[ngerman,british]{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%     Coding      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc}
 \usepackage{mathrsfs}
 \usepackage{verbatim}
 \usepackage{bbm}
 \usepackage{relsize}
 \usepackage[mathcal]{euscript}
 \usepackage{latexsym}
-\usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{wasysym}
+\usepackage{csquotes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%      Grafiken und tabellen   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} %[pdftex]
+\usepackage{color}
+\usepackage{epsfig}
+\usepackage{psfrag}
+\usepackage{grffile}
+\graphicspath{{E:/Documents/Mastersthesisliterature/}{E:/Documents/Masterarbeit/Master/analysis\_pictures}}
+	%{E:/Documents/Masterarbeit/Master/timepowerstability/}}
+%\usepackage{thumbpdf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%     AMS-Packages      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsthm}%Martins,
+\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{amsfonts}                               %temporarily I will coment the some of them
+\usepackage{mathtools}
+\usepackage{relsize} %for a bigger sum
+\usepackage{amsbsy}% for stupid fat greek letters!
+\usepackage{bm}% for stupid fat greek letters!
+%%% Indizes
+\usepackage{nomencl}
+\usepackage{index}
+\usepackage{tocloft}
+%%%Tomek%%% \usepackage[printonlyused,smaller]{acronym}
+%Martin had it, but it was not found
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%       Biblio      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[square,numbers,sort]{natbib}
+%\bibliographystyle{ksfh_nat}
+\bibliographystyle{dinat}
+\usepackage[nottoc]{tocbibind}
+\usepackage{citesort}         
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%      Formatierung    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{soul}
+\usepackage{paralist}
+\usepackage{fancyhdr}
+\usepackage{float}
+%\usepackage[indentfirst]{titlesec}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{caption}
+\captionsetup{labelfont=bf}%,textfont = it,font=small}
+
 %%% %%% das folgende ermoeglicht Vektor-Schriften (Typ 1) 
 %%%     auch mit [T1]{fontenc}
 %%\usepackage{ae,aeguill}
 %%% %%% neuer allerdings sind die folgenden Schriften
-%\usepackage{lmodern}
+\usepackage{lmodern}
 %%% oder wir verwenden Times oder Palatino
-\usepackage{mathptmx}
+%\usepackage{mathptmx}
 %%% %%% das folgende verwendet Times
 %%\usepackage[varg]{txfonts}
 %%% %%% das folgende verwendet Palatino
 %%\usepackage{pxfonts}
 
-%% Sprachen
-\usepackage[german,english,british]{babel}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%% Tomek's  commands and packages  %%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%  commands and packages  %%%%%%%%%%%%%%%%%%%%
+%\newcommand{\rat}{keepaspectratio = true}
+
+
+
 
 \usepackage{subcaption}% Tomek for figures
-\usepackage{hyperref}% Tomek for nicer links
-
+\usepackage{hyperref}%  for nicer links
 \usepackage{pbox}
 
 
@@ -135,18 +114,32 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% The glossary entry the acronym links to   
+%\newglossaryentry{apig}{name={API},
+%	description={An Application Programming Interface (API) is a particular set
+%		of rules and specifications that a software program can follow to access and
+%		make use of the services and resources provided by another particular software
+%		program that implements that API}}
 
+%%% define the acronym and use the see= option
+%\newglossaryentry{api}{type=\acronymtype, name={API}, description={Application
+%		Programming Interface}, first={Application
+%		Programming Interface (API)\glsadd{apig}}, see=[Glossary:]{apig}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%  Indizes etc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%={language=english}
+\usepackage[acronym,toc]{glossaries}
+%\usepackage [toc]{glossaries}
+%\newglossary
+\newglossary[plg]{parameter}{par}{spo}{Symbols and parameter} 
+\makeglossaries
+%\GlsSetXdyLanguage{british}
 
-\makeglossary
-
+\usepackage[xindy]{imakeidx}
 \makeindex
-\newindex[thepage]{fig}{fdx}{fnd}{List of figures}
-\newindex[thepage]{tab}{tdx}{tnd}{List of tables}
-\newindex[thepage]{eqn}{edx}{end}{List of selected equations}
+
 %% leider geht das mit der schoeneren Indizierung nach Fig.-, Tab.-,
 %% Gl.-Nummern aus irgendeinem Grunde nicht; daher soll in den
 %% entsprechenden Indizes b.a.w. nur die Seitenzahl stehen.
@@ -169,79 +162,8 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\numberwithin{figure}{chapter}
-\numberwithin{table}{chapter}
-\numberwithin{equation}{chapter}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\newboolean{strange_titles}
-\setboolean{strange_titles}{false}
-%\setboolean{strange_titles}{true}
-\ifthenelse{\boolean{strange_titles}}{
-	
-	\newcommand*\sectitle[1]{%
-		\MakeUppercase{\so{#1}}\\[.66ex]
-		\rule{13mm}{.4pt}
-	}
-	\newcommand*\chaptitle[1]{%
-		\MakeUppercase{\so{#1}}\\[.66ex]
-		\vspace{-5mm}
-		\rule{120mm}{1.8pt}\\
-		\vspace{-6.5mm}
-		\rule{100mm}{.9pt}
-	}
-	\newcommand*\periodafter[2]{#1{#2}}
-	
-	\titleformat{\chapter}[display]
-	{\normalfont\Large\centering}
-	{%
-		\rule{100mm}{.9pt}\\
-		\vspace{-5.mm}
-		\rule{120mm}{1.8pt}\\
-		\vspace{.5pc}
-		\Large \MakeUppercase{\so{\chaptertitlename}} \thechapter}
-	{.2pc}
-	{%
-		\LARGE \chaptitle%
-	}
-	
-	\titleformat{\section}[display]
-	{\normalfont\centering}
-	{\S. \thesection.}
-	{2ex}
-	{\sectitle}
-	
-	\titleformat{\subsection}[block]
-	{\normalfont\centering\bfseries}
-	{\thesubsection}
-	{.66em}
-	{\periodafter\relax}
-}
-{}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newboolean{no-nonsense}
-\setboolean{no-nonsense}{true}
-\newboolean{korrigiert}
-\setboolean{korrigiert}{true}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -251,12 +173,33 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-	
+ 
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.svg}
+\nocite{*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%% EPSTOPDF                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+\newacronym{lsi}{LSI}{linear and shift invariant}
+\newacronym{lsf}{LSF}{ Line-spread-function}
+\newacronym{fwhm}{FWHM}{Full width at half maximum}
+\newacronym{psf}{PSF}{Point-spread-function}
+\newacronym{amp}{AMP}{Signal of the Amplitude modulation }
+\newacronym{dpc}{DPC}{Differential Phase Contrast}
+\newacronym{dci}{DCI}{Dark-field Imaging}
+\newacronym{esf}{ESF}{Edge spread function}
+\newacronym{mtf}{MTF}{Modulation transfer function}
+\newacronym{otf}{OTF}{Optical transfer function}
+\newacronym{ptf}{PTF}{Phase transfer function}
+\newacronym{csi}{CsI}{Caesium Iodine}
+\newacronym{fel}{FEL}{Free electron lasers}
+\newacronym{liga}{LIGA}{Lithography and Galvanization}
+\newacronym{din}{DIN}{Deutsches Institut für Normung}
+\newacronym{en}{EN}{Europäische Norm}
+\newacronym{astm}{ASTM}{ASTM International (former: American Society for Testing and Materials)}
+\newacronym{iec}{IEC}{International Electrotechnical Commission}
+\newacronym{ssr}{SSR}{Spatial system response}
+\newglossaryentry{flat}{name={flat-field},description={Image without any sample. Used for intensity correction of images }}
+\newglossaryentry{fwhmg}{name={FWHM},description={The full width at half maximum (FWHM) is a definition for effective width of a peak and is defined over the standard deviation $\sigma$ to $FWHM = 2\sqrt{2\log 2}\cdot \sigma$. }}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TITLE PAGE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -286,17 +229,27 @@
 
 
 
-%\nocite{*}
 
 %%\setlength{\parskip}{1ex plus0.5ex minus 0.2ex} %para el espacio entre parrafo
 %%\include{motto}\clearpage{\pagestyle{empty}\cleardoublepage}
-%%\pagestyle{fancy}
-%%\pagenumbering{roman}
-%%\tableofcontents\clearpage{\pagestyle{empty}\cleardoublepage}
-%%\pagestyle{fancy}
-%%\pagenumbering{arabic}
+\pagestyle{fancy}\pagenumbering{Roman}
+
+%Abstract  abstract.tex
+\include{abstract}\newpage\clearpage{\pagestyle{empty}\cleardoublepage}
+
+%kurzfassung kurzfassung.tex
+\include{kurzfassung}\clearpage{\pagestyle{empty}\cleardoublepage}
+
+\tableofcontents\clearpage{\pagestyle{empty}\cleardoublepage}
+
+
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
 
 %%% Seitenformat
+\setlength{\parindent}{0pt}
 %\setlength{\topmargin}{-0.5cm}
 %\setlength{\paperheight}{29.7cm}
 %\setlength{\paperwidth}{21cm}
@@ -308,21 +261,6 @@
 %\setlength{\evensidemargin} {0.46 cm} 
 %%\renewcommand{\headwidth}{14.6cm}
 
-\pagenumbering{Roman}
-%Abstract  abstract.tex
-\include{abstract}\newpage\clearpage{\pagestyle{empty}\cleardoublepage}
-
-%kurzfassung kurzfassung.tex
-\include{kurzfassung}\clearpage{\pagestyle{empty}\cleardoublepage}
-
-
-
-\tableofcontents\clearpage{\pagestyle{empty}\cleardoublepage}
-\pagestyle{fancy}
-
-
-\pagenumbering{arabic}
-\setcounter{page}{1}
 %introduction   introduction.tex
 \include{introduction}\clearpage{\pagestyle{empty}\cleardoublepage}
 
@@ -355,26 +293,29 @@
 \include{summary}\clearpage{\pagestyle{empty}}
 
 
+%\nocite{Donath2007,Li2013,Mueller2013,Pfeiffer2006a,TalbotLau,Wagner1977,Liu2015,Qin2015}
 %%%Tomek%%%\appendix
 %%%Tomek%%%\include{Anh--MHD}\clearpage{\pagestyle{empty}\cleardoublepage}
 
 %%\appendix
 %%\include{appendix}\clearpage{\pagestyle{empty}\cleardoublepage}
 
-
-
 %Acknowledgments
 %%\include{thanks}\clearpage{\pagestyle{empty}\cleardoublepage}   %Tomek
 
-
 %%
-%%\addcontentsline{toc}{chapter}{Bibliography}%Margarita
-%%\bibliographystyle{aa}
-%%\bibliography{Biblio}\clearpage{\pagestyle{empty}\cleardoublepage}
+%\appendix
+\pagestyle{fancy}
 
+\listoffigures
+\listoftables
 
-
-
+%\glossaryname
+%\acronymname
+%\printglossary[title = Acronyms, toctitle = Acronmys and symbols ]
+\printglossaries%[type=\acronymtype,title=Acronyms,toctitle=Acronyms]
+\bibliography{Masterliterature}\clearpage{\pagestyle{empty}\cleardoublepage}
+%\printnoi
 
 
 
