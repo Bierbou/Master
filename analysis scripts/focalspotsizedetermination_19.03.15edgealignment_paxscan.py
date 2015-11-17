@@ -37,22 +37,22 @@ find angle for which the slope is max
 """
 # readin flatfield wihtout a sample and correct vertical black detector edge by linear regression
 #for paxscan
-flatfield1 = e17.io.h5read("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement_paxscan_60kvp/vertical_edge/paxscan/ct/paximage_ct_077365.h5")["raw_data"]
-flatfield2 = e17.io.h5read("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement_paxscan_60kvp/horizontal_edge/paxscan/ct/paximage_ct_077369.h5")["raw_data"]
-flatfield3 = e17.io.h5read("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement_paxscan_60kvp/diagonal_edge/paxscan/ct/paximage_ct_077373.h5")["raw_data"]
-1/0
+flatfield1 = e17.io.h5read("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_control/paxscan/ct/paximage_ct_479459.h5")["raw_data"]
+#flatfield2 = e17.io.h5read("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement_paxscan_60kvp/horizontal_edge/paxscan/ct/paximage_ct_077369.h5")["raw_data"]
+#flatfield3 = e17.io.h5read("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement_paxscan_60kvp/diagonal_edge/paxscan/ct/paximage_ct_077373.h5")["raw_data"]
+#1/0
 
 
 
-flatfield = e17.io.h5read("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat4_fine/paxscan/ct/paximage_ct_077320.h5")["raw_data"]
+flatfield = e17.io.h5read("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_control2/paxscan/ct/paximage_ct_479479.h5")["raw_data"]
 flatfield = flatfield*1.0
 flatfield = np.nan_to_num(flatfield)
 
 
 # data with edge
-data_norm = np.zeros((pic_numb,200,300))
-linesum = np.zeros((pic_numb,300), dtype = "float64")
-pixel_number = np.arange(0,300)
+data_norm = np.zeros((pic_numb,300,700))
+linesum = np.zeros((pic_numb,700), dtype = "float64")
+pixel_number = np.arange(0,700)
 fwhm = np.zeros((pic_numb), dtype = "float64")
 """
 Sum over all 440 horizontal lines 
@@ -62,14 +62,14 @@ and write it in a (41,440) array
 # for horizontal edge set axis = 1
 direction = 0
 for i in range(pic_numb):
-    filename = "/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat4_fine/paxscan/ct/paximage_ct_%06d.h5"%(77321+i)
+    filename = "/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_control2/paxscan/ct/paximage_ct_%i.h5"%(479480+i)
     print "Loading file", filename
     # for paxscan
     img = e17.io.h5read(filename)["raw_data"]
     #1/0
-    img = img[450:650,250:550]*1.0
+    img = img[400:700,0:700]*1.0
 
-    data_norm[i] = img /flatfield[450:650,250:550] #divide data by flatfield 
+    data_norm[i] = img /flatfield[400:700,0:700] #divide data by flatfield 
     linesum[i] = np.mean(data_norm[i],axis = direction)
     linesum[i] = linesum[i][::-1]
     #linesum[i] = np.sum(data_norm[i],axis = direction)
@@ -103,11 +103,11 @@ Take fitparams and give it to gaussfit and determine FWHM
 """ 
 plt.figure(1)
 for i in range(pic_numb):
-    fwhm[i] = np.abs(2*(2*np.log(2))**.5*best_fitparam[i,2]) 
+    fwhm[i] = np.abs(2*(2*np.log(2))**.5*best_fitparam[i,2])
     plt.plot(pixel_number, gauss(pixel_number,best_fitparam[i,0],best_fitparam[i,1], best_fitparam[i,2], best_fitparam[i,3]))
 plt.set_cmap('autumn')
 print "Position of minimum ==> Value of minimum" 
-print "       ",np.argmin(fwhm)+1 ,"         ==>     ", np.min(fwhm)
+print "       ",np.argmin(fwhm)+1 ,"     ==>     ", np.min(fwhm)
 print "       ","right angle is at postion:" ,"         ==>     ", "curphi-startphi+", np.argmin(fwhm)+1
 """
 check the tilt of the edge to the detector lines, 
@@ -131,6 +131,7 @@ plt.figure(3) #plot all 41 fitfunctions in one plot
 for i in range(pic_numb):
     plt.plot(pixel_number, error_fit_func(pixel_number,best_fitparam[i,0], best_fitparam[i,1], best_fitparam[i,2], best_fitparam[i,3]), )
 
-
+plt.figure('fwhm')
+plt.plot(fwhm)
 
 

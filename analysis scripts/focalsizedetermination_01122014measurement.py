@@ -36,7 +36,7 @@ def gauss (x,a,b,c,d,):
 flatfieldvert,meta =  e17.io.rawread("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_ccd/ccdfli/ct/ccdimage_ct_1953624.raw")
 #flatfieldhor,meta =  e17.io.cbfread("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement3_60kvphighpower/horizontal_edge/pilatus/ct/specadm_1_ct_1950591.cbf")
 #flatfielddiag,meta =  e17.io.cbfread("/data/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement3_60kvphighpower/diagonal_edge/pilatus/ct/specadm_1_ct_1950611.cbf")
-1/0
+#1/0
 """
 data reading
 find angle for which the slope is max 
@@ -126,5 +126,5 @@ for i in range(pic_numb):
 plt.figure(3) #plot all 41 fitfunctions in one plot
 for i in range(pic_numb):
     plt.plot(pixel_number, error_fit_func(pixel_number,best_fitparam[i,0], best_fitparam[i,1], best_fitparam[i,2], best_fitparam[i,3]), )
-
-
+plt.figure('fwhm')
+plt.plot(fwhm)

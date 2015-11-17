@@ -24,6 +24,10 @@ plt.close("all")
 #============================================================================================================
 #                        Data input
 #============================================================================================================
+##### DETector psf's Varian Paxscan#########
+with open('/users/Baier/analysis_files/detector_psf_40kvp.txt') as f:
+    psfs = list(f)
+    
 """ Standard data folder"""
 data = "/data/DPC/local_setups/microfocus/samples/"
 """ Folder containing the data"""
@@ -36,8 +40,8 @@ flats_v =list()
 data_v =list() ### the real pictures
 dir_num=0
 for sub_dir_v in sub_dirs_v:    ##### check the subfolders and sort all pictures in it in the data folder 
-    dirs=np.sort(os.listdir(sam_v_folder+ sub_dir_v)) ################################daten löschen die die s zerhaut hat also die 
-    for dir_name in dirs:                                       ##################### da wo die platte voll war
+    dirs=np.sort(os.listdir(sam_v_folder+ sub_dir_v)) 
+    for dir_name in dirs:                                      
         if dir_num%4!=0:         
             data_v.append(sam_v_folder+ sub_dir_v+'/'+dir_name)
         else:    
@@ -82,6 +86,7 @@ data_dcopy = list(data_d)
 #============================================================================================================
 # choose your folder
 filepath = '/users/Baier/analysis_files/'
+filepath_pic = '/users/Baier/analysis_pictures/40kvpspot_sizes/'
 #filepath = data+'linespread_acquisition_flat_measurement3_60kvphighpower/'
 filename = data_folder+'.txt'
 # write the header for txt file
@@ -94,18 +99,14 @@ info = 'contains at first column the different Watts, then vertical, horizontal,
 proj_angle = False
 #choose your edge directions
 fit_esf_v = True
-fit_esf_h = False
-fit_esf_d = False
-# select your detector 
-pilatus = False
-paxscan = True
-ccd = False
+fit_esf_h = True
+fit_esf_d = True
 # Set True if you want plots
 plots = True
 # Set True if you want your results saved
 saveon = False
 #set true analyzing errorfit on data and gausspeak 
-edge_fit = True
+edge_fit = False
 #============================================================================================================
 #                       Function definitions
 #============================================================================================================ 
@@ -118,13 +119,23 @@ def gauss (x,a,b,c,d,):
 #============================================================================================================
 #                       Analysis parameter
 #============================================================================================================
-power_range = 90
-stepsize = 10   
+power_range = 60
+stepsize = 5 
 pic_number = 3 # Number of pictures analyzing per power
 powersteps = int(power_range/stepsize + 1)
-angle_tilt = 3.05 ## be carefull projector needs reflected angle values
+angle_tilt = 2.95 ## be carefull projector needs reflected angle values
 pixel_subdivision = 0.01
 setup_len = 195.6
+# Parameter for the errorfit 
+a = 1. # Amplitude 
+b = 0.5 # offset in x-direction
+c = 0.5#(detector_pixel_size)/((2*(2*np.log(2))**.5)*magnification[i]) # width of the edge
+d = 0. # offset in y-direction
+start_params = [a,b,c,d] # Startparameter for errorfit
+## Detector PSFs
+fwhm_det_psf_hor = float(psfs[2])
+fwhm_det_psf_vert = float(psfs[3])
+fwhm_det_psf_diag = np.sqrt((fwhm_det_psf_vert**2 +fwhm_det_psf_hor**2)/2. )
 ## Middle of the edge depth
 edge_dist_z1 = 8.0
 edge_dist_z2 = 23.
@@ -134,10 +145,7 @@ magnification_z1 = setup_len/edge_dist_z2
 magnification_z2 = setup_len/edge_dist_z3
 magnification = ([magnification_z0,magnification_z1,magnification_z2])
 #Projector settings
-if pilatus:
-    detector_pixel_size = 172.
-if paxscan:
-    detector_pixel_size = 127.
+detector_pixel_size = 127.
 #============================================================================================================
 #                   find best projection angle 
 #============================================================================================================
@@ -145,22 +153,11 @@ if proj_angle:
     start_angle = angle_tilt - .5
     end_angle = angle_tilt + .5
     proj_number = 1+(end_angle -start_angle)/0.1
-    if pilatus:
-        #for cbf pilatus format    
-        flatfield,meta =  e17.io.cbfread(data+sam_v_folder+"/pilatus/ct/specadm_1_ct_%i.cbf"%(1950551))
-        flatfield[:,242] = flatfield[:,241] +(flatfield[:,245]-flatfield[:,241])/3 
-        flatfield[:,243] = flatfield[:,241] +2*(flatfield[:,245]-flatfield[:,241])/3
-        flatfield[:,244] = flatfield[:,241] +(flatfield[:,245]-flatfield[:,241])
-        img_vert,meta = e17.io.cbfread(data+sam_v_folder+"/pilatus/ct/specadm_1_ct_%i.cbf"%(1950553))
-    if ccd:
-        #for FIT format of ccd   ' you have to change the file ending
-        flatfield = fit.getdata(data+sam_v_folder+"/ct/specadm_1_ct_%i.cbf"%(1950551))
-        img_vert = fit.getdata(data+sam_v_folder+"/ct/specadm_1_ct_%i.cbf"%(1950553))
-    if paxscan: ### take pictures with higher power -> bigger spot -> easier to find the right angle. Choose 50  watts
-        flatfield = e17.io.h5read(sam_v_folder+"/ct/paximage_ct_%06d.h5"%(77834))["raw_data"]
-        img_vert = e17.io.h5read(sam_v_folder+"//ct/paximage_ct_%06d.h5"%(77836))["raw_data"]
-        
+    ### take pictures with higher power -> bigger spot -> easier to find the right angle. Choose 50  watts
+    flatfield = e17.io.h5read(sam_v_folder+"/ct/paximage_ct_%06d.h5"%(77834))["raw_data"]
+    img_vert = e17.io.h5read(sam_v_folder+"//ct/paximage_ct_%06d.h5"%(77836))["raw_data"]       
     img_vert = (img_vert/(flatfield*1.))[400:650,220:470]
+    
     pic_shape = img_vert.shape[0]
     fwhm = np.zeros(proj_number)
     angle = np.zeros(proj_number)
@@ -180,21 +177,15 @@ if proj_angle:
         x_val = x_val/max_x_val;
         
         cutoff = int((pic_shape- pic_shape/np.sqrt(2) )/2+.5)*int(1/pixel_subdivision) # cause of projecting a square data set 
-                                                        # left and right zeros are added get rid of them      
-        # Parameter for the errorfit 
-        a = 1. # Amplitude 
-        b = 0.5 # offset in x-direction
-        c = 0.5#(detector_pixel_size)/((2*(2*np.log(2))**.5)*magnification[i]) # width of the edge
-        d = 0. # offset in y-direction
-        start_params = [a,b,c,d] # Startparameter for errorfit
+
         # fitting datasets 
         best_fitparam, cov_esf = opti.curve_fit(error_fit_func, x_val[cutoff:-cutoff], proj_norm[cutoff:-cutoff], p0=start_params)
         fwhm[i] = np.abs(2*(2*np.log(2))**.5*best_fitparam[2])
         start_angle += 0.1
         angle[i] = start_angle
-#        print fwhm[i]
-#    plt.figure('fwhm_min')
-#    plt.plot(angle,fwhm)
+        print fwhm[i]
+    plt.figure('fwhm_min')
+    plt.plot(angle,fwhm)
     best_angle = angle[np.argmin(fwhm)]
 else:
     best_angle = angle_tilt
@@ -214,27 +205,11 @@ if fit_esf_v:
     fit_params_v = np.ones((powersteps,3,4))
     
     for j in range(powersteps):
-        if pilatus:
-            #for cbf pilatus format    
-            flatfield,meta =  e17.io.cbfread(flats_v[j])
-            flatfield[:,242] = flatfield[:,241] +(flatfield[:,245]-flatfield[:,241])/3 
-            flatfield[:,243] = flatfield[:,241] +2*(flatfield[:,245]-flatfield[:,241])/3
-            flatfield[:,244] = flatfield[:,241] +(flatfield[:,245]-flatfield[:,241])      
-        if ccd:
-            #for FIT format of ccd ' change file ending
-            flatfield =  fit.getdata(data+sam_v_folder+"/ct/specadm_1_ct_%i.cbf"%(flatfield_v +j*12))
-        if paxscan:
-            flatfield = e17.io.h5read(flats_v[j])["raw_data"]           
-        
+        flatfield = e17.io.h5read(flats_v[j])["raw_data"]                  
         fwhm_vert_pix = np.ones((pic_number))
-        for i in np.arange(pic_number):
-            if pilatus:
-                img_vert,meta = e17.io.cbfread(data+sam_v_folder+"/pilatus/ct/specadm_1_ct_%i.cbf"%(flatfield_v +1+j*12+i))
-            if ccd:
-                img_vert = fit.getdata(data+sam_v_folder+"/ct/specadm_1_ct_%i.cbf"%(flatfield_v +1+j*12+i))                
-            if paxscan:
-                #img_vert = e17.io.h5read(data+sam_v_folder+"/paxscan/ct/paximage_ct_%06d.h5"%(flatfield_v +1+j*12+i))["raw_data"]
-                img_vert = e17.io.h5read(data_vcopy.pop(0))["raw_data"]
+        for i in np.arange(pic_number):                
+            #img_vert = e17.io.h5read(data+sam_v_folder+"/paxscan/ct/paximage_ct_%06d.h5"%(flatfield_v +1+j*12+i))["raw_data"]
+            img_vert = e17.io.h5read(data_vcopy.pop(0))["raw_data"]
             img_vert = (img_vert/(flatfield*1.))[400:650,220:470]
             
             pic_shape = img_vert.shape[0]
@@ -251,12 +226,6 @@ if fit_esf_v:
             x_val = x_val/max_x_val;
             
             cutoff = int((pic_shape- pic_shape/np.sqrt(2) )/2+.5)*int(1/pixel_subdivision)
-            
-            a = 1. # Amplitude                                                                           #######without max_x_val 
-            b = 0.5# offset in x-direction                                                             ####### b = 20000
-            c = 0.5#(detector_pixel_size)/((2*(2*np.log(2))**.5)*magnification[i]) # width of the edge   ####### c = 337
-            d = 0. # offset in y-direction
-            start_params = [a,b,c,d] # Startparameter for errorfit
             # fitting datasets
             best_fitparam, cov_esf = opti.curve_fit(error_fit_func, x_val[cutoff :-cutoff], proj_norm_vert[cutoff :-cutoff], p0=start_params)
             esf_fit = error_fit_func(x_val, *best_fitparam)
@@ -273,19 +242,15 @@ if fit_esf_v:
                 plt.plot(x_val[cutoff :-cutoff ], gauss(x_val[cutoff :-cutoff ],best_fitparam[0],best_fitparam[1], (best_fitparam[2]/(magnification[i]-1) ), best_fitparam[3]))
             fwhm_vert_pix[i] = np.abs(2*(2*np.log(2))**.5*best_fitparam[2])
             fit_params_v[j,i] = best_fitparam
-        1/0
+        #1/0
         fwhm_vert[j,0] = fwhm_vert_pix[0]
         fwhm_vert[j,1] = fwhm_vert_pix[1]
         fwhm_vert[j,2] = fwhm_vert_pix[2]
-        spot_width_horizontal[j,0] = (fwhm_vert_pix[0] )/(magnification_z0-1.)
-        spot_width_horizontal[j,1] = (fwhm_vert_pix[1] )/(magnification_z1-1.)
-        spot_width_horizontal[j,2] = (fwhm_vert_pix[2] )/(magnification_z2-1.)
+        spot_width_horizontal[j,0] = np.sqrt(np.abs(fwhm_vert_pix[0]**2 - fwhm_det_psf_hor**2))/(magnification_z0-1.)
+        spot_width_horizontal[j,1] = np.sqrt(np.abs(fwhm_vert_pix[1]**2 - fwhm_det_psf_hor**2))/(magnification_z1-1.) 
+        spot_width_horizontal[j,2] = np.sqrt(np.abs(fwhm_vert_pix[2]**2 - fwhm_det_psf_hor**2))/(magnification_z2-1.)
         mean_spot_size_horizontal[j] = (spot_width_horizontal[j,0] + spot_width_horizontal[j,1] + spot_width_horizontal[j,2])/3.
         
-#        print "FF Series", j
-#        print 'FWHM horizontal ==>  ', spot_width_horizontalM[j,0], '[micron]'
-#        print 'FWHM horizontal ==>  ', spot_width_horizontalM[j,1], '[micron]'
-#        print 'FWHM horizontal ==>  ', spot_width_horizontalM[j,2], '[micron]'
 #============================================================================================================
 #                   Analysis for horizontal edge
 #============================================================================================================
@@ -299,27 +264,11 @@ if fit_esf_h:
     mean_spot_size_vertical = np.ones((powersteps))
     fit_params_h = np.ones((powersteps,3,4))
     for j in range(powersteps):
-        if pilatus:
-            #for cbf pilatus format    
-            flatfield,meta =  e17.io.cbfread(data+sam_h_folder+"/pilatus/ct/specadm_1_ct_%i.cbf"%(flatfield_h +j*12))
-            flatfield[:,242] = flatfield[:,241] +(flatfield[:,245]-flatfield[:,241])/3 
-            flatfield[:,243] = flatfield[:,241] +2*(flatfield[:,245]-flatfield[:,241])/3
-            flatfield[:,244] = flatfield[:,241] +(flatfield[:,245]-flatfield[:,241])      
-        if ccd:
-            #for FIT format of ccd ' change file ending
-            flatfield =  fit.getdata(data+sam_h_folder+"/ct/specadm_1_ct_%i.cbf"%(flatfield_h +j*12))
-        if paxscan:
-            flatfield = e17.io.h5read(data+sam_h_folder+"/paxscan/ct/paximage_ct_%06d.h5"%(flatfield_h +j*12))["raw_data"]           
-            
+        flatfield = e17.io.h5read(flats_h[j])["raw_data"]                           
         fwhm_hor_pix = np.ones((pic_number))
         for i in np.arange(pic_number):
-            if pilatus:
-                img_hor,meta = e17.io.cbfread(data+sam_h_folder+"/pilatus/ct/specadm_1_ct_%i.cbf"%(flatfield_h +1+j*12+i))
-            if ccd:
-                img_hor = fit.getdata(data+sam_h_folder+"/ct/specadm_1_ct_%i.cbf"%(flatfield_h +1+j*12+i))                
-            if paxscan:
-                #img_hor = e17.io.h5read(data+sam_h_folder+"/paxscan/ct/paximage_ct_%06d.h5"%(flatfield_h +1+j*12+i))["raw_data"]
-                img_hor = e17.io.h5read(data_hcopy.pop(0))["raw_data"]
+            #img_hor = e17.io.h5read(data+sam_h_folder+"/paxscan/ct/paximage_ct_%06d.h5"%(flatfield_h +1+j*12+i))["raw_data"]
+            img_hor = e17.io.h5read(data_hcopy.pop(0))["raw_data"]
             img_hor = (img_hor/(flatfield*1.))[350:600,200:450]
             pic_shape = img_hor.shape[0]
             P.proj_area_size = (pic_shape*int(1/pixel_subdivision), 1)
@@ -335,12 +284,6 @@ if fit_esf_h:
             x_val = x_val/max_x_val;
             
             cutoff = int((pic_shape- pic_shape/np.sqrt(2) )/2+.5)*int(1/pixel_subdivision)
-            
-            a = 1. # Amplitude 
-            b = 0.5 # offset in x-direction
-            c = 0.5#(detector_pixel_size)/((2*(2*np.log(2))**.5)*magnification[i]) # width of the edge
-            d = 0. # offset in y-direction
-            start_params = [a,b,c,d] # Startparameter for errorfit
             # fitting datasets 
             best_fitparam, cov_esf = opti.curve_fit(error_fit_func, x_val[cutoff :-cutoff ], proj_norm_hor[cutoff :-cutoff ], p0=start_params)
             esf_fit = error_fit_func(x_val, *best_fitparam)
@@ -355,18 +298,13 @@ if fit_esf_h:
                 plt.subplot(212)
                 plt.plot(x_val[cutoff :-cutoff ], gauss(x_val[cutoff :-cutoff ],best_fitparam[0],best_fitparam[1], (best_fitparam[2]/(magnification[i]-1) ), best_fitparam[3]))
 
-            fwhm_hor_pix[i] = np.abs(2*(2*np.log(2))**.5*best_fitparam[2])
-            
+            fwhm_hor_pix[i] = np.abs(2*(2*np.log(2))**.5*best_fitparam[2])            
             fit_params_h[j,i] = best_fitparam
 
-        spot_width_vertical[j,0] = (fwhm_hor_pix[0] )/(magnification_z0-1.)
-        spot_width_vertical[j,1] = (fwhm_hor_pix[1] )/(magnification_z1-1.)
-        spot_width_vertical[j,2] = (fwhm_hor_pix[2] )/(magnification_z2-1.)
+        spot_width_vertical[j,0] = np.sqrt(fwhm_hor_pix[0]**2 - fwhm_det_psf_vert**2)/(magnification_z0-1.)
+        spot_width_vertical[j,1] = np.sqrt(fwhm_hor_pix[1]**2 - fwhm_det_psf_vert**2)/(magnification_z1-1.)
+        spot_width_vertical[j,2] = np.sqrt(fwhm_hor_pix[2]**2 - fwhm_det_psf_vert**2)/(magnification_z2-1.)
         mean_spot_size_vertical[j] = (spot_width_vertical[j,0] + spot_width_vertical[j,1] + spot_width_vertical[j,2])/3.
-#        print "FF Series", j
-#        print 'FWHM vertical ==>  ', spot_width_verticalM1[j,0], '[micron]'
-#        print 'FWHM vertical ==>  ', spot_width_verticalM1[j,1], '[micron]'
-#        print 'FWHM vertical ==>  ', spot_width_verticalM1[j,2], '[micron]'
 #============================================================================================================
 #                   Analysis for diagonal edge
 #=======================================vert=====================================================================
@@ -380,28 +318,11 @@ if fit_esf_d:
     mean_spot_size_diagonal = np.ones((powersteps))
     fit_params_d = np.ones((powersteps,3,4))
     for j in range(powersteps):
-        if pilatus:
-            #for cbf pilatus format    
-            flatfield,meta =  e17.io.cbfread(data+sam_d_folder+"/pilatus/ct/specadm_1_ct_%i.cbf"%(flatfield_d +j*12))
-            flatfield[:,242] = flatfield[:,241] +(flatfield[:,245]-flatfield[:,241])/3 
-            flatfield[:,243] = flatfield[:,241] +2*(flatfield[:,245]-flatfield[:,241])/3
-            flatfield[:,244] = flatfield[:,241] +(flatfield[:,245]-flatfield[:,241])      
-        if ccd:
-            #for FIT format of ccd ' change file ending
-            flatfield =  fit.getdata(data+sam_d_folder+"/ct/specadm_1_ct_%i.cbf"%(flatfield_d +j*12))
-        if paxscan:
-            flatfield = e17.io.h5read(data+sam_d_folder+"/paxscan/ct/paximage_ct_%06d.h5"%(flatfield_d +j*12))["raw_data"]           
-            
+        flatfield = e17.io.h5read(flats_d[j])["raw_data"]                        
         fwhm_diag_pix = np.ones((pic_number))
         for i in np.arange(pic_number):
-            if pilatus:
-                img_diag,meta = e17.io.cbfread(data+sam_d_folder+"/pilatus/ct/specadm_1_ct_%i.cbf"%(flatfield_d +1+j*12+i))
-            if ccd:
-                img_diag = fit.getdata(data+sam_d_folder+"/ct/specadm_1_ct_%i.cbf"%(flatfield_d +1+j*12+i))                
-            if paxscan:
-                #img_diag = e17.io.h5read(data+sam_d_folder+"/paxscan/ct/paximage_ct_%06d.h5"%(flatfield_d +1+j*12+i))["raw_data"]
-                img_diag = e17.io.h5read(data_dcopy.pop(0))["raw_data"]
-            #1/0            
+            #img_diag = e17.io.h5read(data+sam_d_folder+"/paxscan/ct/paximage_ct_%06d.h5"%(flatfield_d +1+j*12+i))["raw_data"]
+            img_diag = e17.io.h5read(data_dcopy.pop(0))["raw_data"]           
             img_diag = (img_diag/(flatfield*1.))[300:600,200:500]
             #1/0
             pic_shape = img_diag.shape[0]
@@ -419,12 +340,6 @@ if fit_esf_d:
             x_val = x_val/max_x_val;
             
             cutoff = int((pic_shape- pic_shape/np.sqrt(2) )/2+.5)*int(1/pixel_subdivision)
-            
-            a = 1. # Amplitude 
-            b = 0.5 # offset in x-direction
-            c = 0.5#(detector_pixel_size)/((2*(2*np.log(2))**.5)*magnification[i]) # width of the edge
-            d = 0. # offset in y-direction
-            start_params = [a,b,c,d] # Startparameter for errorfit
             # fitting datasets 
             best_fitparam, cov_esf = opti.curve_fit(error_fit_func, x_val[cutoff :-cutoff ], proj_norm_diag[cutoff :-cutoff ], p0=start_params)
             esf_fit = error_fit_func(x_val, *best_fitparam)
@@ -442,14 +357,10 @@ if fit_esf_d:
             fwhm_diag_pix[i] = np.abs(2*(2*np.log(2))**.5*best_fitparam[2])
             fit_params_d[j,i] = best_fitparam
 
-        spot_width_diagonal[j,0] = (fwhm_diag_pix[0] )/(magnification_z0-1.)
-        spot_width_diagonal[j,1] = (fwhm_diag_pix[1] )/(magnification_z1-1.)
-        spot_width_diagonal[j,2] = (fwhm_diag_pix[2] )/(magnification_z2-1.)
-        mean_spot_size_diagonal[j] = (spot_width_diagonal[j,0] + spot_width_diagonal[j,1] + spot_width_diagonal[j,2])/3.
-#        print "FF Series", j
-#        print 'FWHM vertical ==>  ', spot_width_diagonalM1[j,0], '[micron]'
-#        print 'FWHM vertical ==>  ', spot_width_diagonalM1[j,1], '[micron]'
-#        print 'FWHM vertical =5=>  ', spot_width_diagonalM1[j,2], '[micron]'        
+        spot_width_diagonal[j,0] = np.sqrt(fwhm_diag_pix[0]**2 - fwhm_det_psf_diag**2 )/(magnification_z0-1.)   
+        spot_width_diagonal[j,1] = np.sqrt(fwhm_diag_pix[1]**2 - fwhm_det_psf_diag**2 )/(magnification_z1-1.)
+        spot_width_diagonal[j,2] = np.sqrt(fwhm_diag_pix[2]**2 - fwhm_det_psf_diag**2 )/(magnification_z2-1.)
+        mean_spot_size_diagonal[j] = (spot_width_diagonal[j,0] + spot_width_diagonal[j,1] + spot_width_diagonal[j,2])/3.        
 #============================================================================================================
 #                   Plots and data output
 #============================================================================================================
@@ -457,29 +368,56 @@ watts = np.asarray(np.arange(5,(power_range+ 2* stepsize),stepsize))
 # bring data in right shape for output
 if plots:
     if fit_esf_v:
+        x_max_h = (1.1*np.max(watts))
+        y_max_h = (1.05*np.max(spot_width_horizontal))
+        h = [ 0., x_max_h,  10., y_max_h]
         plt.figure('Results HORIZONTAL spot-size 40 kvp')
+        plt.axis(h)
         plt.plot(watts, spot_width_horizontal, lw=2 )
         plt.plot(watts, mean_spot_size_horizontal, lw=2, ls = '--',color = 'k')
-        plt.title('Horizontal spot size 40kvp')
-        plt.ylabel('Spot size [micron]')
-        plt.xlabel('Power [Watts]')
-        plt.legend((( magnification_z0, magnification_z1, magnification_z2, 'Mean spot size')) ,loc = 0,title = 'MAGNIFICATION')
+        #plt.title('Horizontal spot size 40kvp',fontsize = 10)
+        plt.xticks( np.arange(0, x_max_h,5) )
+        plt.xticks(fontsize  = 12)
+        plt.yticks( np.arange(0, y_max_h,10) )
+        plt.yticks(fontsize  = 12)
+        plt.ylabel('Spot size [$\mu$m]',fontsize = 12)
+        plt.xlabel('Power [W]',fontsize = 12)
+        plt.legend((( magnification_z0, magnification_z1, magnification_z2, 'Mean spot size')) ,loc = 0,title = 'MAGNIFICATION',fontsize = 12)
+        plt.savefig(filepath_pic+'Results Horizontal spot-size for 40kvp.pdf', format = 'pdf',dpi = 300)
     if fit_esf_h:
+        x_max_v = (1.1*np.max(watts))
+        y_max_v = (1.05*np.max(spot_width_vertical))
+        v = [ 0., x_max_v,  10., y_max_v]
         plt.figure('Results VERTICAL spot-size 40kvp')
+        plt.axis(v)
         plt.plot(watts, spot_width_vertical, lw=2)
         plt.plot(watts, mean_spot_size_vertical, lw=2, ls = '--', color = 'k')
-        plt.title('Vertical spot size 40kvp')
-        plt.ylabel('Spot size [micron]')
-        plt.xlabel('Power [Watts]')
-        plt.legend((( magnification_z0, magnification_z1, magnification_z2, 'Mean spot size')) ,loc = 0,title = 'MAGNIFICATION')
-    if fit_esf_d:        
+        #plt.title('Vertical spot size 40kvp',fontsize = 10)
+        plt.xticks( np.arange(0, x_max_v,5) )
+        plt.xticks(fontsize  = 12)
+        plt.yticks( np.arange(0, y_max_v,10) )
+        plt.yticks(fontsize  = 12)
+        plt.ylabel('Spot size [$\mu$m]',fontsize = 12)
+        plt.xlabel('Power [Watts]',fontsize = 12)
+        plt.legend((( magnification_z0, magnification_z1, magnification_z2, 'Mean spot size')) ,loc = 0,title = 'MAGNIFICATION',fontsize = 12)
+        plt.savefig(filepath_pic+'Results Vertical spot-size for 40kvp.pdf', format = 'pdf',dpi = 300)
+    if fit_esf_d:
+        x_max_d = (1.1*np.max(watts))
+        y_max_d = (1.05*np.max(spot_width_diagonal))
+        d = [ 0., x_max_d,  10., y_max_d]        
         plt.figure('Results DIAGONAL spot-size 40kvp')
+        plt.axis(d)
         plt.plot(watts, spot_width_diagonal, lw=2)
         plt.plot(watts, mean_spot_size_diagonal, lw=2, ls = '--', color = 'k')
-        plt.title('Diagonal spot size 40kvp')
-        plt.ylabel('Spot size [micron]')
-        plt.xlabel('Power [Watts]')
-        plt.legend((( magnification_z0, magnification_z1, magnification_z2, 'Mean spot size')) ,loc = 0,title = 'MAGNIFICATION')
+        #plt.title('Diagonal spot size 40kvp',fontsize = 10)
+        plt.xticks( np.arange(0, x_max_d,5) )
+        plt.xticks(fontsize  = 12)
+        plt.yticks( np.arange(0, y_max_d,10) )
+        plt.yticks(fontsize  = 12)
+        plt.ylabel('Spot size [$\mu$m]',fontsize = 12)
+        plt.xlabel('Power [W]',fontsize = 12)
+        plt.legend((( magnification_z0, magnification_z1, magnification_z2, 'Mean spot size')) ,loc = 0,title = 'MAGNIFICATION',fontsize = 12)
+        plt.savefig(filepath_pic+'Results Diagonal spot-size for 40kvp.pdf', format = 'pdf',dpi = 300)
         
 if saveon:
     output_data = np.ones((4,powersteps))

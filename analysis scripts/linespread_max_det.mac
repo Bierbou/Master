@@ -1,0 +1,44 @@
+samx_in = -3.785
+samx_out = -33.785
+samy_in = 9.
+current_phi = 0.7
+start_phi = current_phi -2.
+end_phi = current_phi + 2. 
+count_time = 1
+waittime = 1.
+
+
+date_s = sprintf(date())
+
+# Change working directory
+dir_name = "/data_tmp/DPC/local_setups/microfocus/samples/linespread_acquisition_flat4_fine"
+unix_cmd = sprintf("mkdir -p %s", dir_name)
+unix(unix_cmd)
+eval(sprintf("dir_home %s",dir_name))
+print_out = sprintf("spec working directory changed to %s", dir_name)
+fprintf("tty", "\n%s\n", print_out)
+
+#paxon
+
+# Flat field position
+umv samx samx_out
+ct count_time
+
+# Scan position
+umv samx samx_in
+umv samy samy_in
+
+# angle scan
+# print " Maximum absorption scan over " nangles " angles"
+# measurement
+
+while (start_phi <= end_phi ) {
+    umv phi start_phi
+	ct count_time
+	fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+  	tcount(waittime)
+	start_phi += 0.1
+	wait()
+}
+print "scan finished"
+

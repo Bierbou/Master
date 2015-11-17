@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.2)  17 NOV 2015 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.9.2)  17 NOV 2015 19:27
 entering extended mode
 **Masterthesis.tex
 (Masterthesis.tex
@@ -5358,7 +5358,7 @@ Class scrbook Warning: Usage of deprecated font command `\sl'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sl' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sl'
-(scrbook)              by `\normalfont \slshape ' on input line 31.
+(scrbook)              by `\normalfont \slshape ' on input line 33.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sl'!
@@ -5372,7 +5372,7 @@ Class scrbook Warning: Usage of deprecated font command `\sl'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sl' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sl'
-(scrbook)              by `\normalfont \slshape ' on input line 31.
+(scrbook)              by `\normalfont \slshape ' on input line 33.
 
 
 Class scrbook Warning: Usage of deprecated font command `\rm'!
@@ -5386,7 +5386,7 @@ Class scrbook Warning: Usage of deprecated font command `\rm'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\rm' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\rm'
-(scrbook)              by `\normalfont \rmfamily ' on input line 31.
+(scrbook)              by `\normalfont \rmfamily ' on input line 33.
 
 [68 <E:/Documents/Mastersthesisliterature/gratingspectra.pdf>]
 <E:/Documents/Mastersthesisliterature/steppingenergyvisimap.pdf, id=10930, 504.
@@ -5396,11 +5396,11 @@ le (type pdf)
 
 <use E:/Documents/Mastersthesisliterature/steppingenergyvisimap.pdf>
 Package pdftex.def Info: E:/Documents/Mastersthesisliterature/steppingenergyvis
-imap.pdf used on input line 35.
+imap.pdf used on input line 37.
 (pdftex.def)             Requested size: 309.8505pt x 502.6755pt.
 
 
-LaTeX Warning: Float too large for page by 28.34526pt on input line 39.
+LaTeX Warning: Float too large for page by 28.34526pt on input line 41.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sl'!
@@ -5414,7 +5414,7 @@ Class scrbook Warning: Usage of deprecated font command `\sl'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sl' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sl'
-(scrbook)              by `\normalfont \slshape ' on input line 41.
+(scrbook)              by `\normalfont \slshape ' on input line 43.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sl'!
@@ -5428,7 +5428,7 @@ Class scrbook Warning: Usage of deprecated font command `\sl'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sl' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sl'
-(scrbook)              by `\normalfont \slshape ' on input line 41.
+(scrbook)              by `\normalfont \slshape ' on input line 43.
 
 
 Class scrbook Warning: Usage of deprecated font command `\rm'!
@@ -5442,7 +5442,7 @@ Class scrbook Warning: Usage of deprecated font command `\rm'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\rm' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\rm'
-(scrbook)              by `\normalfont \rmfamily ' on input line 41.
+(scrbook)              by `\normalfont \rmfamily ' on input line 43.
 
 [69]
 
@@ -5457,7 +5457,7 @@ Class scrbook Warning: Usage of deprecated font command `\sl'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sl' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sl'
-(scrbook)              by `\normalfont \slshape ' on input line 41.
+(scrbook)              by `\normalfont \slshape ' on input line 43.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sl'!
@@ -5471,7 +5471,7 @@ Class scrbook Warning: Usage of deprecated font command `\sl'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sl' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sl'
-(scrbook)              by `\normalfont \slshape ' on input line 41.
+(scrbook)              by `\normalfont \slshape ' on input line 43.
 
 
 Class scrbook Warning: Usage of deprecated font command `\rm'!
@@ -5485,10 +5485,10 @@ Class scrbook Warning: Usage of deprecated font command `\rm'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\rm' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\rm'
-(scrbook)              by `\normalfont \rmfamily ' on input line 41.
+(scrbook)              by `\normalfont \rmfamily ' on input line 43.
 
 [70 <E:/Documents/Mastersthesisliterature/steppingenergyvisimap.pdf>])
-Overfull \hbox (6.33327pt too wide) in paragraph at lines 44--303
+Overfull \hbox (6.33327pt too wide) in paragraph at lines 46--303
 \T1/lmr/m/n/10.95 The ana-lysis of the en-ergy re-solved phase-stepping and the
  cor-res-pond-ing energy-visibility-
  []
@@ -6240,7 +6240,7 @@ rogram Files (x86)/Latex/Mictex2.9/fonts/type1/public/lm/lmsy8.pfb><D:/Program
 Files (x86)/Latex/Mictex2.9/fonts/type1/public/lm/lmtt10.pfb><D:/Program Files 
 (x86)/Latex/Mictex2.9/fonts/type1/public/lm/lmtti10.pfb><D:/Program Files (x86)
 /Latex/Mictex2.9/fonts/type1/public/wasy/wasy10.pfb>
-Output written on Masterthesis.pdf (100 pages, 27543344 bytes).
+Output written on Masterthesis.pdf (100 pages, 27542717 bytes).
 PDF statistics:
  11610 PDF objects out of 12825 (max. 8388607)
  339 named destinations out of 1000 (max. 500000)

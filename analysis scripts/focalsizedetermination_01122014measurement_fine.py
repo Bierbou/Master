@@ -120,4 +120,5 @@ plt.figure(3) #plot all 41 fitfunctions in one plot
 for i in range(pic_numb):
     plt.plot(pixel_number, error_fit_func(pixel_number,best_fitparam[i,0], best_fitparam[i,1], best_fitparam[i,2], best_fitparam[i,3]), )
 
-
+plt.figure('fwhm')
+plt.plot(fwhm)

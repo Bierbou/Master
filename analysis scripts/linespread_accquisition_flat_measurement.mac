@@ -1,0 +1,173 @@
+# Z-positions 
+z0= 0
+samx_in_z0 = -3.9
+samx_out = 40
+samy_in_z0 = 8.
+z1= 190
+samx_in_z1 = 0.3
+samy_in_z1 = 10.
+z2= 380
+samx_in_z2 = 5.
+samy_in_z1 = 10.
+current_phi = 0.7 #!!!enter best phi from linespread_max_det!!! 
+current_theta = 3. #!!! enter choosen theta for linespread_max_det!!!
+count_time = 1
+waittime = 1.
+#theta rotation for horizontal and diagonal edge
+hor_edge = current_theta +90
+diag_edge = current_theta +45
+
+
+date_s = sprintf(date())
+
+# Change working directory
+dir_name = "/data_tmp/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement3_60kvphighpower"
+unix_cmd = sprintf("mkdir -p %s", dir_name)
+unix(unix_cmd)
+eval(sprintf("dir_home %s",dir_name))
+print_out = sprintf("spec working directory changed to %s", dir_name)
+fprintf("tty", "\n%s\n", print_out)
+
+#paxon
+umv phi current_phi
+
+#====================================================================
+# Edge measurement vertical
+#====================================================================
+# Change working directory
+dir_name = "/data_tmp/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement3_60kvphighpower/vertical_edge"
+unix_cmd = sprintf("mkdir -p %s", dir_name)
+unix(unix_cmd)
+eval(sprintf("dir_home %s",dir_name))
+print_out = sprintf("spec working directory changed to %s", dir_name)
+fprintf("tty", "\n%s\n", print_out)
+
+# Flat field position
+umv theta current_theta
+umv samx samx_out
+ct count_time
+
+# Scan position
+umv samx samx_in_z0
+umv samy samy_in_z0
+umv theta current_theta
+
+print "scan the edge in vertical direction for different z-positions"
+
+print "measurement for z0  " z0
+umv samz z0
+ct count_time
+fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+tcount(waittime)
+wait()
+print "measurement for z1  " z1
+umv samz z1
+umv samx samx_in_z1
+umv samy samy_in_z1
+ct count_time
+fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+tcount(waittime)
+wait()
+print "measurement for z2 " z2
+umv samz z2
+umv samx samx_in_z2
+ct count_time
+fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+tcount(waittime)
+wait()
+#====================================================================
+# Edge measurement horizontal
+#====================================================================
+# Change working directory
+dir_name = "/data_tmp/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement3_60kvphighpower/horizontal_edge"
+unix_cmd = sprintf("mkdir -p %s", dir_name)
+unix(unix_cmd)
+eval(sprintf("dir_home %s",dir_name))
+print_out = sprintf("spec working directory changed to %s", dir_name)
+fprintf("tty", "\n%s\n", print_out)
+
+
+print "scan the edge in horizontal direction for different z-positions"
+
+# Flat field position
+umv theta current_theta
+umv samx samx_out
+ct count_time
+
+# Scan position
+umv theta hor_edge
+umv samx -1
+
+print "measurement for z0  " z0
+umv samz z0
+umv samy  -8.6
+ct count_time
+fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+tcount(waittime)
+wait()
+
+print "measurement for z1  " z1
+umv samz z1
+umv samy  -6.0
+ct count_time
+fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+tcount(waittime)
+wait()
+
+print "measurement for z2  " z2
+umv samz z2
+umv samy  -3.5
+ct count_time
+fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+tcount(waittime)
+wait()
+#====================================================================
+# Edge measurement diagonal
+#====================================================================
+# Change working directory
+dir_name = "/data_tmp/DPC/local_setups/microfocus/samples/linespread_acquisition_flat_measurement3_60kvphighpower/diagonal_edge"
+unix_cmd = sprintf("mkdir -p %s", dir_name)
+unix(unix_cmd)
+eval(sprintf("dir_home %s",dir_name))
+print_out = sprintf("spec working directory changed to %s", dir_name)
+fprintf("tty", "\n%s\n", print_out)
+
+
+print "scan the edge in diagonal direction for different z-positions"
+
+# Flat field position
+umv samx samx_out
+ct count_time
+
+# Scan position
+umv theta diag_edge
+
+print "measurement for z0  " z0
+umv samz z0
+umv samx  -6
+umv samy  -0.5
+ct count_time
+fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+tcount(waittime)
+wait()
+
+print "measurement for z1  " z1
+umv samz z1
+umv samx  -4.
+umv samy  4.
+ct count_time
+fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+tcount(waittime)
+wait()
+
+print "measurement for z2  " z2
+umv samz z2
+umv samx  -2.5
+umv samy  10
+ct count_time
+fprintf("tty", "\nWaiting for %s seconds\n", waittime)
+tcount(waittime)
+wait()
+
+print "scan finished"
+

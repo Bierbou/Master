@@ -1,0 +1,6 @@
+# contains at first column the different Watts, then vertical, horizontal, diagonal mean values of the edge measurement
+  80.00000,  69.98842, 151.54783,  91.81295
+  85.00000,  70.75337, 154.11885,  93.18633
+  90.00000,  71.20521, 154.97728,  95.34198
+  95.00000,  73.94571, 160.00532,  95.63260
+ 100.00000,  74.97660, 162.99921,  97.08036

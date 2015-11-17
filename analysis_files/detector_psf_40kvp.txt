@@ -1,0 +1,4 @@
+# contains at first column the Watt value, then the detector PSF in horizontal direction, then in vertical direction
+  60.00000
+ 361.67548
+ 349.49765

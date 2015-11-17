@@ -1,0 +1,3 @@
+# contains at first column the mean_vert detectot PSF, then the mean_hor detector PSF
+ 386.51115
+ 451.82436
