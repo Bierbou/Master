@@ -1,31 +1,68 @@
-\chapter{Comparison of different grating interferometer constellations}\label{gcomp}
-
+\chapter{Application of the obtained results for new measurement structures}\label{chap:applic}
+In this chapter, the results of the previous chapters are used to test an interferometer-setup without source grating and a phase-stepping procedure without mechanical stepping of any grating of the interferometer.  
+\section[Different interferometer setups]{Comparison between interferometer-setups}\label{sec:interferosetups}
+In this section, the standard interferometer setup described in section \ref{sec:samplehandling} and the same interferometer without the source grating $G_{0}$ are compared with respect to the different signals, which can be retrieved by the phase-stepping routine. The reason to neglect the source grating is motivated by the outcome of chapter \ref{chap:sysresp}. As explained in section \ref{subsec:gi} the source grating is needed to provide sufficient spatial coherence due to the usually big spot sizes at conventional X-ray sources. But for this case, the measurement with the \gls{restarget} yielded a sufficiently small spot size of $\approx 4\, \mu$m for the power-range below $25\,$W, which is about half the period of the source grating of $10\, \mu$m. This in principle allows to measure without the source grating. Omitting the $G_{0}$, the two remaining gratings have to be rearranged between source and detector to have at the right distances for the magnification factor of $2$ for the interference pattern period to match the one of the analyser-grating $G_{2}$. The distance between source and detector is fixed to the standard length of $195.6\,$cm. For the determination of the different signals a test-sample is put at six different positions between source and $G_{1}$, with the same positions of the sample for both interferometer setups. The different inter-grating or source-grating distances and the relative sample positions of the two interferometer types are shown in Table \ref{table:setupcomp}. Both setups are arranged symmetrically between source and detector.
 \begin{table}[h] 
 	\begin{center}	
-		\begin{tabular}{c|c|c|c|c|c|c}
-		\multicolumn{2}{c|}{Setup} & Period [\text{$\mu$}m] & Height [\text{$\mu$}m] & Material & l [cm] & d [cm] \\ \hline \hline
-		\multirow{3}{18 mm}{Symmetric standard} \rule{0pt}{13pt} & $G_{0}$ &  &  &&  &    \\ \cline{2-7}
-										        \rule{0pt}{13pt}& $G_{1}$ & & & & &  	 \\ \cline{2-7} 
-											    \rule{0pt}{13pt}& $G_{2}$ & & & && 		 \\ \hline
-		\multirow{3}{18 mm}{Symmetric standard} \rule{0pt}{13pt}& $G_{0}$ & & &&  &    \\ \cline{2-7}
-											    \rule{0pt}{13pt}& $G_{1}$ & & & & &   	\\ \cline{2-7} 
-											    \rule{0pt}{13pt}& $G_{2}$ & & & &&  \\ \hline
-		\multirow{3}{18 mm}{Symmetric standard} \rule{0pt}{13pt}& $G_{0}$ & & &&  &    \\ \cline{2-7}
-												\rule{0pt}{13pt}& $G_{1}$ & & & & &   	\\ \cline{2-7} 
-												\rule{0pt}{13pt}& $G_{2}$ & & & &&  \\ \hline    
-		\multirow{3}{18 mm}{Symmetric standard}	\rule{0pt}{13pt}& $G_{0}$ & & &&  &    \\ \cline{2-7}
-											    \rule{0pt}{13pt}& $G_{1}$ & & & & &   	\\ \cline{2-7} 
-											    \rule{0pt}{13pt}& $G_{2}$ & & & &&  \\ \hline    
-		\multirow{3}{18 mm}{Symmetric standard} \rule{0pt}{13pt}& $G_{0}$ & & &&  &    \\ \cline{2-7}
-												\rule{0pt}{13pt}& $G_{1}$ & & & & &   	\\ \cline{2-7} 
-												\rule{0pt}{13pt}& $G_{2}$ & & & &&  \\ \hline    
-		\multirow{3}{18 mm}{Symmetric standard} \rule{0pt}{13pt}& $G_{0}$ & & &&  &    \\ \cline{2-7}
-												\rule{0pt}{13pt}& $G_{1}$ & & & & &   	\\ \cline{2-7} 
-												\rule{0pt}{13pt}& $G_{2}$ & & & &&  \\        
-  
+		\begin{tabular}{c|c||c|c||c|c|c|c|c|c}
+			\multicolumn{2}{c||}{Setup}\rule{0pt}{13pt}	& $G_{0}\leftrightarrow G_{1}$/ & \multirow{2}{17 mm}{ $G_{1}\leftrightarrow G_{2}$}& \multicolumn{6}{c}{sample position $S\leftrightarrow z_{i}$ /$G_{0} \leftrightarrow z_{i}$} \\ \cline{5-10} 
+			\multicolumn{2}{c||}{(length in m)}\rule{0pt}{13pt} & $S\leftrightarrow G_{1}$ &  & $z_{1}$ & $z_{2}$ & $z_{3}$ & $z_{4}$ & $ z_{5}$& $z_{6}$ \\ \hline \hline
+			\multicolumn{2}{c||}{Standard with $G_{0}$ }\rule{0pt}{13pt} & $0.93$ & $0.93$ &$0.17$ & $0.27$ & $0.37$ & $0.47$ &$0.57$ &$0.67$  \\ \cline{2-10}
+			\multicolumn{2}{c||}{Standard without $G_{0}$ }\rule{0pt}{13pt} & $0.98$ & $0.97$& $0.26$ & $0.36$ & $0.46$ & $0.56$ & $0.66$& $0.76$\\ \cline{2-10}	  
 		\end{tabular}
+		\caption[Composition of the different setup properties and relative sample positions]{\textit{Composition of the different distances of the particular setups and the relative sample positions of the characterization measurement, to obtain the sensitivity of the particular setup onto different signals.}}
+		\label{table:setupcomp}
+	\end{center}    
+\end{table} 
+
+\begin{figure}%[h]
+	\begin{center}
+		\includegraphics[width = 14.7cm,keepaspectratio = true]{roisdcidpc}
 	\end{center}
-	\caption[Set of the properties of the different characterized setups]{\textit{Composition of the different setup configurations and their respective properties. The parameter for the inter grating distances $l$ and $d$ are adopted from Figure \ref{talbotlau} to get a better imagination of the different setup dimensions. The distance between source and detector is fixed to $195.6\,$cm for all constellations, the duty cycle of all gratings is $0.5$ and the phase shift of the used phase gratings is $\pi/2$. The results of the different performance fields of the particular setups are collocated in Table \ref{setupresults}.}}
-	\label{tablesetupcomp}
-\end{table}
+	\caption[Illustration of different sample ROI's to obtain the DPC and DCI signal]{\textit{Illustration of the data-acquisition for the different signals. a) Absorption image of the different samples with different \acrshortpl{roi}, measured at the standard setup without $G_{0}$. b) \acrshort{roi} for the determination of the phase-shift induced by the water in the tube. c) \acrshort{roi} for the determination of the \gls{dci}-signal induced by the micro-spheres. d) Phase-shift averaged over the ROI of b), the projection-plane is perpendicular to the horizontal direction.}}
+	\label{lineplotphase}
+\end{figure} 
+\subsection{Measurement procedure}\label{subsec:interfemeasureproc}
+To obtain values for the properties of the particular setup which can be compared easily, the measurement procedure described in the following is repeated exactly the same way for both cases. As the focus lies on the response of the setups with respect to the \gls{dpc}-signal and the \gls{dci}-signal, a test-sample which consists of a region inducing a phase-shift and region inducing a Dark-field signal is built. An absorption image of this sample is depicted in Figure \ref{lineplotphase} a). The test-sample consists of a tube filled with water in the lower part of the image, inducing a phase shift, and a container filled with silicon-oxide micro-spheres on top of the tube, inducing small angle scattering to provide a Dark-field signal. As the strength of the signals scales by the relative position to the phase-grating, the sample is moved during the measurement to $6$ different positions between the $G_{0}$ and $G_{1}$ and source and $G_{1}$, to be able to characterize the signals for different distances between sample and $G_{1}$. At each of these positions, the sample is measured with the phase-stepping routine described in \ref{subsec:stepp}. In the process, the particular images are taken at an energy of $60\,$keV a power of $5\,$W and an integration time of $3$ seconds for each step. The processing of the images at each position yields the three contrasts \gls{amp},\gls{dpc},\gls{dci} and additionally a visibility image.
+%$4$ images at which each image contains a different signal. To get feasible values for the comparison, the processed images have to be treated in different ways. 
+To provide good reference values for the visibility, the centre of the image containing the visibility-values of each particular detector pixel, is averaged to get one mean value. The image of the dark-field signal is treated in the same way, with the exception that the averaged area differs. Here, the \gls{roi} is chosen in a way that only pixels containing information of the test-sample providing a \gls{dci}-signal are accounted for in the averaged dark-field value, see Figure \ref{lineplotphase} c). The induced phase-shift is extracted from the \gls{dpc}-image with a simple line-plot perpendicular to the horizontal-direction, which is averaged over a region of about $200$ pixel-rows. the \gls{roi} is for this purpose lies at the border of the tube filled with water, which induces a phase-shift, see Figure \ref{lineplotphase} b). Such a line-plot for example is depicted in Figure \ref{lineplotphase} d), which is averaged over the blue \gls{roi} in a). The induced phase-shift reaches its maximum at the border of the plastic-tube and the water. 
+%As the focus lies on the 'strength' of the shift, the maximal induced phase-shifts are extracted from the line-plots, whereat the absolute values are taken for the comparison between the two setups, as the shift can appear in negative as well in positive direction.
+\subsection{Results and Discussion}
+In this section the results of the measurements for the different interferometer-setups are compared. First of all, the visibility of the particular setups was almost constant during the different measurement positions, thus the mean visibility averaged over all six positions is presented. The mean visibility of the standard setup with $G_{0}$ is $V = 24.3\,$\%. The visibility of the setup without source-grating is $V = 18.3\,$\%, which is a bit less compared to the setup with $G_{0}$, but is still sufficient for measurements. As mentioned above, the \gls{dpc}- and the \gls{dci}-signal are dependent on the relative position to the phase-grating. The sensitivity of the phase-signal is assumed to be linearly increasing from zero at the source or the $G_{0}$ up to a value of 1 at the phase-grating. Therefore, the determined maximal phase-shifts are scaled with the respective fraction of the distances between $G_{0}$ to sample and $G_{0}$ to $G_{1}$ or the distances between source to sample and source to $G_{1}$ depending on the respective setup. The particular distances are denoted in \ref{table:setupcomp}.
+\begin{figure}%[h]
+	\begin{center}
+		\includegraphics[width = 14.7cm,keepaspectratio = true]{dpcdcicomp}
+	\end{center}
+	\caption[Comparison of \gls{dpc}- and \gls{dci}-signal of the interferometer-setup with $G_{0}$ and without $G_{0}$]{\textit{Comparison of the \gls{dpc}- and the \gls{dci}-signal of the standard interferometer-setup with source-grating and without $G_{0}$. a) Comparison of the strength of the phase-shift of the two setups, whereupon the values are weighted with the ratio between the distances of $G_{0}$ or source and sample, an the distance between $G_{0}$ and $G_{1}$ or source and $G_{1}$. b) Comparison of the retrieved dark-filed signal of the setups. Here the particular values are weighted by the correlation length $\xi$.}}
+	\label{dpcdci}
+\end{figure}  
+In contrast the \gls{dci}-signal has to be scaled with the so called correlation length $\xi$, which is dependent on the mean wavelength $\lambda$, the period of the phase grating, the fraction of the inter-grating distances (generally close to one due to the symmetric arrangement) and the distance between sample and $G_{1}$. The results for the particular measurements are depicted in Figure \ref{dpcdci}: a) shows the maximal phase-shift in values of $\pi$, at which the crosses indicate the measured phase-shifts at the relative sample position and the dashed line shows the linear regression of the values. The slope of the regression for the measured phase-shifts without $G_{0}$ is smaller than the slope of the regression for the setup with source-grating, but the difference is smaller than expected. b) shows the sensitivity of both setups of the \gls{dci}-signal which is induced by the sample at different positions. A value of $1$ in this case means no dark-field signals can be obtained because no change in the visibility occurred, in contrast a value of $0$ means all visibility was lost due to small angle scattering of the sample. The obtained values are plotted over the respective correlation length $xi$, which lies in the micron range. The different curves have almost the same shape, whereupon the sensitivity of the setup with $G_{0}$ is only slightly better compared to the setup without a source grating. In absolute values the difference is only about $2\,$\%.
+
+%\clearpage
+
+\section{Electromagnetic phase-stepping}\label{sec:emstepp}
+In this section, a proof of principle of an alternative phase-stepping procedure is presented, which has already been done in a similar way by \citep{Harmon2015}. This technique can be very advantageous, because with this method, the transition of a mechanical stepping of any grating of the interferometer to a completely electromagnetic stepping procedure can be achieved. The omission of a mechanical stepping has some big advantages, for example the induced vibrations during the stepping procedure can be minimized and the stepping can be done much faster as with some mechanical parts and the flux is twice as high for the same power. There are different possibilities to achieve such a stepping as shown in \citep{Harmon2015}. Here at this approach, the position of the electron-spot on the target is moved over the targets surface, which can be seen as equivalent to stepping the source grating $G_{0}$. This slight change then induces the variation of the interference pattern behind the phase-grating $G_{1}$. To obtain this change, the source-grating has to be removed, because otherwise the variation of the beam is cut out by the grating lines, which function as line-sources, as desired for the standard interferometer-setup. Hence, the remaining gratings have to be rearranged in the same manner as explained in the previous section. The movement of the electron-beam itself is possible thanks to the properties of the electron-optics of the source. With this optic it is possible to slightly change the current of the deflection magnets and thus moving the electron-beams impact point on the reflection target.\\ Due to the geometry of source and reflection target and the shape of the resulting X-ray beam, see Figure \ref{sourcerotfoc} and \ref{sourceellipse}, only the vertical direction is feasible for the stepping, as a sufficiently small spot size is needed to allow omitting the source-grating.
+\begin{figure}%[h]
+	\begin{center}
+		\includegraphics[width = 14.7cm,keepaspectratio = true]{coffeebean}
+	\end{center}
+	\caption[Images of a coffee-bean for the different phase-stepping signals]{\textit{Images of a coffee-bean measured with the electromagnetic phase-stepping approach. The different images show the different signals obtained by the processing of the phase-stepping images.}}
+	\label{bean}
+\end{figure}
+The measurement procedure is quite similar to the standard phase-stepping, except the stepping itself. Usually the grating is stepped over a whole period of the respective grating in equidistant steps. Here, the electron-beam is moved in equidistant steps over the surface of the target over a range comparable to the period of the source-grating, in this case $10\, \mu$m. For each step the current of the vertical deflection magnet was changed by $1\,$mA, whereupon $19$ steps are needed to cover the full range of $10\, \mu$m with this current variation. At the first test a coffee-bean was measured at an energy of $60\,$kVp a power of $5\,$W and an integration time of $2$ seconds for each stepping image.\\
+
+The first images obtained with this approach are depicted in Figure \ref{bean}. The three images show the three different signals obtained from the processing algorithm for a coffee bean sample. The first image shows the absorption signal of the bean. The second shows the induced phase-shift, whereupon in the middle of the bean there is almost no phase-signal, due to a lot of scattering events. The third image contains the dark-field signal. From this the reason of the destruction of the phase-signal becomes clear. Small leaves are inside the coffee-bean, which produce a very strong scattering signal and therefore destroy the phase information. This feature for example can not be distinguished in the usual absorption image. The corresponding images of the \gls{flat}-stepping, which are also for this approach needed are shown in Figure \ref{emstepp}. a) and b) show the flat-field Phase with the common Moire-fringes and the visibility of the whole image.
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width = 14.7cm,keepaspectratio = true]{emstepping}
+	\end{center}
+	\caption[Illustration of visibility an stepping-curve of the electro-magnetic stepping procedure]{\textit{Illustration of the different signals and the stepping-curve of the stepping of the focal-spot. a) Image of the \gls{flat} phase with Moire-fringes. b) Visibility of the \gls{flat} phase-stepping. c) Stepping-curve of the electromagnetic stepping of the focal-spot over a range which roughly equals the period of the standard source-grating with a period of $10\, \mu$m. The sinusoidal function fitted on the measured stepping values fits in good approximation the received stepping-curve.}}
+	\label{emstepp}
+\end{figure}
+\clearpage
+The mean visibility is averaged over the area inside the black circle and is with a value of $15.63\,$\% reasonably high for imaging. The more important part is shown in c). Here, the stepping curve for a central pixel is shown by the blue dots. The red line indicates a sinusoidal curve, which is the assumed behaviour of the stepping curve. The measured data and the assumed shape fit very good together, which impressively confirms the feasibility of the electromagnetic stepping procedure.     
+
+\section{Conclusion}\label{sec:conclusionappl}
+The presented applications in this chapter give a first hint of the further prospects, which are provided by such a small source size. The results in section \ref{sec:interferosetups} have shown, that the sensitivity of the setup without source-grating for every signal, but especial for the case of the \gls{dci}-signal, is in no way inferior compared to the sensitivity of the standard setup with $G_{0}$. The approach in section \ref{sec:emstepp} shows a proof of principle for an easy change from an mechanical to an pure electromagnetic phase-stepping procedure, of course thanks to the electron-optic of the source. Nevertheless, the first shot worked well, despite the fact that the visibility was about $10\,$\% less compared to the visibility, which is achieved for a comparable standard setup including a $G_{0}$.  
+
 

@@ -14,9 +14,15 @@ A level-1 auxiliary file: edge.aux
 A level-1 auxiliary file: spectra.aux
 A level-1 auxiliary file: setups.aux
 A level-1 auxiliary file: summary.aux
+Multiple inclusions of entire database
+---line 44 of file Masterthesis.aux
+ : \citation{*
+ :            }
+I'm skipping whatever remains of this command
 Database file #1: Masterliterature.bib
-Warning--I didn't find a database entry for "Qin2015"
-Warning--I didn't find a database entry for "Lei2014.Mohraspect"
-Warning--I didn't find a database entry for "michelson1995studies"
+You're missing a field part---line 57 of file Masterliterature.bib
+ :    eid = 
+ :          ,
+I'm skipping whatever remains of this entry
 Warning--empty note in TalbotLau
-(There was 1 error message)
+(There were 3 error messages)

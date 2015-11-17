@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{46}
 % this bibliography was produced with the style dinat.bst v2.5
 \makeatletter
 \newcommand{\dinatlabel}[1]%
@@ -75,6 +75,28 @@
 \newblock
 \newblock (2007), S.~209
 
+\bibitem[Harmon u.\,a.(2015)Harmon, Miao, Gomella, Bennett, Foster, Bhandarkar
+  und Wen]{Harmon2015}
+\dinatlabel{Harmon u.\,a. 2015} \textsc{Harmon}, Katherine~J.~; \textsc{Miao},
+  Houxun~; \textsc{Gomella}, Andrew~a.~; \textsc{Bennett}, Eric~E.~;
+  \textsc{Foster}, Barbara~a.~; \textsc{Bhandarkar}, Priya~; \textsc{Wen}, Han:
+\newblock {Motionless electromagnetic phase stepping versus mechanical phase
+  stepping in x-ray phase-contrast imaging with a compact source.}
+\newblock In: \emph{Physics in medicine and biology}
+\newblock 60 (2015), Nr.~8, S.~3031--43. --
+\newblock URL \url{http://stacks.iop.org/0031-9155/60/i=8/a=3031}. --
+\newblock ISSN 1361-6560
+
+\bibitem[Honerkamp und R\"{o}mer(1993)]{Honerkamp1993}
+\dinatlabel{Honerkamp und R\"{o}mer 1993} \textsc{Honerkamp}, Josef~;
+  \textsc{R\"{o}mer}, Hartmann:
+\newblock \emph{{Klassische Theoretische Physik Eine Einf\"{u}rung}}. Bd.~3.
+\newblock Albert-Ludwigs-Universit\"{a}t, Fakult\"{a}t f\"{u}r Physik,
+  Hermann-Herder-Stra\ss e 3, W-7800 Freiburg ISBN, 1993. --
+\newblock 349~S. --
+\newblock URL \url{https://www.freidok.uni-freiburg.de/data/82}. --
+\newblock ISBN 3-540-55901-9
+
 \bibitem[K\"{o}hler(2008)]{TalbotLau}
 \dinatlabel{K\"{o}hler 2008} \textsc{K\"{o}hler}, J\"{o}rg:
 \newblock {Der Talbot-Effekt}
@@ -83,6 +105,12 @@
 \newblock 2008.
 \newblock  -- Forschungsbericht. --
 \newblock 1--12~S
+
+\bibitem[Lehnertz()]{Lehnertz}
+\dinatlabel{Lehnertz } \textsc{Lehnertz}:
+\newblock \emph{{Erzeugung von R\"{o}ntgenstrahlung}}. --
+\newblock URL
+  \url{http://epileptologie-bonn.de/cms/upload/homepage/lehnertz/Roe2.pdf}
 
 \bibitem[Lei u.\,a.(2014)Lei, Du, Li, Zhao, Liu, Guo und Niu]{Lei2014}
 \dinatlabel{Lei u.\,a. 2014} \textsc{Lei}, Yaohu~; \textsc{Du}, Yang~;
@@ -104,7 +132,7 @@
 \newblock 324~S
 
 \bibitem[Li u.\,a.(2013{\natexlab{a}})Li, Zambelli, Bevins, Ge und
-  Chen]{Li2013a}
+  Chen]{Li2013}
 \dinatlabel{Li u.\,a. 2013{\natexlab{a}}} \textsc{Li}, Ke~; \textsc{Zambelli},
   Joseph~; \textsc{Bevins}, Nicholas~; \textsc{Ge}, Yongshuai~; \textsc{Chen},
   Guang-Hong:
@@ -118,7 +146,7 @@
 \newblock ISBN 1361-6560 (Electronic) 0031-9155 (Linking)
 
 \bibitem[Li u.\,a.(2013{\natexlab{b}})Li, Zambelli, Bevins, Ge und
-  Chen]{Li2013}
+  Chen]{Li2013a}
 \dinatlabel{Li u.\,a. 2013{\natexlab{b}}} \textsc{Li}, Ke~; \textsc{Zambelli},
   Joseph~; \textsc{Bevins}, Nicholas~; \textsc{Ge}, Yongshuai~; \textsc{Chen},
   Guang-Hong:
@@ -137,6 +165,35 @@
   microtomography}.
 \newblock
 \newblock 54 (2015), Nr.~18, S.~5610--5618
+
+\bibitem[Michelson(1995)]{michelson1995studies}
+\dinatlabel{Michelson 1995} \textsc{Michelson}, A.A.:
+\newblock \emph{Studies in Optics}.
+\newblock Dover Publications, 1995
+\newblock (Dover books on astronomy). --
+\newblock URL \url{https://books.google.de/books?id=m2tUZ4\_8WGMC}. --
+\newblock ISBN 9780486687001
+
+\bibitem[Modregger u.\,a.(2011)Modregger, Pinzer, Th\"{u}ring, Rutishauser,
+  David und Stampanoni]{Modregger2011}
+\dinatlabel{Modregger u.\,a. 2011} \textsc{Modregger}, P~; \textsc{Pinzer},
+  B~R.~; \textsc{Th\"{u}ring}, T~; \textsc{Rutishauser}, S~; \textsc{David},
+  C~; \textsc{Stampanoni}, M:
+\newblock {Sensitivity of X-ray grating interferometry.}
+\newblock In: \emph{Optics express}
+\newblock 19 (2011), Nr.~19, S.~18324--38. --
+\newblock URL \url{http://www.ncbi.nlm.nih.gov/pubmed/21935201}. --
+\newblock ISBN 1094-4087
+
+\bibitem[Mohr u.\,a.(2012)Mohr, Grund, Kunka, Kenntner, Leuthold, Meiser,
+  Schulz und Walter]{Mohraspect}
+\dinatlabel{Mohr u.\,a. 2012} \textsc{Mohr}, Juergen~; \textsc{Grund}, Thomas~;
+  \textsc{Kunka}, Danays~; \textsc{Kenntner}, Johannes~; \textsc{Leuthold},
+  Juerg~; \textsc{Meiser}, Jan~; \textsc{Schulz}, Joachim~; \textsc{Walter},
+  Marco:
+\newblock High aspect ratio gratings for X-ray phase contrast imaging.
+\newblock In: \emph{AIP Conference Proceedings}
+\newblock 1466 (2012), Nr.~1
 
 \bibitem[Momose(2005)]{Momose2005}
 \dinatlabel{Momose 2005} \textsc{Momose}, Atsushi:
@@ -181,6 +238,33 @@
 \newblock 37 (2006), Nr.~5, S.~13--15. --
 \newblock ISSN 0531-7479
 
+\bibitem[Qin(2015)]{Qin2015}
+\dinatlabel{Qin 2015} \textsc{Qin}, Yi:
+\newblock \emph{{Micromanufacturing Engineering and Technology}}.
+\newblock Second Edition.
+\newblock Elsevier Science, 2015
+\newblock (Micro and Nano Technologies). --
+\newblock URL \url{https://books.google.de/books?id=AqDvAwAAQBAJ}. --
+\newblock ISBN 9780323312677
+
+\bibitem[Redus(2008)]{Redus2008}
+\dinatlabel{Redus 2008} \textsc{Redus}, R:
+\newblock {CdTe Measurement of X-Ray Tube Spectra: Escape Events Application
+  Note ANCDTE1 Rev A1}.
+\newblock
+\newblock (2008), S.~3
+
+\bibitem[Revol u.\,a.(2010)Revol, Kottler, Kaufmann, Straumann und
+  Urban]{Revol2010}
+\dinatlabel{Revol u.\,a. 2010} \textsc{Revol}, Vincent~; \textsc{Kottler},
+  Christian~; \textsc{Kaufmann}, Rolf~; \textsc{Straumann}, Ulrich~;
+  \textsc{Urban}, Claus:
+\newblock {Noise analysis of grating-based x-ray differential phase contrast
+  imaging}.
+\newblock In: \emph{Review of Scientific Instruments}
+\newblock 81 (2010), Nr.~7, S.~1--7. --
+\newblock ISBN 0034-6748
+
 \bibitem[Samei u.\,a.(1998)Samei, Flynn und Reimann]{Samei1998}
 \dinatlabel{Samei u.\,a. 1998} \textsc{Samei}, E~; \textsc{Flynn}, M~J.~;
   \textsc{Reimann}, D~a.:
@@ -197,6 +281,14 @@
 \newblock
 \newblock (2008)
 
+\bibitem[Sp\"{a}th(1997)]{Mathematik1997}
+\dinatlabel{Sp\"{a}th 1997} \textsc{Sp\"{a}th}, Helmuth:
+\newblock {Me\ss datenanpassung mit Ellipsen in allgemeiner Lage und mit
+  vorgegebenem Achsenverh\"{a}ltnis}.
+\newblock In: \emph{VGI \"{O}sterreichische Zeitschrift f\"{u}r Vermessung und
+  Geoinformation}
+\newblock 4 (1997), S.~286--288
+
 \bibitem[medical systems()]{Paxscan}
 \dinatlabel{medical systems } \textsc{systems}, Varian medical:
 \newblock \emph{{PaxScan ® 2520DX Digital Image Receptor}}
@@ -206,6 +298,23 @@
 \newblock {Facts relating to Optical Science}.
 \newblock In: \emph{Philosophical Magazine and Journal of science}
 \newblock (1836)
+
+\bibitem[Thompson u.\,a.(2009)Thompson, Attwood, Lindau, Liu, Gullikson,
+  Pianetta, Howells, Robinson, Kim, Scofield, Kirz, Underwood, Kortright,
+  Williams und Winick]{Thompson}
+\dinatlabel{Thompson u.\,a. 2009} \textsc{Thompson}, Albert~; \textsc{Attwood},
+  David~; \textsc{Lindau}, Ingolf~; \textsc{Liu}, Yanwei~; \textsc{Gullikson},
+  Eric~; \textsc{Pianetta}, Piero~; \textsc{Howells}, Malcolm~;
+  \textsc{Robinson}, Arthur~; \textsc{Kim}, Kwang-Je~; \textsc{Scofield},
+  James~; \textsc{Kirz}, Janos~; \textsc{Underwood}, James~;
+  \textsc{Kortright}, Jeffry~; \textsc{Williams}, Gwyn~; \textsc{Winick},
+  Herman~; \textsc{Thompson}, Albert~C. (Hrsg.):
+\newblock \emph{{Center for X-ray Optics and Advanced Light source X-Ray Data
+  Booklet}}.
+\newblock 3.
+\newblock Berkely~: Lawrence Berkeley National Laboratory University of
+  California, 2009. --
+\newblock URL \url{http://xdb.lbl.gov.}
 
 \bibitem[{Van Der Veen} und Pfeiffer(2004)]{Veen2004}
 \dinatlabel{{Van Der Veen} und Pfeiffer 2004} \textsc{{Van Der Veen}}, Friso~;
@@ -276,5 +385,15 @@
 \newblock In: \emph{Chinese Physics}
 \newblock 16 (2007), Nr.~6, S.~1632--1636. --
 \newblock ISBN 1009-1963
+
+\bibitem[Yashiro u.\,a.(2008)Yashiro, Takeda und Momose]{Yashiro2008}
+\dinatlabel{Yashiro u.\,a. 2008} \textsc{Yashiro}, Wataru~; \textsc{Takeda},
+  Yoshihiro~; \textsc{Momose}, Atsushi:
+\newblock {Efficiency of capturing a phase image using cone-beam x-ray Talbot
+  interferometry.}
+\newblock In: \emph{Journal of the Optical Society of America. A, Optics, image
+  science, and vision}
+\newblock 25 (2008), Nr.~8, S.~2025--2039. --
+\newblock ISBN 9780198567288
 
 \end{thebibliography}

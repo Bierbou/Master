@@ -1,4 +1,7 @@
-Warning: File 'Masterthesis.glo' is empty.
-Have you used any entries defined in glossary 'main'?
-Remember to use package option 'nomain' if you
-don't want to use the main glossary.
+;; This logfile was generated automatically by `xindy'
+;; at 13.11.2015  03:13:42
+;; Indexstyle: ".\\mqdwYuQ5P4", Rawindex: ".\\xHXMeQ9NBX", Output: "Masterhtesis.gls"
+
+ERROR: EVAL: variable 
+|gLOSSARYENTRY{FLAT-FIELD?gLOSSENTRY{FLAT}setentrycounter[]{page}glsnumberformat}{35}
+glossaryentry{flat-field?glossentry{flat}SETENTRYCOUNTER[]{PAGE}gLSNUMBERFORMAT}{39}| has no value

@@ -1,54 +1,71 @@
 \select@language {british}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Outline}{2}{section.1.1}
 \contentsline {chapter}{\numberline {2}Theory}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Interaction of X-rays with matter}{3}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Complex refraction-index}{3}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.1}Complex refraction-index}{4}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Attenuation}{4}{subsection.2.1.2}
 \contentsline {subsection}{\numberline {2.1.3}Refraction}{5}{subsection.2.1.3}
-\contentsline {section}{\numberline {2.2}Phase contrast imaging}{5}{section.2.2}
+\contentsline {section}{\numberline {2.2}Phase contrast imaging}{6}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Wave-Front propagation}{6}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Talbot effect}{6}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}Talbot effect}{7}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Grating interferometer}{8}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Grating Types}{8}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Coherence requirements}{9}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}Visibility and Phase stepping routine}{11}{subsection.2.2.6}
-\contentsline {paragraph}{\nonumberline Visibility}{11}{section*.7}
-\contentsline {paragraph}{\nonumberline Phase stepping routine}{13}{section*.9}
-\contentsline {subsection}{\numberline {2.2.7}Magnification in curved wave geometry}{15}{subsection.2.2.7}
-\contentsline {subsection}{\numberline {2.2.8}Induced uncertainty by an expanded edge thickness at different magnifications}{17}{subsection.2.2.8}
-\contentsline {section}{\numberline {2.3}Spatial system response}{20}{section.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Grating Types}{9}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Coherence requirements}{10}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Visibility and Phase stepping routine}{12}{subsection.2.2.6}
+\contentsline {paragraph}{\nonumberline Visibility}{12}{section*.6}
+\contentsline {paragraph}{\nonumberline Phase stepping routine:}{14}{section*.8}
+\contentsline {subsection}{\numberline {2.2.7}Magnification in curved wave geometry}{16}{subsection.2.2.7}
+\contentsline {subsection}{\numberline {2.2.8}Induced uncertainty by an expanded edge thickness at different magnifications}{18}{subsection.2.2.8}
+\contentsline {section}{\numberline {2.3}Spatial system response}{21}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Real- and frequency-space response functions}{21}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Edge- and Line- spread function (ESF/LSF)}{22}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}PSF of a complex system}{23}{subsection.2.3.3}
 \contentsline {chapter}{\numberline {3}The Setup}{25}{chapter.3}
 \contentsline {section}{\numberline {3.1}The source}{26}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Dimensions and structure}{26}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}properties}{27}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Sample handling}{28}{section.3.2}
-\contentsline {section}{\numberline {3.3}detector properties}{29}{section.3.3}
+\contentsline {subsection}{\numberline {3.1.2}Properties of the source}{28}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Sample handling}{29}{section.3.2}
+\contentsline {section}{\numberline {3.3}Detector properties}{29}{section.3.3}
 \contentsline {chapter}{\numberline {4}Time- Power-Stability}{31}{chapter.4}
 \contentsline {section}{\numberline {4.1}Time-stability}{31}{section.4.1}
-\contentsline {paragraph}{\nonumberline Long- time stability}{31}{section*.18}
 \contentsline {section}{\numberline {4.2}Power-stability}{33}{section.4.2}
-\contentsline {paragraph}{\nonumberline Conclusion}{35}{section*.21}
+\contentsline {paragraph}{\nonumberline Conclusion:}{35}{section*.20}
 \contentsline {chapter}{\numberline {5}SSR characterization}{37}{chapter.5}
 \contentsline {section}{\numberline {5.1}Knife edge measurements}{37}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Data acquisition}{37}{subsection.5.1.1}
-\contentsline {paragraph}{\nonumberline Edge alignment}{37}{section*.23}
-\contentsline {paragraph}{\nonumberline Measurement procedure}{39}{section*.24}
-\contentsline {subsection}{\numberline {5.1.2}Data processing}{40}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Results}{43}{subsection.5.1.3}
-\contentsline {paragraph}{\nonumberline Detector PSF}{43}{section*.28}
-\contentsline {paragraph}{\nonumberline Source spot-size}{43}{figure.caption.30}
-\contentsline {paragraph}{\nonumberline Shape of the source-spot}{43}{section*.31}
-\contentsline {section}{\numberline {5.2}Measurements using a Resolution-target}{44}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Data acquisition}{44}{subsection.5.2.1}
-\contentsline {paragraph}{\nonumberline Measurement procedure}{44}{section*.32}
-\contentsline {subsection}{\numberline {5.2.2}Data processing}{44}{subsection.5.2.2}
-\contentsline {chapter}{\numberline {6}Spectra measurements}{45}{chapter.6}
-\contentsline {chapter}{\numberline {7}Comparison of different grating interferometer constellations}{47}{chapter.7}
-\contentsline {chapter}{\numberline {8}summary and outlook}{49}{chapter.8}
-\contentsline {chapter}{List of Figures}{50}{section*.34}
-\contentsline {chapter}{List of Tables}{51}{section*.35}
-\contentsline {chapter}{Acronyms}{53}{section*.36}
-\contentsline {chapter}{Bibliography}{55}{chapter*.38}
+\contentsline {paragraph}{\nonumberline Edge alignment:}{39}{section*.22}
+\contentsline {paragraph}{\nonumberline Measurement procedure:}{40}{section*.23}
+\contentsline {subsection}{\numberline {5.1.2}Data processing}{41}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Results and discussion}{44}{subsection.5.1.3}
+\contentsline {paragraph}{\nonumberline Detector PSF:}{44}{section*.28}
+\contentsline {paragraph}{\nonumberline Spot-size of the source:}{46}{section*.30}
+\contentsline {paragraph}{\nonumberline Conclusion:}{52}{section*.34}
+\contentsline {subsection}{\numberline {5.1.4}Shape of the source-spot}{53}{subsection.5.1.4}
+\contentsline {section}{\numberline {5.2}R-target measurement}{56}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Data acquisition}{56}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Data processing}{58}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Results and discussion}{61}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3}Summary}{63}{section.5.3}
+\contentsline {paragraph}{\nonumberline 1. Region up to 30\tmspace +\thinmuskip {.1667em}W:}{63}{section*.43}
+\contentsline {paragraph}{\nonumberline 2. Region between 30 and 50\tmspace +\thinmuskip {.1667em}W:}{64}{section*.44}
+\contentsline {paragraph}{\nonumberline 3. region above 50\tmspace +\thinmuskip {.1667em}W:}{64}{section*.45}
+\contentsline {chapter}{\numberline {6}Spectra measurements}{65}{chapter.6}
+\contentsline {section}{\numberline {6.1}Measurement procedure of the different spectra}{65}{section.6.1}
+\contentsline {section}{\numberline {6.2}Results and discussion}{66}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Source spectra at different photon- energies}{67}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Influence of the gratings onto the source-spectrum}{68}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Energy resolved phase-stepping and Energy-visibility map}{69}{subsection.6.2.3}
+\contentsline {section}{\numberline {6.3}Conclusion}{71}{section.6.3}
+\contentsline {chapter}{\numberline {7}Application of the obtained results for new measurement structures}{73}{chapter.7}
+\contentsline {section}{\numberline {7.1}Different interferometer setups}{73}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Measurement procedure}{73}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Results and Discussion}{74}{subsection.7.1.2}
+\contentsline {section}{\numberline {7.2}Electromagnetic phase-stepping}{76}{section.7.2}
+\contentsline {section}{\numberline {7.3}Conclusion}{79}{section.7.3}
+\contentsline {chapter}{\numberline {8}Summary and Outlook}{81}{chapter.8}
+\contentsline {chapter}{List of Figures}{83}{section*.54}
+\contentsline {chapter}{List of Tables}{84}{section*.55}
+\contentsline {chapter}{Glossary}{85}{section*.56}
+\contentsline {chapter}{Acronyms}{87}{section*.58}
+\contentsline {chapter}{Bibliography}{89}{chapter*.60}

@@ -568,6 +568,96 @@ parent={},%
 %
 }%
 }%
+\ifglsentryexists{sf}{}%
+{%
+\gls@defglossaryentry{sf}%
+{%
+name={Sf},%
+sort={Sf},%
+type={acronym},%
+first={Spatial frequency\glsspace (Sf)},%
+firstplural={Spatial frequencys\glsspace (Sfs)},%
+text={Sf},%
+plural={Sfs},%
+description={Spatial frequency},%
+descriptionplural={Spatial frequency\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Spatial frequency},%
+longplural={Spatial frequencys},%
+short={Sf},%
+shortplural={Sfs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cdte}{}%
+{%
+\gls@defglossaryentry{cdte}%
+{%
+name={CdTe},%
+sort={CdTe},%
+type={acronym},%
+first={Cadmium-Telluride\glsspace (CdTe)},%
+firstplural={Cadmium-Tellurides\glsspace (CdTes)},%
+text={CdTe},%
+plural={CdTes},%
+description={Cadmium-Telluride},%
+descriptionplural={Cadmium-Telluride\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Cadmium-Telluride},%
+longplural={Cadmium-Tellurides},%
+short={CdTe},%
+shortplural={CdTes},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{roi}{}%
+{%
+\gls@defglossaryentry{roi}%
+{%
+name={ROI},%
+sort={ROI},%
+type={acronym},%
+first={Region of interest\glsspace (ROI)},%
+firstplural={Region of interests\glsspace (ROIs)},%
+text={ROI},%
+plural={ROIs},%
+description={Region of interest},%
+descriptionplural={Region of interest\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Region of interest},%
+longplural={Region of interests},%
+short={ROI},%
+shortplural={ROIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
 \ifglsentryexists{flat}{}%
 {%
 \gls@defglossaryentry{flat}%
@@ -611,6 +701,96 @@ text={FWHM},%
 plural={FWHMs},%
 description={The full width at half maximum (FWHM) is a definition for effective width of a peak and is defined over the standard deviation $\sigma $ to $FWHM = 2\sqrt {2\log 2}\cdot \sigma $.},%
 descriptionplural={The full width at half maximum (FWHM) is a definition for effective width of a peak and is defined over the standard deviation $\sigma $ to $FWHM = 2\sqrt {2\log 2}\cdot \sigma $.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{sfg}{}%
+{%
+\gls@defglossaryentry{sfg}%
+{%
+name={Sf},%
+sort={Sf},%
+type={main},%
+first={Sf},%
+firstplural={Sfs},%
+text={Sf},%
+plural={Sfs},%
+description={The Spatial frequency is a measure of the number a sinusoidal component of the structure repeats per unit of distance. The Unit is in general cycles per metre or in imaging systems equivalently line pairs pre millimetre.},%
+descriptionplural={The Spatial frequency is a measure of the number a sinusoidal component of the structure repeats per unit of distance. The Unit is in general cycles per metre or in imaging systems equivalently line pairs pre millimetre.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{restarget}{}%
+{%
+\gls@defglossaryentry{restarget}%
+{%
+name={resolution-target},%
+sort={resolution-target},%
+type={main},%
+first={resolution-target},%
+firstplural={resolution-targets},%
+text={resolution-target},%
+plural={resolution-targets},%
+description={Chart of different geometric profiles and line patterns with different line-thickness and distances. Generally used to determine the limiting spatial resolution of an optical system.},%
+descriptionplural={Chart of different geometric profiles and line patterns with different line-thickness and distances. Generally used to determine the limiting spatial resolution of an optical system.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cdteg}{}%
+{%
+\gls@defglossaryentry{cdteg}%
+{%
+name={Cadmium-Telluride},%
+sort={Cadmium-Telluride},%
+type={main},%
+first={Cadmium-Telluride},%
+firstplural={Cadmium-Tellurides},%
+text={Cadmium-Telluride},%
+plural={Cadmium-Tellurides},%
+description={Stable crystalline compound formed from cadmium and tellurium. In combination with small amounts of zinc (CdZnTe) often used as X-ray and gamma ray detector with highly performance up to particle energies above $100\,$keV.},%
+descriptionplural={Stable crystalline compound formed from cadmium and tellurium. In combination with small amounts of zinc (CdZnTe) often used as X-ray and gamma ray detector with highly performance up to particle energies above $100\,$keV.},%
 symbol={\relax },%
 symbolplural={\relax },%
 user1={},%

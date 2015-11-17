@@ -34,13 +34,15 @@
 \usepackage{epsfig}
 \usepackage{psfrag}
 \usepackage{grffile}
+\usepackage{wallpaper}
+\usepackage{geometry}
 \graphicspath{{E:/Documents/Mastersthesisliterature/}{E:/Documents/Masterarbeit/Master/analysis\_pictures}}
 	%{E:/Documents/Masterarbeit/Master/timepowerstability/}}
 %\usepackage{thumbpdf}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%     AMS-Packages      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsthm}%Martins,
+\usepackage{amsthm} %Martins,
 \usepackage{amscd}
 \usepackage{amssymb}
 \usepackage{amsfonts}                               %temporarily I will coment the some of them
@@ -74,6 +76,9 @@
 \usepackage{multirow}
 \usepackage{caption}
 \captionsetup{labelfont=bf}%,textfont = it,font=small}
+\usepackage{setspace}
+% Zeilenabstand
+%\onehalfspacing
 
 %%% %%% das folgende ermoeglicht Vektor-Schriften (Typ 1) 
 %%%     auch mit [T1]{fontenc}
@@ -133,7 +138,7 @@
 \usepackage[acronym,toc]{glossaries}
 %\usepackage [toc]{glossaries}
 %\newglossary
-\newglossary[plg]{parameter}{par}{spo}{Symbols and parameter} 
+%\newglossary[plg]{parameter}{par}{spo}{Symbols and parameter} 
 \makeglossaries
 %\GlsSetXdyLanguage{british}
 
@@ -163,7 +168,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+%%% create title and data
+\usepackage{datetime}
+\date \today 
+\newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -198,8 +206,14 @@
 \newacronym{astm}{ASTM}{ASTM International (former: American Society for Testing and Materials)}
 \newacronym{iec}{IEC}{International Electrotechnical Commission}
 \newacronym{ssr}{SSR}{Spatial system response}
+\newacronym{sf}{Sf}{Spatial frequency}
+\newacronym{cdte}{CdTe}{Cadmium-Telluride}
+\newacronym{roi}{ROI}{Region of interest}
 \newglossaryentry{flat}{name={flat-field},description={Image without any sample. Used for intensity correction of images }}
 \newglossaryentry{fwhmg}{name={FWHM},description={The full width at half maximum (FWHM) is a definition for effective width of a peak and is defined over the standard deviation $\sigma$ to $FWHM = 2\sqrt{2\log 2}\cdot \sigma$. }}
+\newglossaryentry{sfg}{name={Sf},description={The Spatial frequency is a measure of the number a sinusoidal component of the structure repeats per unit of distance. The Unit is in general cycles per metre or in imaging systems equivalently line pairs pre millimetre.}}
+\newglossaryentry{restarget}{name={resolution-target},description={Chart of different geometric profiles and line patterns with different line-thickness and distances. Generally used to determine the limiting spatial resolution of an optical system.}}
+\newglossaryentry{cdteg}{name={Cadmium-Telluride},description={Stable crystalline compound formed from cadmium and tellurium. In combination with small amounts of zinc (CdZnTe) often used as X-ray and gamma ray detector with highly performance up to particle energies above $100\,$keV.  }}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TITLE PAGE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -207,10 +221,14 @@
 %%\include{cover}\clearpage{\pagestyle{empty}\cleardoublepage}
 
 %%Titelblatt
-%%\include{newtitle}\clearpage{\pagestyle{empty}\cleardoublepage}
+%\include{newtitle}\clearpage{\pagestyle{empty}\cleardoublepage}
 %title.tex
-%%\include{title}\clearpage{\pagestyle{empty}\cleardoublepage}
-
+\include{titlepage}\clearpage{\pagestyle{empty}\cleardoublepage}
+\setlength{\parindent}{0pt}
+\parskip 4pt % leaves a little space after a new paragraph
+\pagestyle{fancy}\pagenumbering{Roman}
+%Acknowledgments
+\include{thanks}\clearpage{\pagestyle{empty}\cleardoublepage}   %Tomek
 
 
 
@@ -231,14 +249,14 @@
 
 
 %%\setlength{\parskip}{1ex plus0.5ex minus 0.2ex} %para el espacio entre parrafo
-%%\include{motto}\clearpage{\pagestyle{empty}\cleardoublepage}
-\pagestyle{fancy}\pagenumbering{Roman}
+
+
 
 %Abstract  abstract.tex
-\include{abstract}\newpage\clearpage{\pagestyle{empty}\cleardoublepage}
+%\include{abstract}\newpage\clearpage{\pagestyle{empty}\cleardoublepage}
 
 %kurzfassung kurzfassung.tex
-\include{kurzfassung}\clearpage{\pagestyle{empty}\cleardoublepage}
+%\include{kurzfassung}\clearpage{\pagestyle{empty}\cleardoublepage}
 
 \tableofcontents\clearpage{\pagestyle{empty}\cleardoublepage}
 
@@ -249,7 +267,7 @@
 
 
 %%% Seitenformat
-\setlength{\parindent}{0pt}
+
 %\setlength{\topmargin}{-0.5cm}
 %\setlength{\paperheight}{29.7cm}
 %\setlength{\paperwidth}{21cm}
@@ -269,9 +287,9 @@
 \include{tb}\clearpage{\pagestyle{empty}\cleardoublepage}
 
 
+
 %% experimenteller aufbau es.tex
 \include{experimentalsetup}\clearpage{\pagestyle{empty}\cleardoublepage}
-
 
 % zeit leistung stabilit�tsmessungen tps.tex
 \include{tps}\clearpage{\pagestyle{empty}\cleardoublepage}
@@ -290,9 +308,9 @@
 
 
 %Summary and conclusions summary.tex
-\include{summary}\clearpage{\pagestyle{empty}}
+\include{summary}\clearpage{\pagestyle{empty}\cleardoublepage}
 
-
+\nocite{*}
 %\nocite{Donath2007,Li2013,Mueller2013,Pfeiffer2006a,TalbotLau,Wagner1977,Liu2015,Qin2015}
 %%%Tomek%%%\appendix
 %%%Tomek%%%\include{Anh--MHD}\clearpage{\pagestyle{empty}\cleardoublepage}
@@ -300,8 +318,6 @@
 %%\appendix
 %%\include{appendix}\clearpage{\pagestyle{empty}\cleardoublepage}
 
-%Acknowledgments
-%%\include{thanks}\clearpage{\pagestyle{empty}\cleardoublepage}   %Tomek
 
 %%
 %\appendix
@@ -314,9 +330,12 @@
 %\acronymname
 %\printglossary[title = Acronyms, toctitle = Acronmys and symbols ]
 \printglossaries%[type=\acronymtype,title=Acronyms,toctitle=Acronyms]
+
 \bibliography{Masterliterature}\clearpage{\pagestyle{empty}\cleardoublepage}
+
 %\printnoi
 
+\include{authorship}\clearpage{\pagestyle{empty}\cleardoublepage}
 
 
 \end{document}
